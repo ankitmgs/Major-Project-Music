@@ -5,7 +5,7 @@ const Header = () => {
     <div>
 <>
   {/* Navbar */}
-  <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong" style={{backgroundColor: "#00000"}}>
+  <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong" style={{backgroundColor: "black"}}>
     {/* Container wrapper */}
     <div className="container-fluid">
       {/* Navbar brand */}
