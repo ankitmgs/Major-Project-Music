@@ -40,9 +40,9 @@ router.get("/", (req, res) => {
 
 //Using async-await
 router.post("/register", async (req, res) => {
-  const { name, email, phone, DOB, password, cpassword } = req.body;
+  const { Fname, Lname, email, phone, DOB, gender, password, cpassword } = req.body;
 
-  if (!name || !email || !phone || !DOB || !password || !cpassword) {
+  if (!Fname || !Lname || !email || !phone || !DOB || !gender || !password || !cpassword) {
     return res.status(422).json({ message: "Plz filled the field properly" });
   }
 
@@ -55,7 +55,7 @@ router.post("/register", async (req, res) => {
         .status(422)
         .json({ error: "Password is not matching with confirm password !!" });
     } else {
-      const user = new User({ name, email, phone, DOB, password, cpassword });
+      const user = new User({ Fname, Lname, email, phone, DOB, gender, password, cpassword });
       await user.save();
       res.status(201).json({ message: "User Registered Successfully" });
     }

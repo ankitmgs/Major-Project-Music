@@ -3,8 +3,8 @@ const app = express();
 // const dotenv = require("dotenv");
 require("./connection");
 
-const Port = process.env.PORT;
-// const Port = 8000;
+// const Port = process.env.PORT;
+const Port = 8000;
 
 //to convert json into understandable for machine
 app.use(express.json());
