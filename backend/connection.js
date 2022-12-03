@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // const DB = process.env.DATABASE;  //yaha par DB ka link nahi aa raha hai dotenv se and direct link paas karne pe kaam kar raha hai
-const DB = "mongodb+srv://ankitmgs:987654321@cluster0.6o3q9.mongodb.net/AuthenticationJWT?retryWrites=true&w=majority";
+const DB = "mongodb+srv://ankitmgs:987654321@cluster0.6o3q9.mongodb.net/Major-Project-Music?retryWrites=true&w=majority";
 
 
 mongoose.connect(DB, {
