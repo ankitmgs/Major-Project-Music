@@ -73,7 +73,7 @@ router.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ error: "Incomplete Credentials" });
+      return res.status(401).json({ error: "Incomplete Credentials" });
     }
 
     const userLoginData = await User.findOne({ email: email });
