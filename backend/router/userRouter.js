@@ -43,17 +43,17 @@ router.get("/", (req, res) => {
 router.post("/register", async (req, res) => {
   const { Fname, Lname, email, phone, DOB, gender, password, cpassword } = req.body;
 
-  if (!Fname || !Lname || !email || !phone || !DOB || !gender || !password || !cpassword) {
+  if (!Fname || !Lname || !email || !phone  || !password || !cpassword) {
     return res.status(422).json({ message: "Plz filled the field properly" });
   }
 
   try {
     const userExist = await User.findOne({ email: email });
     if (userExist) {
-      return res.status(422).json({ error: "Email already exist" });
+      return res.status(409).json({ error: "Email already exist" });
     } else if (password != cpassword) {
       return res
-        .status(422)
+        .status(401)
         .json({ error: "Password is not matching with confirm password !!" });
     } else {
       const user = new User({ Fname, Lname, email, phone, DOB, gender, password, cpassword });
@@ -82,7 +82,7 @@ router.post("/login", async (req, res) => {
       const isMatch = await bcrypt.compare(password, userLoginData.password);
 
       const token = await userLoginData.generateAuthToken();
-      console.log(token);
+      // console.log(token);
       res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 864000000),
         httpOnly: true,

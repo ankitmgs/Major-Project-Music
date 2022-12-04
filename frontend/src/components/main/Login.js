@@ -42,18 +42,18 @@ const Login = () => {
           text: "You have loggedin successfully!",
         })
       }
-      else if(res.status === 401){
-        Swal.fire({
-          icon: "warning",
-          title: "Failed",
-          text: "Incomplete Credentials !!",
-        });
-      }
       else if(res.status === 400){
         Swal.fire({
           icon: "error",
           title: "Failed",
           text: "Email or password is incorrect!",
+        });
+      }
+      else{
+        Swal.fire({
+          icon: "warning",
+          title: "Failed",
+          text: "Incomplete Credentials !!",
         });
       }
       return res.json();
