@@ -7,9 +7,6 @@ import Admin from './components/admin';
 import User from './components/user';
 import AdminProfile from './components/admin/Profile';
 import UserProfile from './components/user/Profile';
-import ContactUs from './components/main/ContactUs';
-import ResetPassword from './components/main/ResetPassword';
-import NewPassword from './components/main/NewPassword';
 
 function App() {
   return (
@@ -31,7 +28,8 @@ function App() {
           </Route>
           
           <Route element={<User />} path="user">
-            <Route path="pofile" element={<UserProfile />} />
+            <Route path="profile" element={<UserProfile />} />
+            <Route path="uploads" element={<Uploads />} />
           
           </Route>
 
