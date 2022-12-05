@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   MDBBtn,
   MDBContainer,
@@ -11,6 +12,7 @@ import {
 } from "mdb-react-ui-kit";
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <div style={{background: "#6a11cb"}}>
       <MDBContainer fluid>
@@ -47,7 +49,7 @@ const Login = () => {
                 />
 
                 <p className="small mb-3 pb-lg-2">
-                  <a class="text-white-50" href="#!">
+                  <a class="text-white-50" href="#!" onClick={() => navigate("/main/resetpassword/" )}>
                     Forgot password?
                   </a>
                 </p>
