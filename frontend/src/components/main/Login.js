@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { Formik } from "formik";
+import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
+
 import {
   MDBBtn,
   MDBContainer,
@@ -12,6 +16,56 @@ import {
 import app_config from "../../config";
 
 const Login = () => {
+  const url = app_config.api_url;
+
+  const [loading, setLoading] = useState(false);
+  const loginForm = {
+    email: "",
+    password: "",
+  };
+
+  const LoginSubmit = (formdata) => {
+    console.log(formdata);
+    setLoading(true);
+
+    const reqOpt = {
+      method: "POST",
+      body: JSON.stringify(formdata),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    fetch(url+"/user/login", reqOpt)
+    .then((res) => {
+      console.log(res.status);
+      if(res.status === 200){
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "You have loggedin successfully!",
+        })
+      }
+      else if(res.status === 400){
+        Swal.fire({
+          icon: "error",
+          title: "Failed",
+          text: "Email or password is incorrect!",
+        });
+      }
+      else{
+        Swal.fire({
+          icon: "warning",
+          title: "Failed",
+          text: "Incomplete Credentials !!",
+        });
+      }
+      setLoading(false);
+      return res.json();
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
   return (
     <div style={{ background: "#6a11cb" }}>
       <Formik initialValues={loginForm} onSubmit={LoginSubmit}>
