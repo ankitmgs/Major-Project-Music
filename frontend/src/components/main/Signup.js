@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBBtn,
   MDBCard,
@@ -13,9 +13,11 @@ import {
 import { Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
+import { CircularProgress } from "@mui/material";
 
 const Signup = () => {
   const url = app_config.api_url;
+  const [loading, setLoading] = useState(false);
   const signupForm = {
     Fname: "",
     Lname: "",
@@ -28,6 +30,7 @@ const Signup = () => {
   };
 
   const SignupSubmit = (formdata) => {
+    setLoading(true);
     fetch(url + "/user/register", {
       method: "POST",
       body: JSON.stringify(formdata),
@@ -65,6 +68,7 @@ const Signup = () => {
           title: "Enter all the given fields !",
         });
       }
+      setLoading(false);
       return res.json();
     }).catch((err) => {
       console.log(err);
@@ -211,7 +215,7 @@ const Signup = () => {
                               size="lg"
                               type="submit"
                             >
-                              Submit form
+                              {loading ? <CircularProgress /> : "Submit"}
                             </MDBBtn>
                           </div>
                         </MDBCardBody>

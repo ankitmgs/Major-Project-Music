@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Formik } from "formik";
 import Swal from "sweetalert2";
+import CircularProgress from '@mui/material/CircularProgress';
 import {
   MDBBtn,
   MDBContainer,
@@ -16,6 +17,8 @@ import app_config from "../../config";
 
 const Login = () => {
   const url = app_config.api_url;
+
+  const [loading, setLoading] = useState(false);
   const loginForm = {
     email: "",
     password: "",
@@ -23,6 +26,7 @@ const Login = () => {
 
   const LoginSubmit = (formdata) => {
     console.log(formdata);
+    setLoading(true);
 
     const reqOpt = {
       method: "POST",
@@ -56,6 +60,7 @@ const Login = () => {
           text: "Incomplete Credentials !!",
         });
       }
+      setLoading(false);
       return res.json();
     }).catch((err) => {
       console.log(err);
@@ -115,7 +120,7 @@ const Login = () => {
                         style={{ color: "white", backgroundColor: "#6a11cb" }}
                         type="submit"
                       >
-                        Login
+                        {loading ? <CircularProgress size="1.1rem" /> : "Login"}
                       </MDBBtn>
 
                       <div className="d-flex flex-row mt-3 mb-5">
