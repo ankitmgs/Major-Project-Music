@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../user/Header";
+import Header from "../artist/Header";
 
-const User = () => {
+const index = () => {
   return (
     <div>
       <Header />
@@ -11,4 +11,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default index;

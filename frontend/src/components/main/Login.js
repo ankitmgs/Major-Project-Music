@@ -14,6 +14,7 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import app_config from "../../config";
+import { CircularProgress } from "@mui/material";
 
 const Login = () => {
   const url = app_config.api_url;
@@ -36,35 +37,34 @@ const Login = () => {
       },
     };
 
-    fetch(url+"/user/login", reqOpt)
-    .then((res) => {
-      console.log(res.status);
-      if(res.status === 200){
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "You have loggedin successfully!",
-        })
-      }
-      else if(res.status === 400){
-        Swal.fire({
-          icon: "error",
-          title: "Failed",
-          text: "Email or password is incorrect!",
-        });
-      }
-      else{
-        Swal.fire({
-          icon: "warning",
-          title: "Failed",
-          text: "Incomplete Credentials !!",
-        });
-      }
-      setLoading(false);
-      return res.json();
-    }).catch((err) => {
-      console.log(err);
-    });
+    fetch(url + "/user/login", reqOpt)
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "You have loggedin successfully!",
+          });
+        } else if (res.status === 400) {
+          Swal.fire({
+            icon: "error",
+            title: "Failed",
+            text: "Email or password is incorrect!",
+          });
+        } else {
+          Swal.fire({
+            icon: "warning",
+            title: "Failed",
+            text: "Incomplete Credentials !!",
+          });
+        }
+        setLoading(false);
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div style={{ background: "#6a11cb" }}>
@@ -107,14 +107,19 @@ const Login = () => {
                         onChange={handleChange}
                       />
 
-                <p className="small mb-3 pb-lg-2">
-                  <a class="text-white-50" href="#!">
-                    Forgot password?
-                  </a>
-                </p>
-                <MDBBtn outline className="mx-2 px-5" size="lg" style={{color: "white", backgroundColor: "#6a11cb"}}>
-                  Login
-                </MDBBtn>
+                      <p className="small mb-3 pb-lg-2">
+                        <a class="text-white-50" href="#!">
+                          Forgot password?
+                        </a>
+                      </p>
+                      <button
+                        outline
+                        className="mx-2 px-5"
+                        size="lg"
+                        style={{ color: "white", backgroundColor: "#6a11cb" }}
+                      >
+                        {loading ? <CircularProgress /> : "Login"}
+                      </button>
 
                       <div className="d-flex flex-row mt-3 mb-5">
                         <MDBBtn
