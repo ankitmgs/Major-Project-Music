@@ -114,11 +114,19 @@ const Login = () => {
                       </p>
                       <button
                         outline
-                        className="mx-2 px-5"
+                        className="btn btn-primary mx-2 px-5"
                         size="lg"
                         style={{ color: "white", backgroundColor: "#6a11cb" }}
                       >
-                        {loading ? <CircularProgress /> : "Login"}
+                        {loading ? (
+                          <CircularProgress
+                            size="1rem"
+                            style={{ color: "white" }}
+                            className="py-0"
+                          />
+                        ) : (
+                          "Login"
+                        )}
                       </button>
 
                       <div className="d-flex flex-row mt-3 mb-5">
