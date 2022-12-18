@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
+// import { useNavigate } from "react-router-dom";
 
 import {
   MDBBtn,
@@ -66,6 +67,9 @@ const Login = () => {
         console.log(err);
       });
   };
+
+  // const navigate = useNavigate();
+
   return (
     <div style={{ background: "#6a11cb" }}>
       <Formik initialValues={loginForm} onSubmit={LoginSubmit}>
@@ -108,9 +112,12 @@ const Login = () => {
                       />
 
                       <p className="small mb-3 pb-lg-2">
+                        <NavLink to="/main/resetpassword">
                         <a class="text-white-50" href="#!">
                           Forgot password?
                         </a>
+                          
+                        </NavLink>
                       </p>
                       <button
                         outline

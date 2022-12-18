@@ -11,9 +11,9 @@ const Uploads = () => {
   };
   return (
     <div>
-      <div className="container">
+      <div className="container mt-5 mb-5">
         <div className="card mt-5 p-4">
-          <h1>Upload Music</h1>
+          <h1 style ={{textAlign:"center"}}>Upload Music</h1>
           <hr className="m-0" />
           <div className="row">
             <div className="col-md-12 py-5">

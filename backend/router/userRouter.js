@@ -2,45 +2,34 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+const userdb = require("../model/userModel");
 
 require("../connection");
-const User = require("../model/userSchema");
+const User = require("../model/userModel");
 
 router.get("/", (req, res) => {
   console.log("Request from userRouter.js");
 });
 
-// Using promises
-// router.post("/register", (req, res) => {
-//   const { name, email, phone, DOB, password, cpassword } = req.body;
+// email config
 
-//   if (!name || !email || !phone || !DOB || !password || !cpassword) {
-//     return res.status(422).json({ error: "Plz filled the field properly" });
-//   }
-//   User.findOne({ email: email })
-//     .then((userExist) => {
-//       if (userExist) {
-//         return res.status(422).json({ error: "Email already exist" });
-//       }
+const transporter = nodemailer.createTransport({
+  service:"gmail",
+  auth:{
+      user:process.env.EMAIL,
+      pass:process.env.PASSWORD
+  }
+}) 
 
-//       const user = new User({ name, email, phone, DOB, password, cpassword });
 
-//       user
-//         .save()
-//         .then(() => {
-//           res.status(201).json({ message: "user registered successfully" });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
+
+
 
 //Using async-await
 router.post("/register", async (req, res) => {
+  
+
   const { Fname, Lname, email, phone, DOB, gender, password, cpassword } = req.body;
 
   if (!Fname || !Lname || !email || !phone  || !password || !cpassword) {
@@ -102,5 +91,27 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+//send email link for reset password
+router.post("/sendpasswordlink" ,async(req,res)=>{
+  console.log(req.body);
+
+  const{email} =req.body;
+
+  if(!email){
+    res.status(401).json({status:401,message:"Enter Your Email"})
+
+  }
+  try{
+    const userfind = await userdb.findOne({email:email});
+
+    console.log("userfind",userfind)
+  }catch (error){
+    
+  }
+
+ 
+})
 
 module.exports = router;
