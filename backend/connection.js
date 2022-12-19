@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-// const DB = process.env.DATABASE;
-const DB = "mongodb+srv://Rehnuma11:1212@cluster0.mkx69tw.mongodb.net/Music_App?retryWrites=true&w=majority";
+const DB = process.env.DATABASE;
+// const DB = "mongodb+srv://Rehnuma11:1212@cluster0.mkx69tw.mongodb.net/Music_App?retryWrites=true&w=majority";
 
 
 mongoose.connect(DB, {

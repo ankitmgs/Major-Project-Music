@@ -25,7 +25,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const loginForm = {
     email: "",
-    username: "",
     password: "",
   };
 
@@ -60,7 +59,7 @@ const Login = () => {
           Swal.fire({
             icon: "warning",
             title: "Failed",
-            text: "Incomplete Credentials !!",
+            text: "Something Error !!",
           });
         }
         setLoading(false);
@@ -103,7 +102,7 @@ const Login = () => {
                       value={values.email}
                       onChange={handleChange}
                     />
-                    <MDBInput
+                    {/* <MDBInput
                       wrapperClass="mb-4 mx-5 w-100"
                       labelClass="text-white"
                       label="Username"
@@ -113,7 +112,7 @@ const Login = () => {
                       style={{ color: "white" }}
                       value={values.username}
                       onChange={handleChange}
-                    />
+                    /> */}
                     <MDBInput
                       wrapperClass="mb-4 mx-5 w-100"
                       labelClass="text-white"
@@ -138,6 +137,7 @@ const Login = () => {
                       outline
                       className="btn btn-primary mx-2 px-5"
                       size="lg"
+                      type="submit"
                       style={{ color: "white", backgroundColor: "#6a11cb" }}
                     >
                       {loading ? (
