@@ -1,10 +1,10 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
- <div id="preview" className="preview">
+      <div id="preview" className="preview">
         <div style={{ display: "none" }} />
         <div>
           <div data-draggable="true" style={{ position: "relative" }}>
@@ -16,15 +16,12 @@ const Header = () => {
               data-v-271253ee=""
             >
               <section className="" style={{ paddingBottom: 1 }}>
-                {" "}
                 {/* Navbar */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-2">
-                  {" "}
                   {/* Container wrapper */}
                   <div className="container-fluid">
                     <div className="d-flex">
-                      {" "}
-                      {/* Toggle button */}{" "}
+                      {/* Toggle button */}
                       <button
                         className="navbar-toggler"
                         type="button"
@@ -34,32 +31,41 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                       >
-                        {" "}
-                        <i className="fas fa-bars" />{" "}
-                      </button>{" "}
-                      {/* Navbar brand */}{" "}
+                        <i className="fas fa-bars" />
+                      </button>
+                      {/* Navbar brand */}
                       <a className="navbar-brand ms-3">
-                        {" "}
-                        <i
+                        {/* <i
                           className="fas fa-gem text-primary"
                           aria-controls="#picker-editor"
-                        />{" "}
-                      </a>{" "}
+                          /> */}
+                          Artist
+                      </a>
                     </div>
                     {/* Collapsible wrapper */}
                     <div
                       className="collapse navbar-collapse"
                       id="navbarSupportedContent"
                     >
-                      {" "}
                       {/* Left links */}
-                      <ul className="navbar-nav mx-auto mb-2 mb-lg-0 " >
-
+                      <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
-                          <NavLink className="nav-link" to="/home">Home</NavLink>
+                          <NavLink className="nav-link" to="/home">
+                            Home
+                          </NavLink>
                         </li>
                         <li className="nav-item">
-                          <NavLink className="nav-link" to="/artist/uploads">Uploads</NavLink>
+                          <NavLink className="nav-link" to="/artist/uploads">
+                            Uploads
+                          </NavLink>
+                        </li>
+                        <li className="nav-item">
+                          <NavLink
+                            className="nav-link"
+                            to="/artist/artistprofile"
+                          >
+                            Profile
+                          </NavLink>
                         </li>
                         {/* <li className="nav-item">
                           <NavLink className="nav-link" to="/podcasts">Podcasts</NavLink>
@@ -69,34 +75,32 @@ const Header = () => {
                         </li> */}
                       </ul>
                       {/* Left links */}
-                    </div>{" "}
+                    </div>
                     {/* Collapsible wrapper */} {/* Right elements */}
                     <div className="d-flex align-items-center">
-                      {" "}
-                      <NavLink to="/main/login">
-                      <button
-                        type="button"
-                        className="btn  btn-link px-3 mb-1 me-2"
-                        aria-controls="#picker-editor"
-                      >
-                        Login
-                      </button>{" "}
+                      <NavLink to="/artist/login">
+                        <button
+                          type="button"
+                          className="btn  btn-link px-3 mb-1 me-2"
+                          aria-controls="#picker-editor"
+                        >
+                          Login
+                        </button>
                       </NavLink>
-                     <NavLink to="/main/signup">
-                     <button
-                        type="button"
-                        className="btn  btn-primary mb-1 me-lg-3"
-                        aria-controls="#picker-editor"
-                      >
-                        Sign up
-                      </button>{" "}
-                     </NavLink>
-                      
+                      <NavLink to="/artist/signup">
+                        <button
+                          type="button"
+                          className="btn  btn-primary mb-1 me-lg-3"
+                          aria-controls="#picker-editor"
+                        >
+                          Sign up
+                        </button>
+                      </NavLink>
                     </div>
                     {/* Right elements */}
-                  </div>{" "}
+                  </div>
                   {/* Container wrapper */}
-                </nav>{" "}
+                </nav>
                 {/* Navbar */}
               </section>
             </section>
@@ -105,7 +109,7 @@ const Header = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

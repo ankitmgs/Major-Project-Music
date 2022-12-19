@@ -1,9 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const Artist = require("../model/artistModel");
+const Model = require("../model/artistModel");
 
 
 // register
+router.post("/register", async (req, res) => {
+
+  new Model(req.body).save()
+  .then((result) => {
+      res.json(result);
+  }).catch((err) => {
+    console.error(err);  
+    res.status(500).json(err);
+  });
+   
+});
 // login
 // getall
 router.get("/getall", (req, res) => {
