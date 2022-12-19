@@ -6,7 +6,6 @@ const musicRouter = require("./router/musicRouter");
 const artistRouter = require("./router/artistRouter");
 const utilRouter = require("./router/utils");
 
-
 // const dotenv = require("dotenv");
 require("./connection");
 const dotenv = require("dotenv").config();
@@ -18,17 +17,14 @@ app.use(cors({ origin: ["http://localhost:3000"] }));
 //to convert json into understandable for machine
 app.use(express.json());
 
-
 //middleware
 //for user
 app.use("/user", userRouter);
 
-
-
 //for music
-app.use("/music", musicRouter)
-app.use("/artist", artistRouter)
-app.use("/util", utilRouter)
+app.use("/music", musicRouter);
+app.use("/artist", artistRouter);
+app.use("/util", utilRouter);
 
 app.listen(Port, () => {
   console.log(`Server Started at port no ${Port}`);

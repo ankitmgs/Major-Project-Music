@@ -178,7 +178,6 @@ const Signup = () => {
                             labelClass="text-white"
                             label="Email"
                             size="lg"
-                            id="form5"
                             type="email"
                             style={{ color: "white" }}
                           />
@@ -187,7 +186,6 @@ const Signup = () => {
                             labelClass="text-white"
                             label="Name"
                             size="lg"
-                            id="form5"
                             type="text"
                             style={{ color: "white" }}
                           />
@@ -212,7 +210,6 @@ const Signup = () => {
                             labelClass="text-white"
                             label="Password"
                             size="lg"
-                            id="form8"
                             type="password"
                           />
                           <MDBInput
@@ -221,7 +218,6 @@ const Signup = () => {
                             labelClass="text-white"
                             label="Confirm Password"
                             size="lg"
-                            id="form8"
                             type="password"
                           />
 
@@ -308,7 +304,6 @@ const Signup = () => {
                           /> */}
                           <MDBCheckbox
                             name="flexCheck"
-                            id="flexCheckDefault"
                             labelClass="text-white mb-4"
                             label="I do accept the Terms and Conditions of your site."
                           />
