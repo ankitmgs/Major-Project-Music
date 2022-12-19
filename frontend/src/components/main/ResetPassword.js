@@ -8,8 +8,12 @@ const ResetPassword = () => {
     const url = app_config.api_url;
 
     const [email,setEmail] =useState("");
+
     const [message, setMessage] = useState("");
+    
     console.log(email);
+
+
     const setVal = (e) => {
         setEmail(e.target.value)
     }
@@ -18,6 +22,7 @@ const ResetPassword = () => {
 
     const sendLink = async(e)=>{
         e.preventDefault();
+        //Api call
         const res = await fetch(url+ "/user/sendpasswordlink" ,{
             method :"POST",
             headers:{
@@ -27,7 +32,9 @@ const ResetPassword = () => {
                 email
             })
         });
+
         const data =await res.json();
+        
         if(data.status ==201){
            setEmail("");
            setMessage(true)
