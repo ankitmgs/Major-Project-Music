@@ -51,6 +51,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
+
 //login route
 router.post("/login", async (req, res) => {
   // res.json({message: "login route working"});
