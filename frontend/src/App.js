@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Main from "./components/main";
 import Login from "./components/main/Login";
 import Signup from "./components/main/Signup";
@@ -15,18 +15,23 @@ import Uploads from "./components/artist/Uploads";
 import ArtistProfile from "./components/artist/Profile";
 import ArtistLogin from "./components/artist/Login";
 import ArtistSignup from "./components/artist/Signup";
+import Home from "./components/main/Home";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
+          <Route element={<Navigate to="/main/home" />} path="/"/>
           <Route element={<Main />} path="main">
+            <Route path="home" element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="resetpassword" element={<ResetPassword />} />
             <Route path="newpassword" element={<NewPassword />} />
             <Route path="signup" element={<Signup />} />
             <Route path="contactus" element={<ContactUs />} />
+            <Route path="artistlogin" element={<ArtistLogin />} />
+            <Route path="artistsignup" element={<ArtistSignup />} />
           </Route>
 
           <Route element={<Admin />} path="admin">
@@ -35,8 +40,6 @@ function App() {
           <Route element={<Artist />} path="artist">
             <Route path="uploads" element={<Uploads />} />
             <Route path="artistprofile" element={<ArtistProfile />} />
-            <Route path="login" element={<ArtistLogin />} />
-            <Route path="signup" element={<ArtistSignup />} />
           </Route>
 
           <Route element={<User />} path="user">

@@ -3,6 +3,8 @@ const app = express();
 const cors = require("cors");
 const userRouter = require("./router/userRouter");
 const musicRouter = require("./router/musicRouter");
+const artistRouter = require("./router/artistRouter");
+const utilRouter = require("./router/utils");
 
 
 // const dotenv = require("dotenv");
@@ -25,6 +27,8 @@ app.use("/user", userRouter);
 
 //for music
 app.use("/music", musicRouter)
+app.use("/artist", artistRouter)
+app.use("/util", utilRouter)
 
 app.listen(Port, () => {
   console.log(`Server Started at port no ${Port}`);

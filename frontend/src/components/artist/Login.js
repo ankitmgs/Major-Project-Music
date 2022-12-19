@@ -25,6 +25,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const loginForm = {
     email: "",
+    username: "",
     password: "",
   };
 
@@ -100,6 +101,17 @@ const Login = () => {
                       size="lg"
                       style={{ color: "white" }}
                       value={values.email}
+                      onChange={handleChange}
+                    />
+                    <MDBInput
+                      wrapperClass="mb-4 mx-5 w-100"
+                      labelClass="text-white"
+                      label="Username"
+                      id="username"
+                      type="text"
+                      size="lg"
+                      style={{ color: "white" }}
+                      value={values.username}
                       onChange={handleChange}
                     />
                     <MDBInput

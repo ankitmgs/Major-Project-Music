@@ -22,7 +22,7 @@ const Signup = () => {
 
   const SignupSubmit = (formdata) => {
     setLoading(true);
-    fetch(url + "/user/register", {
+    fetch(url + "/artist/register", {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: {
@@ -78,7 +78,7 @@ const Signup = () => {
                   >
                     <MDBCardBody className="p-0">
                       <MDBRow>
-                        <MDBCol md="6" className="p-5 bg-white" style={{borderRadius: "15px"}}>
+                        {/* <MDBCol md="6" className="p-5 bg-white" style={{borderRadius: "15px"}}>
                           <h3
                             className="fw-normal mb-5"
                             style={{ color: "#4835d4" }}
@@ -157,12 +157,15 @@ const Signup = () => {
                               </select>
                             </MDBCol>
                           </MDBRow>
-                        </MDBCol>
+                        </MDBCol> */}
 
                         <MDBCol
                           md="6"
                           className="bg-indigo p-5"
-                          style={{ backgroundColor: "black", borderRadius: "0 15px 15px 0 " }}
+                          style={{
+                            backgroundColor: "black",
+                            borderRadius: "0 15px 15px 0 ",
+                          }}
                         >
                           <h3
                             className="fw-normal mb-5 text-white"
@@ -173,16 +176,16 @@ const Signup = () => {
                           <MDBInput
                             wrapperClass="mb-4"
                             labelClass="text-white"
-                            label="Name"
+                            label="Email"
                             size="lg"
                             id="form5"
-                            type="text"
+                            type="email"
                             style={{ color: "white" }}
                           />
                           <MDBInput
                             wrapperClass="mb-4"
                             labelClass="text-white"
-                            label="Username"
+                            label="Name"
                             size="lg"
                             id="form5"
                             type="text"
@@ -193,7 +196,36 @@ const Signup = () => {
                           </label>
                           <MDBFile className="mb-4" id="customFile" />
 
+                          <select
+                            class="form-select mb-4"
+                            label="Gender"
+                            aria-label="Default select example"
+                          >
+                            <option selected value="1">Male</option>
+                            <option value="2">Female</option>
+                          </select>
+
+
                           <MDBInput
+                            style={{ color: "white" }}
+                            wrapperClass="mb-4"
+                            labelClass="text-white"
+                            label="Password"
+                            size="lg"
+                            id="form8"
+                            type="password"
+                          />
+                          <MDBInput
+                            style={{ color: "white" }}
+                            wrapperClass="mb-4"
+                            labelClass="text-white"
+                            label="Confirm Password"
+                            size="lg"
+                            id="form8"
+                            type="password"
+                          />
+
+                          {/* <MDBInput
                             style={{ color: "white" }}
                             wrapperClass="mb-4"
                             labelClass="text-white"
@@ -273,16 +305,20 @@ const Signup = () => {
                             size="lg"
                             id="form8"
                             type="email"
-                          />
+                          /> */}
                           <MDBCheckbox
                             name="flexCheck"
                             id="flexCheckDefault"
                             labelClass="text-white mb-4"
                             label="I do accept the Terms and Conditions of your site."
                           />
-                          <MDBBtn color="light" size="lg">
+                          <button
+                            className="btn btn-primary"
+                            color="light"
+                            size="lg"
+                          >
                             Register
-                          </MDBBtn>
+                          </button>
                         </MDBCol>
                       </MDBRow>
                     </MDBCardBody>
