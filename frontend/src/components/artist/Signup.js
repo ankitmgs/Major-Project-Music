@@ -18,7 +18,14 @@ import { CircularProgress } from "@mui/material";
 const Signup = () => {
   const url = app_config.api_url;
   const [loading, setLoading] = useState(false);
-  const signupForm = {};
+  const signupForm = {
+    email: "",
+    name: "",
+    avatar: "",
+    gender: "",
+    password: "",
+    cpassword: "",
+  };
 
   const SignupSubmit = (formdata) => {
     setLoading(true);
@@ -78,87 +85,6 @@ const Signup = () => {
                   >
                     <MDBCardBody className="p-0">
                       <MDBRow>
-                        {/* <MDBCol md="6" className="p-5 bg-white" style={{borderRadius: "15px"}}>
-                          <h3
-                            className="fw-normal mb-5"
-                            style={{ color: "#4835d4" }}
-                          >
-                            General Infomation
-                          </h3>
-                          <select
-                            class="form-select form-select-lg mb-4"
-                            aria-label="Default select example"
-                          >
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-
-                          <MDBRow>
-                            <MDBCol md="6">
-                              <MDBInput
-                                wrapperClass="mb-4"
-                                label="First Name"
-                                size="lg"
-                                id="form1"
-                                type="text"
-                              />
-                            </MDBCol>
-
-                            <MDBCol md="6">
-                              <MDBInput
-                                wrapperClass="mb-4"
-                                label="Last Name"
-                                size="lg"
-                                id="form2"
-                                type="text"
-                              />
-                            </MDBCol>
-                          </MDBRow>
-
-                          <select
-                            class="form-select form-select-lg mb-4"
-                            aria-label="Default select example"
-                          >
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                          <MDBInput
-                            wrapperClass="mb-4"
-                            label="Position"
-                            size="lg"
-                            id="form3"
-                            type="text"
-                          />
-
-                          <MDBRow>
-                            <MDBCol md="6">
-                              <MDBInput
-                                wrapperClass="mb-4"
-                                label="Bussines Arena"
-                                size="lg"
-                                id="form4"
-                                type="text"
-                              />
-                            </MDBCol>
-
-                            <MDBCol md="6">
-                              <select
-                                class="form-select form-select-lg mb-3"
-                                aria-label="Default select example"
-                              >
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                            </MDBCol>
-                          </MDBRow>
-                        </MDBCol> */}
-
                         <MDBCol
                           md="6"
                           className="bg-indigo p-5"
@@ -176,148 +102,84 @@ const Signup = () => {
                           <MDBInput
                             wrapperClass="mb-4"
                             labelClass="text-white"
+                            id="email"
                             label="Email"
                             size="lg"
-                            id="form5"
                             type="email"
                             style={{ color: "white" }}
+                            value={values.email}
+                            onChange={handleChange}
                           />
                           <MDBInput
                             wrapperClass="mb-4"
                             labelClass="text-white"
+                            id="name"
                             label="Name"
                             size="lg"
-                            id="form5"
                             type="text"
                             style={{ color: "white" }}
+                            value={values.name}
+                            onChange={handleChange}
                           />
                           <label style={{ color: "white" }}>
                             Upload Avatar Image
                           </label>
-                          <MDBFile className="mb-4" id="customFile" />
+                          <MDBFile
+                            className="mb-4"
+                            value={values.avatar}
+                            onchange={handleChange}
+                            id="avatar"
+                          />
 
                           <select
+                            id="gender"
                             class="form-select mb-4"
                             label="Gender"
                             aria-label="Default select example"
+                            value={values.gender}
+                            onchange={handleChange}
                           >
-                            <option selected value="1">Male</option>
+                            <option selected value="1">
+                              Male
+                            </option>
                             <option value="2">Female</option>
                           </select>
 
-
                           <MDBInput
                             style={{ color: "white" }}
                             wrapperClass="mb-4"
                             labelClass="text-white"
+                            id="password"
                             label="Password"
                             size="lg"
-                            id="form8"
                             type="password"
+                            value={values.password}
+                            onchange={handleChange}
                           />
                           <MDBInput
                             style={{ color: "white" }}
                             wrapperClass="mb-4"
                             labelClass="text-white"
+                            id="cpassword"
                             label="Confirm Password"
                             size="lg"
-                            id="form8"
                             type="password"
+                            value={values.cpassword}
+                            onchange={handleChange}
                           />
 
-                          {/* <MDBInput
-                            style={{ color: "white" }}
-                            wrapperClass="mb-4"
-                            labelClass="text-white"
-                            label="Additional Information"
-                            size="lg"
-                            id="form6"
-                            type="text"
-                          />
-
-                          <MDBRow>
-                            <MDBCol md="5">
-                              <MDBInput
-                                style={{ color: "white" }}
-                                wrapperClass="mb-4"
-                                labelClass="text-white"
-                                label="Zip Code"
-                                size="lg"
-                                id="form6"
-                                type="text"
-                              />
-                            </MDBCol>
-
-                            <MDBCol md="7">
-                              <MDBInput
-                                style={{ color: "white" }}
-                                wrapperClass="mb-4"
-                                labelClass="text-white"
-                                label="Place"
-                                size="lg"
-                                id="form7"
-                                type="text"
-                              />
-                            </MDBCol>
-                          </MDBRow>
-
-                          <MDBInput
-                            style={{ color: "white" }}
-                            wrapperClass="mb-4"
-                            labelClass="text-white"
-                            label="Country"
-                            size="lg"
-                            id="form8"
-                            type="text"
-                          />
-
-                          <MDBRow>
-                            <MDBCol md="5">
-                              <MDBInput
-                                style={{ color: "white" }}
-                                wrapperClass="mb-4"
-                                labelClass="text-white"
-                                label="Code +"
-                                size="lg"
-                                id="form9"
-                                type="text"
-                              />
-                            </MDBCol>
-
-                            <MDBCol md="7">
-                              <MDBInput
-                                style={{ color: "white" }}
-                                wrapperClass="mb-4"
-                                labelClass="text-white"
-                                label="Phone Number"
-                                size="lg"
-                                id="form10"
-                                type="text"
-                              />
-                            </MDBCol>
-                          </MDBRow>
-
-                          <MDBInput
-                            style={{ color: "white" }}
-                            wrapperClass="mb-4"
-                            labelClass="text-white"
-                            label="Your Email"
-                            size="lg"
-                            id="form8"
-                            type="email"
-                          /> */}
-                          <MDBCheckbox
+                          {/* <MDBCheckbox
                             name="flexCheck"
-                            id="flexCheckDefault"
                             labelClass="text-white mb-4"
                             label="I do accept the Terms and Conditions of your site."
-                          />
+                          /> */}
                           <button
                             className="btn btn-primary"
                             color="light"
                             size="lg"
+                            type="submit"
                           >
-                            Register
+                            {loading ? <CircularProgress /> : "Register"}
                           </button>
                         </MDBCol>
                       </MDBRow>
