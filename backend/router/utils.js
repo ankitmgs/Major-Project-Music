@@ -16,3 +16,6 @@ router.post("/uploadfile", uploadFile.single("myfile"), (req, res) => {
   console.log(req.body);
   res.json({ message: "File upload success" });
 });
+
+
+module.exports = router;
