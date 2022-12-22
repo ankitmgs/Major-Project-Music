@@ -50,18 +50,18 @@ const Header = () => {
                       {/* Left links */}
                       <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
-                          <NavLink className="nav-link" to="/home">
+                          <NavLink className="nav-link hover-underline-animation" to="/home">
                             Home
                           </NavLink>
                         </li>
                         <li className="nav-item">
-                          <NavLink className="nav-link" to="/artist/uploads">
+                          <NavLink className="nav-link hover-underline-animation" to="/artist/uploads">
                             Uploads
                           </NavLink>
                         </li>
                         <li className="nav-item">
                           <NavLink
-                            className="nav-link"
+                            className="nav-link hover-underline-animation"
                             to="/artist/artistprofile"
                           >
                             Profile
