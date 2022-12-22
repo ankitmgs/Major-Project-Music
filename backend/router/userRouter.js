@@ -4,35 +4,32 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const userdb = require("../model/userModel");
-
 require("../connection");
 const User = require("../model/userModel");
+const SECRET_KEY = "HELLOMYNAMEISANKITGUPTAANDIAMAMERNSTACKDEVELOPER";
 
-router.get("/", (req, res) => {
-  console.log("Request from userRouter.js");
-});
+
+// router.get("/", (req, res) => {
+//   console.log("Request from userRouter.js");
+// });
 
 // email config
 
 const transporter = nodemailer.createTransport({
-  service:"gmail",
-  auth:{
-      user:process.env.EMAIL,
-      pass:process.env.PASSWORD
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
   }
-}) 
-
-
-
-
+})
 
 //Using async-await
 router.post("/register", async (req, res) => {
-  
+
 
   const { Fname, Lname, email, phone, DOB, gender, password, cpassword } = req.body;
 
-  if (!Fname || !Lname || !email || !phone  || !password || !cpassword) {
+  if (!Fname || !Lname || !email || !phone || !password || !cpassword) {
     return res.status(422).json({ message: "Plz filled the field properly" });
   }
 
@@ -53,6 +50,7 @@ router.post("/register", async (req, res) => {
     console.error(error);
   }
 });
+
 
 //login route
 router.post("/login", async (req, res) => {
@@ -76,7 +74,7 @@ router.post("/login", async (req, res) => {
         expires: new Date(Date.now() + 864000000),
         httpOnly: true,
       });
-      
+
       // console.log(userLoginData);
       if (!isMatch) {
         res.status(400).json({ error: "Invalid Credientials" });
@@ -94,24 +92,50 @@ router.post("/login", async (req, res) => {
 
 
 //send email link for reset password
-router.post("/sendpasswordlink" ,async(req,res)=>{
+router.post("/sendpasswordlink", async (req, res) => {
   console.log(req.body);
 
-  const{email} =req.body;
+  const { email } = req.body;
 
-  if(!email){
-    res.status(401).json({status:401,message:"Enter Your Email"})
+  if (!email) {
+    res.status(401).json({ status: 401, message: "Enter Your Email" })
 
   }
-  try{
-    const userfind = await userdb.findOne({email:email});
+  try {
+    const userfind = await userdb.findOne({ email: email });
 
-    console.log("userfind",userfind)
-  }catch (error){
-    
+    //token generate fro reset password
+    const token = jwt.sign({ _id: userfind._id }, SECRET_KEY, {
+      expiresIn: "120s"
+    });
+
+    const setUsertoken = await userdb.findByIdAndUpdate({ _id: userfind._id }, { verifytoken: token }, { new: true });
+
+    // console.log("setusertoken",setUsertoken)
+
+    if (setUsertoken) {
+      const mailOptions = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: "Sending Email For Password Reset",
+        text: `This Link Valid for 2 MINUTES http://localhost:3000/newpassword/${userfind.id}/${setUsertoken.verifytoken}`
+      }
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log("error", error);
+          res.status(401).json({ status: 401, message: "email not send" })
+        } else {
+          console.log("Email sent", info.response);
+          res.status(201).json({ status: 201, message: "email  send Successfully" })
+        }
+      })
+
+    }
+
+  } catch (error) {
+    res.status(401).json({ status: 401, message: "invalid user" })
   }
-
- 
 })
 
 module.exports = router;
