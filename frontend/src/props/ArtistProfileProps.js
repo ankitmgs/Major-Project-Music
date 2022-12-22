@@ -7,7 +7,7 @@ const ArtistProfileProps = (props) => {
   return (
     <div className="artist-recent-profile-top">
       <figure class="artist-profile-recent-created">
-        <img src={props.img} />
+        <img className="cover" src={props.img} />
         <div>
           <a href="#">
             <PlayCircleFilledRounded />{" "}
@@ -15,6 +15,8 @@ const ArtistProfileProps = (props) => {
           <a href="#"><FavoriteRounded /></a>
         </div>
       </figure>
+      <span className="artist-song-name ">{props.song}</span><br />
+        <span className="artist-singer-name">{props.singer}</span>
     </div>
   );
 };

@@ -2,6 +2,13 @@
     width: 10rem;
     border-radius: 8px;
     margin-right: 1.5rem;
+    
+}
+.cover{
+  float: left;
+    width:  10rem;
+    height: 10rem;
+    object-fit: cover;
 }
 .artist-profile-recent-created {
     position: relative;
@@ -29,6 +36,7 @@
     opacity: 1;
     transition: 0.3s ease-in-out;
     border-radius: 8px;
+    
   }
   
   .artist-profile-recent-created div {
@@ -69,4 +77,13 @@
   .artist-profile-recent-created:hover div {
     left: 0;
     opacity: 1;
+  }
+  .artist-song-name{
+    font-weight: 1000;
+    margin-left: 0.5rem;
+    font-size: large;
+  }
+  .artist-singer-name{
+    margin-left: 0.5rem;
+    color: gray;
   }

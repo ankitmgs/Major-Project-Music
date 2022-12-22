@@ -97,8 +97,12 @@ const artistProfile = () => {
                   <MDBCardImage
                     src="https://filmfare.wwmindia.com/content/2022/apr/arijitsingh11650885572.jpg"
                     alt="avatar"
-                    className="rounded-circle"
-                    style={{ width: "50%", height: "100%" }}
+                    style={{
+                      width: "200px",
+                      height: "200px",
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                    }}
                     fluid
                   />
                   <p className="text-muted mb-1">Arijit Singh</p>
@@ -217,122 +221,160 @@ const artistProfile = () => {
                           fontWeight: "bolder",
                         }}
                       >
-                        Recent Created
+                        New Relases
                       </span>
                       <Slider {...settings}>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://pbs.twimg.com/media/FGi4ocYVQAAysu_?format=jpg&name=900x900"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://images.news18.com/ibnlive/uploads/2021/08/1628244231_bell-bottom.jpg"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/067d5068717917.5b672f7514e44.jpg"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                          />
                         </div>
                         <div>
-                          <ArtistProfileProps img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b" />
+                          <ArtistProfileProps
+                            singer="Arijit Singh"
+                            song="Apna Bana Le"
+                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                          />
                         </div>
                       </Slider>
+                      {/* PopularSong */}
+                      <div className="mt-5">
+                        <span
+                          style={{
+                            marginLeft: "0.7rem",
+                            color: "black",
+                            fontSize: "1.2rem",
+                            fontWeight: "bolder",
+                          }}
+                        >
+                          Popular Songs
+                        </span>
+                        <Slider {...settings}>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://i.pinimg.com/originals/60/9a/80/609a8061a8ae93f2735f3e3e20190b90.jpg"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://c.saavncdn.com/685/Luka-Chuppi-Hindi-2019-20190222104001-500x500.jpg"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://static.moviecrow.com/marquee/kaabil-new-posters/101643_thumb_665.jpg"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://d2r2ijn7njrktv.cloudfront.net/apnlive/uploads/2022/01/22144805/chalako-massi-1.jpg"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                            />
+                          </div>
+                          <div>
+                            <ArtistProfileProps
+                              singer="Arijit Singh"
+                              song="Apna Bana Le"
+                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
+                            />
+                          </div>
+                        </Slider>
+                      </div>
+
+                      {/* Top Songs */}
+
+                      <MDBRow className="mt-5">
+                        <div style={{ border: "1px solid gray" }}>Hello</div>
+                      </MDBRow>
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
-                {/* 
-                <MDBCol md="6">
-                  <MDBCard className="mb-4 mb-md-0">
-                    <MDBCardBody>
-                      <MDBCardText className="mb-4">
-                        <span className="text-primary font-italic me-1">
-                          assigment
-                        </span>
-                        Project Status
-                      </MDBCardText>
-                      <MDBCardText
-                        className="mb-1"
-                        style={{ fontSize: ".77rem" }}
-                      >
-                        Web Design
-                      </MDBCardText>
-                      <MDBProgress className="rounded">
-                        <MDBProgressBar
-                          width={80}
-                          valuemin={0}
-                          valuemax={100}
-                        />
-                      </MDBProgress>
-
-                      <MDBCardText
-                        className="mt-4 mb-1"
-                        style={{ fontSize: ".77rem" }}
-                      >
-                        Website Markup
-                      </MDBCardText>
-                      <MDBProgress className="rounded">
-                        <MDBProgressBar
-                          width={72}
-                          valuemin={0}
-                          valuemax={100}
-                        />
-                      </MDBProgress>
-
-                      <MDBCardText
-                        className="mt-4 mb-1"
-                        style={{ fontSize: ".77rem" }}
-                      >
-                        One Page
-                      </MDBCardText>
-                      <MDBProgress className="rounded">
-                        <MDBProgressBar
-                          width={89}
-                          valuemin={0}
-                          valuemax={100}
-                        />
-                      </MDBProgress>
-
-                      <MDBCardText
-                        className="mt-4 mb-1"
-                        style={{ fontSize: ".77rem" }}
-                      >
-                        Mobile Template
-                      </MDBCardText>
-                      <MDBProgress className="rounded">
-                        <MDBProgressBar
-                          width={55}
-                          valuemin={0}
-                          valuemax={100}
-                        />
-                      </MDBProgress>
-
-                      <MDBCardText
-                        className="mt-4 mb-1"
-                        style={{ fontSize: ".77rem" }}
-                      >
-                        Backend API
-                      </MDBCardText>
-                      <MDBProgress className="rounded">
-                        <MDBProgressBar
-                          width={66}
-                          valuemin={0}
-                          valuemax={100}
-                        />
-                      </MDBProgress>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol> */}
               </MDBRow>
             </MDBCol>
           </MDBRow>
