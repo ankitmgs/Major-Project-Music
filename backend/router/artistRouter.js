@@ -5,7 +5,7 @@ const Model = require("../model/artistModel");
 
 // register
 router.post("/register", async (req, res) => {
-
+  console.log(req.body);
   new Model(req.body).save()
   .then((result) => {
       res.status(201).json(result);
@@ -42,13 +42,16 @@ router.post("/register", async (req, res) => {
 
 
 // login
-router.post("/login", (req, res) => {
+router.post("/authenticate", (req, res) => {
   console.log(req.body);
 
-  new Model(req.body)
-    .save()
-    .then(() => {
-      res.status(200).json({ message: "success" });
+  Model.findOne(req.body)
+    .then((data) => {
+      if(data){
+        res.json(data);
+      }else{
+        res.status(400).json({status : 'error'});
+      }
     })
     .catch((err) => {
       console.error(err);
@@ -59,7 +62,6 @@ router.post("/login", (req, res) => {
 // getall
 router.get("/getall", (req, res) => {
     Model.find({})
-      .populate("author")
       .then((data) => {
         res.status(200).json(data);
       })

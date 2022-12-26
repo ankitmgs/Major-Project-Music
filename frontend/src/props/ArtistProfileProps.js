@@ -6,7 +6,7 @@ import FavoriteRounded from '@mui/icons-material/FavoriteRounded';
 const ArtistProfileProps = (props) => {
   return (
     <div className="artist-recent-profile-top">
-      <figure class="artist-profile-recent-created">
+      <figure className="artist-profile-recent-created">
         <img className="cover" src={props.img} />
         <div>
           <a href="#">

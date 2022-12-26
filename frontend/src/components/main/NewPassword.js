@@ -11,13 +11,13 @@ const NewPassword = () => {
                         Your password must be at least 6 characters and should include a combination of numbers, letters and special characters (!$@%).
                     </p>
 
-                    <div class="mb-4">
-                        {/* <label for="email" class="form-label ">Email</label> */}
+                    <div className="mb-4">
+                        {/* <label for="email" className="form-label ">Email</label> */}
                         <input type="email" id="email" className="form-control py-2" name="email" placeholder="Enter Your new password"
                             required="" />
                     </div>
-                    <div class="mb-4">
-                        {/* <label for="email" class="form-label ">Email</label> */}
+                    <div className="mb-4">
+                        {/* <label for="email" className="form-label ">Email</label> */}
                         <input type="email" id="email" className="form-control py-2" name="email" placeholder="Enter Your  New password again"
                             required="" />
                     </div>

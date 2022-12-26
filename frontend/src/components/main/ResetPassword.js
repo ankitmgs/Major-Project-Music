@@ -56,8 +56,8 @@ const ResetPassword = () => {
                         reset your password.
                     </p>
                     {message ?<p style ={{color:"green",fontWeight :"bold"}}>Password Reset link send Successfully in your email</p>:""}
-                    <div class="mb-4">
-                        {/* <label for="email" class="form-label ">Email</label> */}
+                    <div className="mb-4">
+                        {/* <label for="email" className="form-label ">Email</label> */}
                         <input type="email" id="email" className="form-control py-2" name="email" value={email} onChange={setVal} placeholder="Enter Your Email"
                             required=""  />
                     </div>

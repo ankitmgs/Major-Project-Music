@@ -156,13 +156,13 @@ const Signup = () => {
                           />
 
                           <div className="d-md-flex ustify-content-start align-items-center mb-4">
-                            <h6 class="fw-bold mb-0 me-4">Gender: </h6>
+                            <h6 className="fw-bold mb-0 me-4">Gender: </h6>
                             <MDBRadio
                               name="inlineRadio"
                               value="option1"
                               label="Female"
                               inline
-                              id="gender"
+                              id="gender1"
                               // value={values.gender}
                               onChange={handleChange}
                             />
@@ -171,7 +171,7 @@ const Signup = () => {
                               value="option2"
                               label="Male"
                               inline
-                              id="gender"
+                              id="gender2"
                               // value={values.gender}
                               onChange={handleChange}
                             />
@@ -192,6 +192,7 @@ const Signup = () => {
                             size="lg"
                             type="password"
                             id="password"
+                            autoComplete="on"
                             value={values.password}
                             onChange={handleChange}
                           />
@@ -201,6 +202,7 @@ const Signup = () => {
                             size="lg"
                             type="password"
                             id="cpassword"
+                            autoComplete="on"
                             value={values.cpassword}
                             onChange={handleChange}
                           />

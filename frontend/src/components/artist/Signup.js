@@ -15,7 +15,7 @@ import app_config from "../../config";
 import Swal from "sweetalert2";
 import { CircularProgress } from "@mui/material";
 
-const Signup = () => {
+const ArtistSignup = () => {
   const url = app_config.api_url;
   const [loading, setLoading] = useState(false);
   const signupForm = {
@@ -127,17 +127,17 @@ const Signup = () => {
                           <MDBFile
                             className="mb-4"
                             value={values.avatar}
-                            onchange={handleChange}
+                            onChange={handleChange}
                             id="avatar"
                           />
 
                           <select
                             id="gender"
-                            class="form-select mb-4"
+                            className="form-select mb-4"
                             label="Gender"
                             aria-label="Default select example"
                             value={values.gender}
-                            onchange={handleChange}
+                            onChange={handleChange}
                           >
                             <option selected value="1">
                               Male
@@ -154,7 +154,7 @@ const Signup = () => {
                             size="lg"
                             type="password"
                             value={values.password}
-                            onchange={handleChange}
+                            onChange={handleChange}
                           />
                           <MDBInput
                             style={{ color: "white" }}
@@ -165,7 +165,7 @@ const Signup = () => {
                             size="lg"
                             type="password"
                             value={values.cpassword}
-                            onchange={handleChange}
+                            onChange={handleChange}
                           />
 
                           {/* <MDBCheckbox
@@ -195,4 +195,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default ArtistSignup;

@@ -3,16 +3,20 @@ const mongoose = require("mongoose");
 const model = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    // required: true,
   },
   thumbnail: {
+    type: String,
+    // required: true,
+  },
+  musicfile: {
     type: String,
     // required: true,
   },
   artist: { 
     type: mongoose.Types.ObjectId,
     ref: 'artist',
-    required: true,
+    // required: true,
   },
   composer: { 
     type: String,
@@ -35,11 +39,11 @@ const model = new mongoose.Schema({
   },
   language: { 
     type: String,
-    required: true,
+    // required: true,
   },
   copyrightYear: {
     type: Date,
-    required: true,
+    // required: true,
 
   },
   copyrightHolder: {
@@ -52,11 +56,11 @@ const model = new mongoose.Schema({
   },
   songDuration: {
     type: Number,
-    required: true,
+    // required: true,
   },
   Bpm: {
     type: Number,
-    required: true,
+    // required: true,
   },
  });
 
