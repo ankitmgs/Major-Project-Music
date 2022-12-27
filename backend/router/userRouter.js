@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const userdb = require("../model/userModel");
+const Model = require("../model/userModel");
 require("../connection");
 const User = require("../model/userModel");
 const SECRET_KEY = "HELLOMYNAMEISANKITGUPTAANDIAMAMERNSTACKDEVELOPER";
@@ -49,6 +50,18 @@ router.post("/register", async (req, res) => {
   } catch (error) {
     console.error(error);
   }
+});
+
+
+//getall
+router.get("/getall", (req, res) => {
+  Model.find({})
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
 });
 
 
