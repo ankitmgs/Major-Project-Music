@@ -1,5 +1,4 @@
 import React from "react";
-
 import Slider from "react-slick";
 
 import {
@@ -17,6 +16,7 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
+import Edit from "@mui/icons-material/Edit";
 import ArtistProfileProps from "../../props/ArtistProfileProps";
 
 function SampleNextArrow(props) {
@@ -118,6 +118,63 @@ const artistProfile = () => {
 
               <MDBCard className="mb-4 mb-lg-0">
                 <MDBCardBody className="p-0">
+                  <div className="d-flex justify-content-end m-2">
+                    <div
+                      type="button"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                    >
+                      <Edit />
+                    </div>
+
+                    <div
+                      class="modal fade"
+                      id="exampleModalCenter"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalCenterTitle"
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="modal-dialog modal-dialog-centered"
+                        role="document"
+                      >
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">
+                              Add Websites
+                            </h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <input className="form-control mt-3" type="url" placeholder="Enter Websites Link" />
+                            <input className="form-control mt-3" type="url" placeholder="Enter Twitter Link" />
+                            <input className="form-control mt-3" type="url" placeholder="Enter Insatgram Link" />
+                            <input className="form-control mt-3" type="url" placeholder="Enter facebook Link" />
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                              Save changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <MDBListGroup flush className="rounded-3">
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                       <MDBIcon fas icon="globe fa-lg text-warning" />
@@ -154,6 +211,63 @@ const artistProfile = () => {
             <MDBCol lg="8">
               <MDBCard className="mb-4">
                 <MDBCardBody>
+                <div className="d-flex justify-content-end">
+                    <div
+                      type="button"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                    >
+                      <Edit />
+                    </div>
+
+                    <div
+                      class="modal fade"
+                      id="exampleModalCenter"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalCenterTitle"
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="modal-dialog modal-dialog-centered"
+                        role="document"
+                      >
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">
+                              Basic Details
+                            </h5>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <input className="form-control mt-3" type="url" placeholder="Enter Websites Link" />
+                            <input className="form-control mt-3" type="url" placeholder="Enter Twitter Link" />
+                            <input className="form-control mt-3" type="url" placeholder="Enter Insatgram Link" />
+                            <input className="form-control mt-3" type="url" placeholder="Enter facebook Link" />
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                              Save changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <MDBRow>
                     <MDBCol sm="3">
                       <MDBCardText>Full Name</MDBCardText>

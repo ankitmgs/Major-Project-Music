@@ -17,30 +17,6 @@ router.post("/register", async (req, res) => {
 });
 
 
-// router.post("/register", async (req, res) => {
-  
-
-//   const { email, name, avatar, gender, password, cpassword } = req.body;
-
-//   try {
-//     const userExist = await User.findOne({ email: email });
-//     if (userExist) {
-//       return res.status(409).json({ error: "Email already exist" });
-//     } else if (password != cpassword) {
-//       return res
-//         .status(401)
-//         .json({ error: "Password is not matching with confirm password !!" });
-//     } else {
-//       const user = new User({ email, name, avatar, gender, password, cpassword});
-//       await user.save();
-//       res.status(201).json({ message: "User Registered Successfully" });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// });
-
-
 // login
 router.post("/authenticate", (req, res) => {
   console.log(req.body);
