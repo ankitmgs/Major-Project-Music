@@ -139,7 +139,7 @@ const Uploads = () => {
                         className="custom-file-input"
                         id="thumbnail"
                         value={values.thumbnail}
-                        onChange={handleChange}
+                        onChange={uploadImage}
                       />
                       <label
                         className="custom-file-label"

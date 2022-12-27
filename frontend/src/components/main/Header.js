@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../UserContext";
 
 const Header = () => {
+  const { loggedin, setLoggedin } = useContext(UserContext);
+
   return (
     <>
       <div id="preview" className="preview">
@@ -50,27 +53,42 @@ const Header = () => {
                       {/* Left links */}
                       <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/home">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/home"
+                          >
                             Home
                           </NavLink>
                         </li>
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/publish">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/publish"
+                          >
                             Publish
                           </NavLink>
                         </li>
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/podcasts">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/podcasts"
+                          >
                             Podcasts
                           </NavLink>
                         </li>
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/main/artistlogin">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/main/artistlogin"
+                          >
                             Artist Login
                           </NavLink>
                         </li>
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/main/artistsignup">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/main/artistsignup"
+                          >
                             Artist Signup
                           </NavLink>
                         </li>
@@ -79,15 +97,19 @@ const Header = () => {
                     </div>
                     {/* Collapsible wrapper */} {/* Right elements */}
                     <div className="d-flex align-items-center">
-                      <NavLink to="/main/login">
-                        <button
-                          type="button"
-                          className="btn  btn-link px-3 mb-1 me-2"
-                          aria-controls="#picker-editor"
-                        >
-                          Login
-                        </button>
-                      </NavLink>
+                      {loggedin ? (
+                        <button>Logout</button>
+                      ) : (
+                        <NavLink to="/main/login">
+                          <button
+                            type="button"
+                            className="btn  btn-link px-3 mb-1 me-2"
+                            aria-controls="#picker-editor"
+                          >
+                            Login
+                          </button>
+                        </NavLink>
+                      )}
                       <NavLink to="/main/signup">
                         <button
                           type="button"

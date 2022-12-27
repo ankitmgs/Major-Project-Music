@@ -78,7 +78,7 @@ const Header = () => {
                     </div>
                     {/* Collapsible wrapper */} {/* Right elements */}
                     <div className="d-flex align-items-center">
-                      <NavLink to="/artist/login">
+                      <NavLink to="/main/artistlogin">
                         <button
                           type="button"
                           className="btn  btn-link px-3 mb-1 me-2"
@@ -87,7 +87,7 @@ const Header = () => {
                           Login
                         </button>
                       </NavLink>
-                      <NavLink to="/artist/signup">
+                      <NavLink to="/main/artistsignup">
                         <button
                           type="button"
                           className="btn  btn-primary mb-1 me-lg-3"
