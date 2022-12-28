@@ -8,8 +8,6 @@ const Header = () => {
         <div style={{ display: "none" }} />
         <div>
           <div data-draggable="true" style={{ position: "relative" }}>
-            {/**/}
-            {/**/}
             <section
               draggable="false"
               className="overflow-hidden pt-0"
@@ -50,7 +48,7 @@ const Header = () => {
                       {/* Left links */}
                       <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/home">
+                          <NavLink className="nav-link hover-underline-animation" to="/artist/home">
                             Home
                           </NavLink>
                         </li>
@@ -104,7 +102,7 @@ const Header = () => {
                 {/* Navbar */}
               </section>
             </section>
-            {/**/}
+            
           </div>
         </div>
       </div>

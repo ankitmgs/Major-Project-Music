@@ -11,8 +11,6 @@ const Header = () => {
         <div style={{ display: "none" }} />
         <div>
           <div data-draggable="true" style={{ position: "relative" }}>
-            {/**/}
-            {/**/}
             <section
               draggable="false"
               className="overflow-hidden pt-0"
@@ -55,25 +53,9 @@ const Header = () => {
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
-                            to="/home"
+                            to="/main/home"
                           >
                             Home
-                          </NavLink>
-                        </li>
-                        <li className="nav-item">
-                          <NavLink
-                            className="nav-link hover-underline-animation"
-                            to="/publish"
-                          >
-                            Publish
-                          </NavLink>
-                        </li>
-                        <li className="nav-item">
-                          <NavLink
-                            className="nav-link hover-underline-animation"
-                            to="/podcasts"
-                          >
-                            Podcasts
                           </NavLink>
                         </li>
                         <li className="nav-item">
@@ -127,7 +109,6 @@ const Header = () => {
                 {/* Navbar */}
               </section>
             </section>
-            {/**/}
           </div>
         </div>
       </div>

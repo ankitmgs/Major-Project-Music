@@ -19,6 +19,7 @@ import Home from "./components/main/Home";
 import { UserProvider } from "./UserContext";
 import { useState } from "react";
 import ArtistAuth from "./ArtistAuth";
+import ArtistHome from "./components/artist/Home";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -55,6 +56,7 @@ function App() {
             >
               <Route path="uploads" element={<Uploads />} />
               <Route path="artistprofile" element={<ArtistProfile />} />
+              <Route path="home" element={<ArtistHome />} />
             </Route>
 
             <Route element={<User />} path="user">
