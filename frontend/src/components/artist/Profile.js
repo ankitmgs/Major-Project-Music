@@ -17,7 +17,7 @@ import {
   MDBListGroupItem,
 } from "mdb-react-ui-kit";
 import Edit from "@mui/icons-material/Edit";
-import ArtistProfileProps from "../../props/ArtistProfileProps";
+import MusicCard from "../../props/MusicCard";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -154,10 +154,26 @@ const artistProfile = () => {
                             </button>
                           </div>
                           <div class="modal-body">
-                            <input className="form-control mt-3" type="url" placeholder="Enter Websites Link" />
-                            <input className="form-control mt-3" type="url" placeholder="Enter Twitter Link" />
-                            <input className="form-control mt-3" type="url" placeholder="Enter Insatgram Link" />
-                            <input className="form-control mt-3" type="url" placeholder="Enter facebook Link" />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter Websites Link"
+                            />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter Twitter Link"
+                            />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter Insatgram Link"
+                            />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter facebook Link"
+                            />
                           </div>
                           <div class="modal-footer">
                             <button
@@ -211,7 +227,7 @@ const artistProfile = () => {
             <MDBCol lg="8">
               <MDBCard className="mb-4">
                 <MDBCardBody>
-                <div className="d-flex justify-content-end">
+                  <div className="d-flex justify-content-end">
                     <div
                       type="button"
                       data-toggle="modal"
@@ -247,10 +263,26 @@ const artistProfile = () => {
                             </button>
                           </div>
                           <div class="modal-body">
-                            <input className="form-control mt-3" type="url" placeholder="Enter Websites Link" />
-                            <input className="form-control mt-3" type="url" placeholder="Enter Twitter Link" />
-                            <input className="form-control mt-3" type="url" placeholder="Enter Insatgram Link" />
-                            <input className="form-control mt-3" type="url" placeholder="Enter facebook Link" />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter Websites Link"
+                            />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter Twitter Link"
+                            />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter Insatgram Link"
+                            />
+                            <input
+                              className="form-control mt-3"
+                              type="url"
+                              placeholder="Enter facebook Link"
+                            />
                           </div>
                           <div class="modal-footer">
                             <button
@@ -339,63 +371,63 @@ const artistProfile = () => {
                       </span>
                       <Slider {...settings}>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://pbs.twimg.com/media/FGi4ocYVQAAysu_?format=jpg&name=900x900"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://images.news18.com/ibnlive/uploads/2021/08/1628244231_bell-bottom.jpg"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/067d5068717917.5b672f7514e44.jpg"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                           />
                         </div>
                         <div>
-                          <ArtistProfileProps
+                          <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
@@ -416,63 +448,63 @@ const artistProfile = () => {
                         </span>
                         <Slider {...settings}>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://i.pinimg.com/originals/60/9a/80/609a8061a8ae93f2735f3e3e20190b90.jpg"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://c.saavncdn.com/685/Luka-Chuppi-Hindi-2019-20190222104001-500x500.jpg"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://static.moviecrow.com/marquee/kaabil-new-posters/101643_thumb_665.jpg"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://d2r2ijn7njrktv.cloudfront.net/apnlive/uploads/2022/01/22144805/chalako-massi-1.jpg"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                             />
                           </div>
                           <div>
-                            <ArtistProfileProps
+                            <MusicCard
                               singer="Arijit Singh"
                               song="Apna Bana Le"
                               img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
