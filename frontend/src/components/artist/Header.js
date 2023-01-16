@@ -37,7 +37,7 @@ const Header = () => {
                           className="fas fa-gem text-primary"
                           aria-controls="#picker-editor"
                           /> */}
-                          Artist
+                        Artist
                       </a>
                     </div>
                     {/* Collapsible wrapper */}
@@ -48,12 +48,18 @@ const Header = () => {
                       {/* Left links */}
                       <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/artist/home">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/artist/home"
+                          >
                             Home
                           </NavLink>
                         </li>
                         <li className="nav-item">
-                          <NavLink className="nav-link hover-underline-animation" to="/artist/uploads">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/artist/uploads"
+                          >
                             Uploads
                           </NavLink>
                         </li>
@@ -102,7 +108,6 @@ const Header = () => {
                 {/* Navbar */}
               </section>
             </section>
-            
           </div>
         </div>
       </div>
