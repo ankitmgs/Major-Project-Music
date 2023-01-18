@@ -21,6 +21,9 @@ import { useState } from "react";
 import ArtistAuth from "./ArtistAuth";
 import ArtistHome from "./components/artist/Home";
 import AdminDashboard from "./components/admin/Dashboard";
+import ArtistDashboard from "./components/artist/Dashboard";
+import ManageUser from "./components/admin/ManageUser";
+import ManageArtist from "./components/admin/ManageArtist";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -45,9 +48,13 @@ function App() {
             </Route>
 
             <Route element={<Admin />} path="admin">
-              <Route path="pofile" element={<AdminProfile />} />
+              <Route path="profile" element={<AdminProfile />} />
               <Route path="adminDashboard" element={<AdminDashboard />} />
+              <Route path="manageUsers" element={<ManageUser />} />
+              <Route path="manageArtists" element={<ManageArtist />} />
             </Route>
+
+
             <Route
               element={
                 <ArtistAuth>
@@ -59,6 +66,7 @@ function App() {
               <Route path="uploads" element={<Uploads />} />
               <Route path="artistprofile" element={<ArtistProfile />} />
               <Route path="home" element={<ArtistHome />} />
+              <Route path="artistdashboard" element={<ArtistDashboard />} />
             </Route>
 
             <Route element={<User />} path="user">

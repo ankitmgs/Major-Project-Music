@@ -15,12 +15,9 @@ const AdminHeader = () => {
               data-v-271253ee=""
             >
               <section className="" style={{ paddingBottom: 1 }}>
-                {/* Navbar */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-2">
-                  {/* Container wrapper */}
                   <div className="container-fluid">
                     <div className="d-flex">
-                      {/* Toggle button */}
                       <button
                         className="navbar-toggler"
                         type="button"
@@ -32,21 +29,15 @@ const AdminHeader = () => {
                       >
                         <i className="fas fa-bars" />
                       </button>
-                      {/* Navbar brand */}
                       <a className="navbar-brand ms-3">
-                        {/* <i
-                      className="fas fa-gem text-primary"
-                      aria-controls="#picker-editor"
-                      /> */}
+
                         Admin
                       </a>
                     </div>
-                    {/* Collapsible wrapper */}
                     <div
                       className="collapse navbar-collapse"
                       id="navbarSupportedContent"
                     >
-                      {/* Left links */}
                       <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
                           <NavLink
@@ -59,29 +50,30 @@ const AdminHeader = () => {
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
-                            to="/admin"
+                            to="/admin/profile"
                           >
-                            Uploads
+                            Profile
                           </NavLink>
                         </li>
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
-                            to="/admin"
+                            to="/admin/manageUsers"
                           >
-                            Profile
+                            Manage User
                           </NavLink>
                         </li>
-                        {/* <li className="nav-item">
-                      <NavLink className="nav-link" to="/podcasts">Podcasts</NavLink>
-                    </li>
-                    <li className="nav-item">
-                      <NavLink className="nav-link" to="/login">Login</NavLink>
-                    </li> */}
+                        <li className="nav-item">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/admin/manageArtists"
+                          >
+                            Manage Artist
+                          </NavLink>
+                        </li>
+
                       </ul>
-                      {/* Left links */}
                     </div>
-                    {/* Collapsible wrapper */} {/* Right elements */}
                     <div className="d-flex align-items-center">
                       <NavLink to="/admin">
                         <button
@@ -102,11 +94,8 @@ const AdminHeader = () => {
                         </button>
                       </NavLink>
                     </div>
-                    {/* Right elements */}
                   </div>
-                  {/* Container wrapper */}
                 </nav>
-                {/* Navbar */}
               </section>
             </section>
           </div>

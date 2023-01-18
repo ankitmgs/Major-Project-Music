@@ -9,7 +9,9 @@ const fileTypes = ["MP3", "WAV"];
 
 const Uploads = () => {
   const [file, setFile] = useState(null);
-  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('artist')));
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("artist"))
+  );
   const handleChange = (file) => {
     setFile(file);
   };
@@ -54,12 +56,12 @@ const Uploads = () => {
     const file = e.target.files[0];
     const fd = new FormData();
     fd.append("myfile", file);
-    fetch(url + "/util/uploadfile", {
+    fetch(url + "/util/uploadthumbnail", {
       method: "POST",
       body: fd,
     }).then((res) => {
       if (res.status === 200) {
-        console.log("file uploaded");
+        console.log("Thumbnail uploaded");
       }
     });
   };
@@ -104,7 +106,6 @@ const Uploads = () => {
                     >
                       <FileUploader
                         handleChange={uploadFile}
-                        
                         types={fileTypes}
                       />
                     </div>
@@ -132,9 +133,7 @@ const Uploads = () => {
                 <div className="row">
                   <div className="col-12 mb-4">
                     <div className="custom-file">
-                      <label>Thumbnail</label>
-                      <br />
-                      <input
+                      {/* <input
                         type="file"
                         className="custom-file-input"
                         id="thumbnail"
@@ -146,7 +145,18 @@ const Uploads = () => {
                         for="inputGroupFile01"
                       >
                         Choose file
+                      </label> */}
+
+                      <label for="formFile" class="form-label">
+                        Thumbnail
                       </label>
+                      <input
+                        class="form-control"
+                        type="file"
+                        id="thumbnail"
+                        value={values.thumbnail}
+                        onChange={uploadImage}
+                      />
                     </div>
                   </div>
                 </div>
@@ -236,8 +246,9 @@ const Uploads = () => {
                     <input
                       type="number"
                       className="form-control"
-                      id=""
-                      aria-describedby=""
+                      id="copyrightYear"
+                      value={values.copyrightYear}
+                      onChange={handleChange}
                       placeholder="Copyright Year"
                     />
                   </div>
@@ -245,8 +256,8 @@ const Uploads = () => {
                     <input
                       type="text"
                       className="form-control"
-                      id="copyrightYear"
-                      value={values.copyrightYear}
+                      id="copyrightHolder"
+                      value={values.copyrightHolder}
                       onChange={handleChange}
                       placeholder="Copyright Holder"
                     />

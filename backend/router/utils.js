@@ -18,4 +18,12 @@ router.post("/uploadfile", uploadFile.single("myfile"), (req, res) => {
 });
 
 
+const uploadThumbnail = multer({ storage: filestorage });
+
+router.post("/uploadthumbnail", uploadThumbnail.single("myfile"), (req, res) => {
+  console.log(req.body);
+  res.json({ message: "Thumbnail upload success" });
+});
+
+
 module.exports = router;
