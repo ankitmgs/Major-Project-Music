@@ -62,3 +62,10 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+.pageNotFound{
+  text-align: center;
+  margin-top: 10rem;
+  color:black;
+  margin-bottom: 10rem;
+}

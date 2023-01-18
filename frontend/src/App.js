@@ -20,6 +20,12 @@ import { UserProvider } from "./UserContext";
 import { useState } from "react";
 import ArtistAuth from "./ArtistAuth";
 import ArtistHome from "./components/artist/Home";
+import NotFound from "./components/NotFound";
+import ManageArtist from "./components/admin/ManageArtist";
+import ManageUser from "./components/user/ManageUser";
+import UserHome from "./components/user/Home";
+import userDashboard from "./components/user/Dashboard";
+import UserDashboard from "./components/user/Dashboard";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -32,7 +38,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Navigate to="/main/home" />} path="/" />
+            <Route path='*' element={<NotFound />} />
             <Route element={<Main />} path="main">
+
               <Route path="home" element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="resetpassword" element={<ResetPassword />} />
@@ -44,7 +52,8 @@ function App() {
             </Route>
 
             <Route element={<Admin />} path="admin">
-              <Route path="pofile" element={<AdminProfile />} />
+              <Route path="profile" element={<AdminProfile />} />
+              <Route path="manageArtist" element={<ManageArtist />} />
             </Route>
             <Route
               element={
@@ -54,6 +63,7 @@ function App() {
               }
               path="artist"
             >
+              <Route path="manageArtist" element={<ManageArtist />} />
               <Route path="uploads" element={<Uploads />} />
               <Route path="artistprofile" element={<ArtistProfile />} />
               <Route path="home" element={<ArtistHome />} />
@@ -61,6 +71,10 @@ function App() {
 
             <Route element={<User />} path="user">
               <Route path="profile" element={<UserProfile />} />
+              <Route path="home" element={<UserHome />} />
+              <Route path="manageUsers" element={<ManageUser />} />
+              <Route path="userDashboard" element={<UserDashboard />} />
+
             </Route>
           </Routes>
         </BrowserRouter>

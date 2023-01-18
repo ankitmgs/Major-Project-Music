@@ -73,7 +73,7 @@ const ArtistSignup = () => {
 
   return (
     <div style={{  backgroundImage: 'https://c0.wallpaperflare.com/preview/27/313/180/man-singing-on-stage.jpg' }}>
-      {/* <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
+      <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <MDBContainer fluid className="h-custom">
@@ -184,8 +184,8 @@ const ArtistSignup = () => {
             </MDBContainer>
           </form>
         )}
-      </Formik> */}
-      <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
+      </Formik>
+      {/* <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <div className="container">
@@ -289,7 +289,7 @@ const ArtistSignup = () => {
             </div>
           </form>
         )}
-      </Formik>
+      </Formik> */}
     </div>
   );
 };
