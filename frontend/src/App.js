@@ -20,6 +20,7 @@ import { UserProvider } from "./UserContext";
 import { useState } from "react";
 import ArtistAuth from "./ArtistAuth";
 import ArtistHome from "./components/artist/Home";
+import AdminDashboard from "./components/admin/Dashboard";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -45,6 +46,7 @@ function App() {
 
             <Route element={<Admin />} path="admin">
               <Route path="pofile" element={<AdminProfile />} />
+              <Route path="adminDashboard" element={<AdminDashboard />} />
             </Route>
             <Route
               element={

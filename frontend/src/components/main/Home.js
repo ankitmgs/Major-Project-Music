@@ -38,11 +38,15 @@ const Home = () => {
 
   const displayMusic = () => {
     return musicArray.map((music) => (
-      <>
-
-      </>
-    ))
-  }
+      <div>
+        <MusicCard
+          singer={music.artist}
+          song={music.title}
+          img={music.thumbnail}
+        />
+      </div>
+    ));
+  };
 
   const settings = {
     className: "center",
@@ -100,62 +104,7 @@ const Home = () => {
               img="https://i.pinimg.com/originals/60/9a/80/609a8061a8ae93f2735f3e3e20190b90.jpg"
             />
           </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://c.saavncdn.com/685/Luka-Chuppi-Hindi-2019-20190222104001-500x500.jpg"
-            />
-          </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://static.moviecrow.com/marquee/kaabil-new-posters/101643_thumb_665.jpg"
-            />
-          </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://d2r2ijn7njrktv.cloudfront.net/apnlive/uploads/2022/01/22144805/chalako-massi-1.jpg"
-            />
-          </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-            />
-          </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-            />
-          </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-            />
-          </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-            />
-          </div>
-          <div>
-            <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-            />
-          </div>
+          {displayMusic()}
         </Slider>
       </div>
     </div>

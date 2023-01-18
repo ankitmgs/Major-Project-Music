@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import AdminHeader from "./Header";
 
 const Admin = () => {
   return (
-    <div>Admin</div>
-  )
-}
+    <div>
+      <AdminHeader />
+      <Outlet />
+    </div>
+  );
+};
 
-export default Admin
+export default Admin;
