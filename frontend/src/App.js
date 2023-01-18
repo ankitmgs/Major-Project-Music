@@ -24,8 +24,11 @@ import NotFound from "./components/NotFound";
 import ManageArtist from "./components/admin/ManageArtist";
 import ManageUser from "./components/user/ManageUser";
 import UserHome from "./components/user/Home";
-import userDashboard from "./components/user/Dashboard";
 import UserDashboard from "./components/user/Dashboard";
+import AdminDashboard from "./components/admin/Dashboard";
+import ArtistDashboard from "./components/artist/Dashboard";
+import ManageUser from "./components/admin/ManageUser";
+import ManageArtist from "./components/admin/ManageArtist";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -53,8 +56,12 @@ function App() {
 
             <Route element={<Admin />} path="admin">
               <Route path="profile" element={<AdminProfile />} />
-              <Route path="manageArtist" element={<ManageArtist />} />
+              <Route path="adminDashboard" element={<AdminDashboard />} />
+              <Route path="manageUsers" element={<ManageUser />} />
+              <Route path="manageArtists" element={<ManageArtist />} />
             </Route>
+
+
             <Route
               element={
                 <ArtistAuth>
@@ -67,6 +74,7 @@ function App() {
               <Route path="uploads" element={<Uploads />} />
               <Route path="artistprofile" element={<ArtistProfile />} />
               <Route path="home" element={<ArtistHome />} />
+              <Route path="artistdashboard" element={<ArtistDashboard />} />
             </Route>
 
             <Route element={<User />} path="user">

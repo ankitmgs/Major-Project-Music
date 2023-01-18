@@ -42,7 +42,7 @@ const model = new mongoose.Schema({
     // required: true,
   },
   copyrightYear: {
-    type: Date,
+    type: String,
     // required: true,
 
   },
