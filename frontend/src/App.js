@@ -27,8 +27,7 @@ import UserHome from "./components/user/Home";
 import UserDashboard from "./components/user/Dashboard";
 import AdminDashboard from "./components/admin/Dashboard";
 import ArtistDashboard from "./components/artist/Dashboard";
-import ManageUser from "./components/admin/ManageUser";
-import ManageArtist from "./components/admin/ManageArtist";
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(

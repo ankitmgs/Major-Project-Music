@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 import {
@@ -18,6 +18,7 @@ import {
 } from "mdb-react-ui-kit";
 import Edit from "@mui/icons-material/Edit";
 import MusicCard from "../../props/MusicCard";
+import app_config from "../../config";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -37,6 +38,37 @@ function SampleNextArrow(props) {
 }
 
 const artistProfile = () => {
+  const url = app_config.api_url;
+
+
+const [musicListArray, setMusicListArray] = useState([]);
+
+const getMusic = async () => {
+  const response = await fetch(url + "/music/getall");
+  const data = await response.json();
+  console.log(data);
+  setMusicListArray(data);
+};
+
+useEffect(() => {
+  getMusic();
+},[]);
+
+
+const displayMusic = () => {
+  return musicListArray.map((music) => (
+    <div>
+      <MusicCard 
+        singer={music.artist}
+        song={music.title}
+        img={music.thumbnail}
+      />
+    </div>
+  ))
+}
+
+
+
   const settings = {
     className: "center",
     infinite: false,
@@ -377,62 +409,8 @@ const artistProfile = () => {
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                           />
                         </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://pbs.twimg.com/media/FGi4ocYVQAAysu_?format=jpg&name=900x900"
-                          />
-                        </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://images.news18.com/ibnlive/uploads/2021/08/1628244231_bell-bottom.jpg"
-                          />
-                        </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/067d5068717917.5b672f7514e44.jpg"
-                          />
-                        </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                          />
-                        </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                          />
-                        </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                          />
-                        </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                          />
-                        </div>
-                        <div>
-                          <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                          />
-                        </div>
+                        {displayMusic()}
+                        
                       </Slider>
                       {/* PopularSong */}
                       <div className="mt-5">
