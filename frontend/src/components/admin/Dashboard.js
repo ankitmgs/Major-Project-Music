@@ -91,7 +91,7 @@ const AdminDashboard = () => {
       <div className="row">
         <div className="col-md-6 col-sm-12">
           <div className="card mt-4 p-4">
-            <BarChart chartData={data} />
+            {/* <BarChart chartData={data} /> */}
           </div>
         </div>
         <div className="col-md-6 col-sm-12">

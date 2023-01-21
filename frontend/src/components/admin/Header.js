@@ -47,6 +47,15 @@ const AdminHeader = () => {
                             Home
                           </NavLink>
                         </li>
+
+                        <li className="nav-item">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/admin/adminDashboard"
+                          >
+                            Dashboard
+                          </NavLink>
+                        </li>
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
