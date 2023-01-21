@@ -11,6 +11,8 @@ import {
 import { Bar } from "react-chartjs-2";
 import { Data as UserData } from ".././utils/data";
 import BarChart from "./Graph/BarChart";
+import ManageArtist from "./ManageArtist";
+import ManageUser from "./ManageUser";
 
 const AdminDashboard = () => {
   const [userData, setUserData] = useState({
@@ -51,25 +53,29 @@ const AdminDashboard = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-3 col-sm-6"><div className="card mt-4 p-4">Total Music Uploaded on Platform</div></div>
-        <div className="col-md-3 col-sm-6"><div className="card mt-4 p-4">Total Artists</div></div>
-        <div className="col-md-3 col-sm-6"><div className="card mt-4 p-4">Total Users</div></div>
-        <div className="col-md-3 col-sm-6"><div className="card mt-4 p-4">Active Live</div></div>
+        <div className="col-md-3 col-sm-6">
+          <div className="card mt-4 p-4">Total Music Uploaded on Platform</div>
+        </div>
+        <div className="col-md-3 col-sm-6">
+          <div className="card mt-4 p-4">Total Artists</div>
+        </div>
+        <div className="col-md-3 col-sm-6">
+          <div className="card mt-4 p-4">Total Users</div>
+        </div>
+        <div className="col-md-3 col-sm-6">
+          <div className="card mt-4 p-4">Active Live</div>
+        </div>
       </div>
 
       <div className="row">
         <div className="card-md-12">
-          <div className="card mt-4 p-4">
-            Manage Users
-          </div>
+          <div className="card mt-4 p-4">Manage Users</div>
         </div>
       </div>
 
       <div className="row">
         <div className="col-md-12">
-          <div className="card mt-4 p-4">
-            Music List
-          </div>
+          <div className="card mt-4 p-4">Music List</div>
         </div>
       </div>
 
@@ -82,10 +88,14 @@ const AdminDashboard = () => {
       </div>
       <div className="row">
         <div className="col-md-6">
-          <div className="card mt-4 p-4">1234tgfd</div>
+          <div className="card mt-4 p-4">
+            <ManageArtist />
+          </div>
         </div>
         <div className="col-md-6">
-          <div className="card mt-4 p-4">1234tgfd</div>
+          <div className="card mt-4 p-4">
+            <ManageUser />
+          </div>
         </div>
       </div>
       <div className="row">
