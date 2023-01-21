@@ -1,90 +1,109 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "../utils/loader";
 
 const ManageArtist = () => {
-    const [threeDArray, setthreeDArray] = useState([]);
+  const [artistArray, setartistArray] = useState([]);
+  const [isloading, setIsloading] = useState(true);
 
-    const getDataFromBackend = async () => {
-      const response = await fetch("http://localhost:5000/modal/getall");
-      const data = await response.json();
-      console.log(data);
-      setthreeDArray(data);
-    };
-    useEffect(() => {
-      getDataFromBackend();
-    }, []);
-  
-    const displayModels = () => {
-      return threeDArray.map((model) => (
-        <>
-            <div className="row mb-4">
-              <div className="col-md-3 mb-4 mb-md-0 ms-auto">
-                <div
-                  className="bg-image hover-overlay ripple shadow-1-strong rounded-4 mb-4 ripple-surface-light"
-                  data-mdb-ripple-color="light"
-                >
-                  <img
-                    src={"http://localhost:5000/images/" + model.thumbnail}
-                    className="w-100"
-                    alt=""
-                    aria-controls="#picker-editor"
-                    draggable="false"
-                  />
-                </div>
-              </div>
-              <div className="col-md-9 col-xl-7 mb-4 mb-md-0 me-auto">
-                <h5 className="fw-bold">{model.title}</h5>
-                <div className="mb-2 text-danger small">
-                  <i
-                    className="fas fa-building me-2"
-                    aria-controls="#picker-editor"
-                  />
-                  <span>Architecture</span>
-                  <br />
-                  <span style={{ color: "gray" }}>Created : {model.created}</span>
-                </div>
-                <div>
-                  <p className="text-muted">{model.description}</p>
-                </div>
-                <Link
-                  to={"/viewer/" + model._id}
-                  className="btn  btn-primary model w-100"
-                >
-                  View Model
-                </Link>
+  const getDataFromBackend = async () => {
+    const response = await fetch("http://localhost:8000/artist/getall");
+    const data = await response.json();
+    console.log(data);
+    setartistArray(data);
+    setIsloading(false);
+  };
+  useEffect(() => {
+    getDataFromBackend();
+  }, []);
+
+  const displayArtists = () => {
+    return artistArray.map((artist) => (
+      <>
+        <tr>
+          <td>
+            <div className="d-flex align-items-center">
+              <img
+                style={{ width: "45px", height: "45px" }}
+                src={artist.avatar}
+                className="rounded-circle"
+              />
+              <div className="ms-3">
+                <p className="fw-bold mb-1">{artist.name}</p>
               </div>
             </div>
-        </>
-      ));
-    };
-  
-    return (
-      <div>
-        <div id="preview" className="preview">
-          <div style={{ display: "none" }} />
-          <div>
-            <div
-              data-draggable="true"
-              className=""
-              style={{ position: "relative" }}
-              draggable="false"
-            >
-              <section
-                draggable="false"
-                className="container pt-5"
-                data-v-271253ee=""
-              >
-                <section className="mb-10">
-                  <h2 className="fw-bold mb-5 text-center">Modals List</h2>
-                  {displayModels()}
-                </section>
-              </section>
-              {/**/}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-}
+          </td>
+          <td>
+            <p className="fw-normal mb-1">{artist.email}</p>
+          </td>
+          <td>
+            <span className="badge badge-success rounded-pill d-inline">
+              Singer
+            </span>
+          </td>
+          <td>
+            <button className="btn btn-danger">
+              <i class="fa-solid fa-trash fa-lg"></i>
+            </button>
+          </td>
+          <td>
+            <button type="button" className="btn btn-secondary">
+              Edit
+            </button>
+          </td>
+        </tr>
+      </>
+    ));
+  };
+
+  return (
+    <div>
+      <table className="table align-middle mb-0 bg-white">
+        <thead className="bg-light">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Profile</th>
+            <th>Delete</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div className="d-flex align-items-center">
+                <img
+                  style={{ width: "45px", height: "45px" }}
+                  src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                  className="rounded-circle"
+                />
+                <div className="ms-3">
+                  <p className="fw-bold mb-1">John Doe</p>
+                  <p className="text-muted mb-0">john.doe@gmail.com</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p className="fw-normal mb-1">Software engineer</p>
+              <p className="text-muted mb-0">IT department</p>
+            </td>
+            <td>
+              <span className="badge badge-success rounded-pill d-inline">
+                Active
+              </span>
+            </td>
+            <td>Senior</td>
+            <td>
+              <button type="button" className="btn btn-link btn-sm btn-rounded">
+                Edit
+              </button>
+            </td>
+          </tr>
+          {isloading ? <><Loader /></> : displayArtists()}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default ManageArtist;
