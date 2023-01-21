@@ -37,7 +37,7 @@ function SampleNextArrow(props) {
   );
 }
 
-const artistProfile = () => {
+const ArtistProfile = () => {
   const url = app_config.api_url;
 
 
@@ -508,4 +508,4 @@ const displayMusic = () => {
   );
 };
 
-export default artistProfile;
+export default ArtistProfile;

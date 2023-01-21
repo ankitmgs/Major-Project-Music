@@ -46,6 +46,7 @@ const Login = () => {
             title: "Success",
             text: "You have loggedin successfully!",
           });
+          navigate("/artist/uploads");
         } else if (res.status === 400) {
           Swal.fire({
             icon: "error",
@@ -65,7 +66,6 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         sessionStorage.setItem("artist", JSON.stringify(data));
-        navigate("/artist/uploads");
       })
       .catch((err) => {
         console.log(err);
