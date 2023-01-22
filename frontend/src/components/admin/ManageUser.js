@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Loader from "../utils/loader";
+import Swal from "sweetalert2";
 
 const ManageUser = () => {
   const [userArray, setUserArray] = useState([]);
@@ -20,6 +21,24 @@ const ManageUser = () => {
     console.log(data);
     setUserArray(data);
     setIsloading(false);
+  };
+
+  const deleteUser = (id) => {
+    fetch(url + "/user/delete/" + id, { method: "Delete" })
+      .then((res) => {
+        if (res === 200) {
+          console.log("User Deleted");
+          Swal.fire({
+            icon: "success",
+            title: "User Deleted !!",
+          });
+          getUserfromBackend();
+          return res.json();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   useEffect(() => {
@@ -48,7 +67,12 @@ const ManageUser = () => {
             </span>
           </TableCell>
           <TableCell>
-            <button className="btn btn-danger">
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                deleteUser(user._id);
+              }}
+            >
               <i class="fa-solid fa-trash fa-lg"></i>
             </button>
           </TableCell>
@@ -63,7 +87,7 @@ const ManageUser = () => {
   };
 
   return (
-    <div>
+    <div sty>
       {" "}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

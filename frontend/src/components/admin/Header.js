@@ -29,10 +29,7 @@ const AdminHeader = () => {
                       >
                         <i className="fas fa-bars" />
                       </button>
-                      <a className="navbar-brand ms-3">
-
-                        Admin
-                      </a>
+                      <a className="navbar-brand ms-3">Admin</a>
                     </div>
                     <div
                       className="collapse navbar-collapse"
@@ -45,15 +42,6 @@ const AdminHeader = () => {
                             to="/admin/"
                           >
                             Home
-                          </NavLink>
-                        </li>
-
-                        <li className="nav-item">
-                          <NavLink
-                            className="nav-link hover-underline-animation"
-                            to="/admin/adminDashboard"
-                          >
-                            Dashboard
                           </NavLink>
                         </li>
                         <li className="nav-item">
@@ -88,7 +76,6 @@ const AdminHeader = () => {
                             Manage Artist
                           </NavLink>
                         </li>
-
                       </ul>
                     </div>
                     <div className="d-flex align-items-center">

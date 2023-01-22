@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,8 +13,11 @@ import { Data as UserData } from ".././utils/data";
 import BarChart from "./Graph/BarChart";
 import ManageArtist from "./ManageArtist";
 import ManageUser from "./ManageUser";
+import app_config from "../../config";
+import axios from 'axios';
 
 const AdminDashboard = () => {
+  const url = app_config.api_url;
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.year),
     datasets: [
@@ -24,6 +27,19 @@ const AdminDashboard = () => {
       },
     ],
   });
+  const [userDatafromAPI, setuserDatafromAPI] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(url + "/user/getall")
+      .then((res) => {
+        console.log(res.data);
+        setuserDatafromAPI(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   const labels = [
     "January",
@@ -93,15 +109,20 @@ const AdminDashboard = () => {
           </div>
         </div>
         <div className="col-md-6">
-          <div className="card mt-4 p-4">
+          <div
+            className="card mt-4 p-4"
+          >
+            <div className="" style={{overflowX: "auto", overflowY: "auto"}}>
             <ManageUser />
+
+            </div>
           </div>
         </div>
       </div>
       <div className="row">
         <div className="col-md-6 col-sm-12">
           <div className="card mt-4 p-4">
-            {/* <BarChart chartData={data} /> */}
+            <BarChart chartData={data} />
           </div>
         </div>
         <div className="col-md-6 col-sm-12">

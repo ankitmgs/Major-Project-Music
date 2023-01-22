@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 // import { useNavigate } from "react-router-dom";
 
@@ -21,6 +21,7 @@ const Login = () => {
   const url = app_config.api_url;
 
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const loginForm = {
     email: "",
     password: "",
@@ -47,6 +48,7 @@ const Login = () => {
             title: "Success",
             text: "You have loggedin successfully!",
           });
+          navigate("/main/home");
         } else if (res.status === 400) {
           Swal.fire({
             icon: "error",
@@ -113,10 +115,9 @@ const Login = () => {
 
                       <p className="small mb-3 pb-lg-2">
                         <NavLink to="/main/resetpassword">
-                        <a class="text-white-50" href="#!">
-                          Forgot password?
-                        </a>
-                          
+                          <a class="text-white-50" href="#!">
+                            Forgot password?
+                          </a>
                         </NavLink>
                       </p>
                       <button

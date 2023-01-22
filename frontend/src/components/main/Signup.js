@@ -14,10 +14,13 @@ import { Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
 import { CircularProgress } from "@mui/material";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const url = app_config.api_url;
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
   const signupForm = {
     Fname: "",
     Lname: "",
@@ -46,6 +49,7 @@ const Signup = () => {
           title: "Success",
           text: "Registered Successfully",
         });
+        navigate("/main/login")
       }
       else if(res.status === 409){
         Swal.fire({
@@ -211,14 +215,14 @@ const Signup = () => {
                             <MDBBtn color="light" size="lg">
                               Reset all
                             </MDBBtn>
-                            <MDBBtn
-                              className="ms-2"
+                            <button
+                              className="btn btn-primary ms-2"
                               color="warning"
                               size="lg"
                               type="submit"
                             >
                               {loading ? <CircularProgress /> : "Submit"}
-                            </MDBBtn>
+                            </button>
                           </div>
                         </MDBCardBody>
                       </MDBCol>

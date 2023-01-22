@@ -9,7 +9,6 @@ require("../connection");
 const User = require("../model/userModel");
 const SECRET_KEY = "HELLOMYNAMEISANKITGUPTAANDIAMAMERNSTACKDEVELOPER";
 
-
 // router.get("/", (req, res) => {
 //   console.log("Request from userRouter.js");
 // });
@@ -20,15 +19,14 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL,
-    pass: process.env.PASSWORD
-  }
-})
+    pass: process.env.PASSWORD,
+  },
+});
 
 //Using async-await
 router.post("/register", async (req, res) => {
-
-
-  const { Fname, Lname, email, phone, DOB, gender, password, cpassword } = req.body;
+  const { Fname, Lname, email, phone, DOB, gender, password, cpassword } =
+    req.body;
 
   if (!Fname || !Lname || !email || !phone || !password || !cpassword) {
     return res.status(422).json({ message: "Plz filled the field properly" });
@@ -43,7 +41,16 @@ router.post("/register", async (req, res) => {
         .status(401)
         .json({ error: "Password is not matching with confirm password !!" });
     } else {
-      const user = new User({ Fname, Lname, email, phone, DOB, gender, password, cpassword });
+      const user = new User({
+        Fname,
+        Lname,
+        email,
+        phone,
+        DOB,
+        gender,
+        password,
+        cpassword,
+      });
       await user.save();
       res.status(201).json({ message: "User Registered Successfully" });
     }
@@ -51,7 +58,6 @@ router.post("/register", async (req, res) => {
     console.error(error);
   }
 });
-
 
 //getall
 router.get("/getall", (req, res) => {
@@ -63,7 +69,6 @@ router.get("/getall", (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 //login route
 router.post("/login", async (req, res) => {
@@ -103,7 +108,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
 //send email link for reset password
 router.post("/sendpasswordlink", async (req, res) => {
   console.log(req.body);
@@ -111,18 +115,21 @@ router.post("/sendpasswordlink", async (req, res) => {
   const { email } = req.body;
 
   if (!email) {
-    res.status(401).json({ status: 401, message: "Enter Your Email" })
-
+    res.status(401).json({ status: 401, message: "Enter Your Email" });
   }
   try {
     const userfind = await userdb.findOne({ email: email });
 
     //token generate fro reset password
     const token = jwt.sign({ _id: userfind._id }, SECRET_KEY, {
-      expiresIn: "120s"
+      expiresIn: "120s",
     });
 
-    const setUsertoken = await userdb.findByIdAndUpdate({ _id: userfind._id }, { verifytoken: token }, { new: true });
+    const setUsertoken = await userdb.findByIdAndUpdate(
+      { _id: userfind._id },
+      { verifytoken: token },
+      { new: true }
+    );
 
     // console.log("setusertoken",setUsertoken)
 
@@ -131,24 +138,36 @@ router.post("/sendpasswordlink", async (req, res) => {
         from: process.env.EMAIL,
         to: email,
         subject: "Sending Email For Password Reset",
-        text: `This Link Valid for 2 MINUTES http://localhost:3000/newpassword/${userfind.id}/${setUsertoken.verifytoken}`
-      }
+        text: `This Link Valid for 2 MINUTES http://localhost:3000/newpassword/${userfind.id}/${setUsertoken.verifytoken}`,
+      };
 
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           console.log("error", error);
-          res.status(401).json({ status: 401, message: "email not send" })
+          res.status(401).json({ status: 401, message: "email not send" });
         } else {
           console.log("Email sent", info.response);
-          res.status(201).json({ status: 201, message: "email  send Successfully" })
+          res
+            .status(201)
+            .json({ status: 201, message: "email  send Successfully" });
         }
-      })
-
+      });
     }
-
   } catch (error) {
-    res.status(401).json({ status: 401, message: "invalid user" })
+    res.status(401).json({ status: 401, message: "invalid user" });
   }
-})
+});
+
+router.delete("/delete/:userid", (req, res) => {
+  User.findByIdAndDelete(req.params.userid)
+    .then((data) => {
+      console.log(data);
+      res.status(200).json({ message: "User Deleted Successfully" });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;
