@@ -1,29 +1,39 @@
-import React from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, LinearScale, BarElement, CategoryScale } from "chart.js";
+import React from "react";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  LinearScale,
+  BarElement,
+  CategoryScale,
+} from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale,
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
   LinearScale,
-  BarElement,);
+  BarElement
+);
 
-const BarChart = ({chartData}) => {
-
+const BarChart = ({ chartData }) => {
   const options = {
     responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Chart.js Bar Chart",
+      },
     },
-    title: {
-      display: true,
-      text: 'Chart.js Bar Chart',
-    },
-  },
   };
 
-  return (
-    <Bar data = {chartData} options={options}/>
-  )
-}
+  return <Bar data={chartData} options={options} />;
+};
 
-export default BarChart
+export default BarChart;

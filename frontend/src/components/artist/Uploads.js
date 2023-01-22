@@ -2,6 +2,7 @@ import TextField from "@mui/material/TextField";
 import { Formik } from "formik";
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import app_config from "../../config";
 
@@ -15,7 +16,7 @@ const Uploads = () => {
   const handleChange = (file) => {
     setFile(file);
   };
-
+  const navigate = useNavigate();
   const url = app_config.api_url;
 
   const uploadForm = {
@@ -82,6 +83,7 @@ const Uploads = () => {
             title: "Success",
             text: "Music Uploded Successfully !!",
           });
+          navigate("/artist/home");
         }
         return res.json();
       })
