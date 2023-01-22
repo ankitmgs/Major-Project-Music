@@ -22,12 +22,12 @@ import ArtistAuth from "./ArtistAuth";
 import ArtistHome from "./components/artist/Home";
 import NotFound from "./components/NotFound";
 import ManageArtist from "./components/admin/ManageArtist";
-import ManageUser from "./components/user/ManageUser";
 import UserHome from "./components/user/Home";
 import UserDashboard from "./components/user/Dashboard";
 import AdminDashboard from "./components/admin/Dashboard";
 import ArtistDashboard from "./components/artist/Dashboard";
 import EditProfile from "./components/user/EditProfile";
+import ManageUser from "./components/admin/ManageUser";
 
 
 function App() {
