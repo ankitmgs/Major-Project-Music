@@ -28,7 +28,7 @@ import AdminDashboard from "./components/admin/Dashboard";
 import ArtistDashboard from "./components/artist/Dashboard";
 import EditProfile from "./components/user/EditProfile";
 import ManageUser from "./components/admin/ManageUser";
-
+import ManageSongs from "./components/artist/ManageSongs";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -41,9 +41,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Navigate to="/main/home" />} path="/" />
-            <Route path='*' element={<NotFound />} />
-            <Route element={<Main />} path="main">
+            <Route path="*" element={<NotFound />} />
 
+            <Route element={<Main />} path="main">
               <Route path="home" element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="resetpassword" element={<ResetPassword />} />
@@ -61,7 +61,6 @@ function App() {
               <Route path="manageArtists" element={<ManageArtist />} />
             </Route>
 
-
             <Route
               element={
                 <ArtistAuth>
@@ -75,6 +74,7 @@ function App() {
               <Route path="artistprofile" element={<ArtistProfile />} />
               <Route path="home" element={<ArtistHome />} />
               <Route path="artistdashboard" element={<ArtistDashboard />} />
+              <Route path="manageSongs" element={<ManageSongs />} />
             </Route>
 
             <Route element={<User />} path="user">
@@ -83,7 +83,6 @@ function App() {
               <Route path="home" element={<UserHome />} />
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="userDashboard" element={<UserDashboard />} />
-
             </Route>
           </Routes>
         </BrowserRouter>
