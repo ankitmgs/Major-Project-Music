@@ -27,6 +27,7 @@ import UserHome from "./components/user/Home";
 import UserDashboard from "./components/user/Dashboard";
 import AdminDashboard from "./components/admin/Dashboard";
 import ArtistDashboard from "./components/artist/Dashboard";
+import EditProfile from "./components/user/EditProfile";
 
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
 
             <Route element={<User />} path="user">
               <Route path="profile" element={<UserProfile />} />
+              <Route path="editprofile" element={<EditProfile />} />
               <Route path="home" element={<UserHome />} />
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="userDashboard" element={<UserDashboard />} />
