@@ -9,7 +9,8 @@ import app_config from "../../config";
 const fileTypes = ["MP3", "WAV"];
 
 const Uploads = () => {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("");
+  const [image, setImage] = useState("");
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("artist"))
   );
@@ -40,7 +41,7 @@ const Uploads = () => {
   const uploadFile = (file) => {
     // console.log(files);
     // const file = files[0];
-    setFile(file);
+    setFile(file.name);
     const fd = new FormData();
     fd.append("myfile", file);
     fetch(url + "/util/uploadfile", {
@@ -56,6 +57,7 @@ const Uploads = () => {
   const uploadImage = (e) => {
     const file = e.target.files[0];
     const fd = new FormData();
+    setImage(file.name);
     fd.append("myfile", file);
     fetch(url + "/util/uploadthumbnail", {
       method: "POST",
@@ -68,7 +70,8 @@ const Uploads = () => {
   };
 
   const UploadSubmit = (formdata) => {
-    formdata.musicfile = file.name;
+    formdata.musicfile = file;
+    formdata.thumbnail = image;
     fetch(url + "/music/add", {
       method: "POST",
       body: JSON.stringify(formdata),
