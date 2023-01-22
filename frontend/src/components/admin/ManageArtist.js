@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import app_config from "../../config";
+import Swal from "sweetalert2";
 
 const ManageArtist = () => {
   const [artistArray, setartistArray] = useState([]);
@@ -21,6 +22,27 @@ const ManageArtist = () => {
     console.log(data);
     setartistArray(data);
     setIsloading(false);
+  };
+
+  const deleteArtist = (id) => {
+    const reqOt = {
+      method: "DELETE"
+    }
+    fetch(url + "/artist/delete/" + id, reqOt)
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Artist Deleted Successfully");
+          Swal.fire({
+            icon: "success",
+            text: "Artist Delete",
+          });
+          getDataFromBackend();
+          return res.json();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
   useEffect(() => {
     getDataFromBackend();
@@ -48,8 +70,11 @@ const ManageArtist = () => {
             </span>
           </TableCell>
           <TableCell>
-            <button className="btn btn-danger">
-              <i class="fa-solid fa-trash fa-lg"></i>
+            <button
+              className="btn btn-danger"
+              onClick={() => deleteArtist(artist._id)}
+            >
+              <i class="fa-solid fa-trash fa-lg" />
             </button>
           </TableCell>
           <TableCell>

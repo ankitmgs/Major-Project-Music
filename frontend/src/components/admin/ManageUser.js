@@ -26,7 +26,7 @@ const ManageUser = () => {
   const deleteUser = (id) => {
     fetch(url + "/user/delete/" + id, { method: "Delete" })
       .then((res) => {
-        if (res === 200) {
+        if (res.status === 200) {
           console.log("User Deleted");
           Swal.fire({
             icon: "success",
