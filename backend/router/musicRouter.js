@@ -27,6 +27,8 @@ router.get("/getbyid/:musicid", (req, res) => {
 
 });
 
+
+// getall
 router.get("/getall", (req, res) => {
   Model.find({}).populate('artist')
     .then((data) => {
@@ -39,6 +41,7 @@ router.get("/getall", (req, res) => {
 });
 //get music by artist id
 
+// getbyartist
 router.get("/getbyartist/:artistid", (req, res) => {
   Model.find({artist : req.params.artistid})
     .then((data) => {
@@ -49,7 +52,6 @@ router.get("/getbyartist/:artistid", (req, res) => {
     });
 
 });
-// getbyartist
 
 // getbygenre
 
