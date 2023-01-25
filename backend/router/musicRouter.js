@@ -37,6 +37,7 @@ router.get("/getall", (req, res) => {
     });
 
 });
+//get music by artist id
 
 router.get("/getbyartist/:artistid", (req, res) => {
   Model.find({artist : req.params.artistid})

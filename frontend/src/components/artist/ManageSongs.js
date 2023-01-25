@@ -8,6 +8,8 @@ import TableRow from "@mui/material/TableRow";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import Loader from "../utils/loader";
+import Swal from "sweetalert2";
+
 
 const ManageSongs = () => {
   const [songArray, setSongArray] = useState([]);
@@ -26,6 +28,26 @@ const ManageSongs = () => {
     console.log(data);
     setIsloading(false);
   };
+  //delete 
+  const deleteSongs = (id) => {
+    fetch(url + "/music/delete/" + id, {
+      method: "Delete"
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Song Deleted");
+          Swal.fire({
+            icon: "success",
+            title: "Song Deleted !!",
+          });
+          getSongFromBackend();
+          return res.json();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 
   useEffect(() => {
     getSongFromBackend();
@@ -113,8 +135,12 @@ const ManageSongs = () => {
                       <TableCell>{song.language}</TableCell>
 
                       <TableCell>
-                        <button className="btn btn-danger">
-                          <i class="fa-solid fa-trash fa-lg"></i>
+                        <button className="btn btn-danger"
+                          onClick={() => {
+                            deleteSongs(song._id);
+                          }}>
+                          <i class="fa-solid fa-trash fa-lg">
+                          </i>
                         </button>
                       </TableCell>
                       <TableCell>
