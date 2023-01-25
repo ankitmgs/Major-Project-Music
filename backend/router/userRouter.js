@@ -23,10 +23,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
-
-
-
 //Using async-await
 router.post("/register", async (req, res) => {
   const { Fname, Lname, email, phone, DOB, gender, password, cpassword } =
@@ -170,6 +166,17 @@ router.delete("/delete/:userid", (req, res) => {
     })
     .catch((err) => {
       console.error(err);
+      res.status(500).json(err);
+    });
+});
+
+//get user by user id
+router.get("/getbyid/:userid", (req, res) => {
+  User.findById(res.params.userid)
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
       res.status(500).json(err);
     });
 });
