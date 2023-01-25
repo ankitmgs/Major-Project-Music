@@ -13,10 +13,12 @@ const ManageSongs = () => {
   const [songArray, setSongArray] = useState([]);
   const [isloading, setIsloading] = useState(true);
 
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('artist')))
+
   const url = app_config.api_url;
 
   const getSongFromBackend = async () => {
-    const response = await fetch(url + "/music/getall");
+    const response = await fetch(url + "/music/getbyartist/"+currentUser._id);
     const data = await response.json();
     setSongArray(data);
     console.log(data);

@@ -35,6 +35,8 @@ function App() {
     JSON.parse(sessionStorage.getItem("user"))
   );
 
+  const [selMusic, setSelMusic] = useState(null);
+
   return (
     <div>
       <UserProvider user={currentUser}>
@@ -43,8 +45,8 @@ function App() {
             <Route element={<Navigate to="/main/home" />} path="/" />
             <Route path="*" element={<NotFound />} />
 
-            <Route element={<Main />} path="main">
-              <Route path="home" element={<Home />} />
+            <Route element={<Main selMusic={selMusic} setSelMusic={setSelMusic} />} path="main">
+              <Route path="home" element={<Home selMusic={selMusic} setSelMusic={setSelMusic} />} />
               <Route path="login" element={<Login />} />
               <Route path="resetpassword" element={<ResetPassword />} />
               <Route path="newpassword/:id/:token" element={<NewPassword />} />

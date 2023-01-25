@@ -14,7 +14,7 @@ import BarChart from "./Graph/BarChart";
 import ManageArtist from "./ManageArtist";
 import ManageUser from "./ManageUser";
 import app_config from "../../config";
-import axios from 'axios';
+import axios from "axios";
 
 const AdminDashboard = () => {
   const url = app_config.api_url;
@@ -109,12 +109,9 @@ const AdminDashboard = () => {
           </div>
         </div>
         <div className="col-md-6">
-          <div
-            className="card mt-4 p-4"
-          >
-            <div className="" style={{overflowX: "auto", overflowY: "auto"}}>
-            <ManageUser />
-
+          <div className="card mt-4 p-4">
+            <div className="" style={{height: "20rem", overflowY: "auto" }}>
+              <ManageUser />
             </div>
           </div>
         </div>

@@ -26,6 +26,8 @@ app.use("/music", musicRouter);
 app.use("/artist", artistRouter);
 app.use("/util", utilRouter);
 
+app.use(express.static('./static/uploads'))
+
 app.listen(Port, () => {
   console.log(`Server Started at port no ${Port}`);
 });

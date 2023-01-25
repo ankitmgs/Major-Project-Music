@@ -28,7 +28,18 @@ router.get("/getbyid/:musicid", (req, res) => {
 });
 
 router.get("/getall", (req, res) => {
-  Model.find({})
+  Model.find({}).populate('artist')
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+
+});
+
+router.get("/getbyartist/:artistid", (req, res) => {
+  Model.find({artist : req.params.artistid})
     .then((data) => {
       res.status(200).json(data);
     })

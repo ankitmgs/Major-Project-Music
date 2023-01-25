@@ -5,6 +5,9 @@ import MusicCard from "../../props/MusicCard";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+
+  
+
   return (
     <div
       className={className}
@@ -20,7 +23,7 @@ function SampleNextArrow(props) {
   );
 }
 
-const Home = () => {
+const Home = ({selMusic, setSelMusic}) => {
   const url = app_config.api_url;
 
   const [musicArray, setMusicArray] = useState([]);
@@ -39,10 +42,10 @@ const Home = () => {
   const displayMusic = () => {
     return musicArray.map((music) => (
       <div>
-        <MusicCard
-          singer={music.artist}
-          song={music.title}
-          img={music.thumbnail}
+        <MusicCard 
+          // singer={music.artist.name}
+          music = {music}
+          setSelMusic={setSelMusic}
         />
       </div>
     ));
@@ -98,15 +101,17 @@ const Home = () => {
         </span>
         <Slider {...settings}>
           <div>
-            <MusicCard
+            {/* <MusicCard
               singer="Arijit Singh"
               song="Apna Bana Le"
               img="https://i.pinimg.com/originals/60/9a/80/609a8061a8ae93f2735f3e3e20190b90.jpg"
-            />
+            /> */}
           </div>
           {displayMusic()}
         </Slider>
       </div>
+
+      <audio src={""}></audio>
     </div>
   );
 };
