@@ -9,7 +9,7 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import Loader from "../utils/loader";
 import Swal from "sweetalert2";
-
+import { NavLink } from "react-router-dom";
 
 const ManageSongs = () => {
   const [songArray, setSongArray] = useState([]);
@@ -28,10 +28,10 @@ const ManageSongs = () => {
     console.log(data);
     setIsloading(false);
   };
-  //delete 
+  //delete
   const deleteSongs = (id) => {
     fetch(url + "/music/delete/" + id, {
-      method: "Delete"
+      method: "Delete",
     })
       .then((res) => {
         if (res.status === 200) {
@@ -47,7 +47,7 @@ const ManageSongs = () => {
       .catch((err) => {
         console.error(err);
       });
-  }
+  };
 
   useEffect(() => {
     getSongFromBackend();
@@ -135,18 +135,23 @@ const ManageSongs = () => {
                       <TableCell>{song.language}</TableCell>
 
                       <TableCell>
-                        <button className="btn btn-danger"
+                        <button
+                          className="btn btn-danger"
                           onClick={() => {
                             deleteSongs(song._id);
-                          }}>
-                          <i class="fa-solid fa-trash fa-lg">
-                          </i>
+                          }}
+                        >
+                          <i class="fa-solid fa-trash fa-lg"></i>
                         </button>
                       </TableCell>
                       <TableCell>
-                        <button type="button" className="btn btn-secondary">
+                        <NavLink
+                          to={"/artist/edit/" + song._id}
+                          type="button"
+                          className="btn btn-secondary"
+                        >
                           Edit
-                        </button>
+                        </NavLink>
                       </TableCell>
                     </TableRow>
                   </>

@@ -29,6 +29,7 @@ import ArtistDashboard from "./components/artist/Dashboard";
 import EditProfile from "./components/user/EditProfile";
 import ManageUser from "./components/admin/ManageUser";
 import ManageSongs from "./components/artist/ManageSongs";
+import EditSong from "./components/artist/EditSong";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -83,6 +84,7 @@ function App() {
               <Route path="home" element={<ArtistHome />} />
               <Route path="artistdashboard" element={<ArtistDashboard />} />
               <Route path="manageSongs" element={<ManageSongs />} />
+              <Route path="edit/:songid" element={<EditSong />} />
             </Route>
 
             <Route element={<User />} path="user">
