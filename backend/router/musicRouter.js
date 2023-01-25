@@ -39,6 +39,7 @@ router.get("/getall", (req, res) => {
     });
 
 });
+//get music by artist id
 
 // getbyartist
 router.get("/getbyartist/:artistid", (req, res) => {
