@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import app_config from "../../config";
-import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+// import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { TableCell } from "@mui/material";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
+import Loader from "../utils/loader";
+
 
 
 const ManageSongs = () => {
@@ -70,7 +72,6 @@ const ManageSongs = () => {
             </button>
           </TableCell>
         </TableRow>
-
   </>
    })
   }
@@ -89,7 +90,7 @@ const ManageSongs = () => {
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>{isloading ? <Loader /> : displayUser()}</TableBody>
+        <TableBody>{isloading ? <Loader /> : displaySongs()}</TableBody>
       </Table>
     </TableContainer>
 
