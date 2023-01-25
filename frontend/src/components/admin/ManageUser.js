@@ -18,6 +18,7 @@ const ManageUser = () => {
   const getUserfromBackend = async () => {
     const response = await fetch(url + "/user/getall");
     const data = await response.json();
+    
     console.log(data);
     setUserArray(data);
     setIsloading(false);

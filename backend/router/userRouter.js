@@ -23,6 +23,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
+
+
+
 //Using async-await
 router.post("/register", async (req, res) => {
   const { Fname, Lname, email, phone, DOB, gender, password, cpassword } =
