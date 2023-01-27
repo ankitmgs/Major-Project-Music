@@ -34,7 +34,7 @@ const Uploads = () => {
     copyrightYear: "",
     copyrightHolder: "",
     ISRCcode: "",
-    songDuration: "",
+    // songDuration: "",
     Bpm: "",
   };
 
@@ -280,6 +280,16 @@ const Uploads = () => {
                       placeholder="ISRC Code"
                     />
                   </div>
+                  <div className="col-md-6 col-sm-12 mb-4">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="Bpm"
+                      value={values.Bpm}
+                      onChange={handleChange}
+                      placeholder="Enter BPM"
+                    />
+                  </div>
                 </div>
                 <div className="row">
                   <div className="col-md-6 col-sm-12 mb-4">
@@ -301,7 +311,7 @@ const Uploads = () => {
                       </select>
                     </div>
                   </div>
-                  <div className="col-md-6 col-sm-12 mb-4">
+                  {/* <div className="col-md-6 col-sm-12 mb-4">
                     <label>Enter Song Duration</label>
                     <input
                       type="time"
@@ -311,7 +321,7 @@ const Uploads = () => {
                       onChange={handleChange}
                       placeholder="Song Duration"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div className="d-flex justify-content-center mt-3">
                   <button

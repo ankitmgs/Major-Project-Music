@@ -80,8 +80,9 @@ const EditSong = () => {
   const UploadSubmit = (formdata) => {
     formdata.musicfile = file;
     formdata.thumbnail = image;
-    fetch(url + "/music/add", {
-      method: "POST",
+    console.log("hello",formdata);
+    fetch(url + "/music/update/"+songid, {
+      method: "PUT",
       body: JSON.stringify(formdata),
       headers: {
         "Content-Type": "application/json",
@@ -92,9 +93,9 @@ const EditSong = () => {
           Swal.fire({
             icon: "success",
             title: "Success",
-            text: "Music Uploded Successfully !!",
+            text: "Music File Updated Successfully !!",
           });
-          navigate("/artist/home");
+          navigate("/artist/manageSongs");
         }
         return res.json();
       })
@@ -108,7 +109,7 @@ const EditSong = () => {
         <Formik initialValues={uploadForm} onSubmit={UploadSubmit}>
           {({ values, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              <div className="container mt-5 mb-5">
+              {/* <div className="container mt-5 mb-5">
                 <div className="card mt-5 p-4">
                   <h1 style={{ textAlign: "center" }}>Upload Music</h1>
                   <hr className="m-0" />
@@ -118,17 +119,10 @@ const EditSong = () => {
                         className="d-flex justify-content-center"
                         style={{ width: "100%" }}
                       >
-                        <FileUploader
-                          handleChange={uploadFile}
-                          types={fileTypes}
-                        />
+  
                       </div>
                       <div className="d-flex justify-content-center">
-                        <p>
-                          {file
-                            ? `File name: ${file.name}`
-                            : "no files uploaded yet"}
-                        </p>
+   
                       </div>
                     </div>
                   </div>
@@ -147,25 +141,11 @@ const EditSong = () => {
                   <div className="row">
                     <div className="col-12 mb-4">
                       <div className="custom-file">
-                        {/* <input
-                        type="file"
-                        className="custom-file-input"
-                        id="thumbnail"
-                        value={values.thumbnail}
-                        onChange={uploadImage}
-                      />
-                      <label
-                        className="custom-file-label"
-                        for="inputGroupFile01"
-                      >
-                        Choose file
-                      </label> */}
-
-                        <label for="formFile" class="form-label">
+                        <label for="formFile" className="form-label">
                           Thumbnail
                         </label>
                         <input
-                          class="form-control"
+                          className="form-control"
                           type="file"
                           id="thumbnail"
                           value={values.thumbnail}
@@ -310,17 +290,6 @@ const EditSong = () => {
                         </select>
                       </div>
                     </div>
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <label>Enter Song Duration</label>
-                      {/* <input
-                        type="time"
-                        className="form-control"
-                        id="songDuration"
-                        value={values.songDuration}
-                        onChange={handleChange}
-                        placeholder="Song Duration"
-                      /> */}
-                    </div>
                   </div>
                   <div className="d-flex justify-content-center mt-3">
                     <button
@@ -331,6 +300,20 @@ const EditSong = () => {
                       Submit
                     </button>
                   </div>
+                </div>
+              </div> */}
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6"><textarea
+                        className="form-control mb-4"
+                        id="title"
+                        value={values.title}
+                        onChange={handleChange}
+                        rows="2"
+                        placeholder="Song Title"
+                      ></textarea></div>
+                  <div className="col-md-6"></div>
+                  <button type="submit" className="btn btn-primary">Update</button>
                 </div>
               </div>
             </form>

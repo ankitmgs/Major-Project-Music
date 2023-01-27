@@ -30,6 +30,7 @@ import EditProfile from "./components/user/EditProfile";
 import ManageUser from "./components/admin/ManageUser";
 import ManageSongs from "./components/artist/ManageSongs";
 import EditSong from "./components/artist/EditSong";
+import AdminManageSongs from "./components/admin/ManageSongs";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -42,6 +43,7 @@ function App() {
     <div>
       <UserProvider user={currentUser}>
         <BrowserRouter>
+        
           <Routes>
             <Route element={<Navigate to="/main/home" />} path="/" />
             <Route path="*" element={<NotFound />} />
@@ -68,6 +70,7 @@ function App() {
               <Route path="adminDashboard" element={<AdminDashboard />} />
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="manageArtists" element={<ManageArtist />} />
+              <Route path="manageSongs" element={<AdminManageSongs />} />
             </Route>
 
             <Route

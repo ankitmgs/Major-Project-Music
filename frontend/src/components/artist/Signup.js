@@ -72,7 +72,12 @@ const ArtistSignup = () => {
   };
 
   return (
-    <div style={{  backgroundImage: 'https://c0.wallpaperflare.com/preview/27/313/180/man-singing-on-stage.jpg' }}>
+    <div
+      style={{
+        backgroundImage:
+          "https://c0.wallpaperflare.com/preview/27/313/180/man-singing-on-stage.jpg",
+      }}
+    >
       <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
