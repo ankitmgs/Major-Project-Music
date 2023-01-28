@@ -54,10 +54,10 @@ const model = new mongoose.Schema({
     type: String,
 
   },
-  songDuration: {
-    type: Number,
-    // required: true,
-  },
+  // songDuration: {
+  //   type: Number,
+  //   required: true,
+  // },
   Bpm: {
     type: Number,
     // required: true,

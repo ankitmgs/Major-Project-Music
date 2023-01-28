@@ -58,7 +58,7 @@ const ManageArtist = () => {
           <TableCell component="th" scope="row">
             <img
               style={{ width: "45px", height: "45px" }}
-              src={artist.avatar}
+              src={url+"/"+artist.avatar}
               className="rounded-circle mr-4"
             />
             {artist.name}

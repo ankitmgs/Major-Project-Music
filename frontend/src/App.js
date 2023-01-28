@@ -29,6 +29,8 @@ import ArtistDashboard from "./components/artist/Dashboard";
 import EditProfile from "./components/user/EditProfile";
 import ManageUser from "./components/admin/ManageUser";
 import ManageSongs from "./components/artist/ManageSongs";
+import EditSong from "./components/artist/EditSong";
+import AdminManageSongs from "./components/admin/ManageSongs";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -41,12 +43,19 @@ function App() {
     <div>
       <UserProvider user={currentUser}>
         <BrowserRouter>
+        
           <Routes>
             <Route element={<Navigate to="/main/home" />} path="/" />
             <Route path="*" element={<NotFound />} />
 
-            <Route element={<Main selMusic={selMusic} setSelMusic={setSelMusic} />} path="main">
-              <Route path="home" element={<Home selMusic={selMusic} setSelMusic={setSelMusic} />} />
+            <Route
+              element={<Main selMusic={selMusic} setSelMusic={setSelMusic} />}
+              path="main"
+            >
+              <Route
+                path="home"
+                element={<Home selMusic={selMusic} setSelMusic={setSelMusic} />}
+              />
               <Route path="login" element={<Login />} />
               <Route path="resetpassword" element={<ResetPassword />} />
               <Route path="newpassword/:id/:token" element={<NewPassword />} />
@@ -61,6 +70,7 @@ function App() {
               <Route path="adminDashboard" element={<AdminDashboard />} />
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="manageArtists" element={<ManageArtist />} />
+              <Route path="manageSongs" element={<AdminManageSongs />} />
             </Route>
 
             <Route
@@ -77,6 +87,7 @@ function App() {
               <Route path="home" element={<ArtistHome />} />
               <Route path="artistdashboard" element={<ArtistDashboard />} />
               <Route path="manageSongs" element={<ManageSongs />} />
+              <Route path="edit/:songid" element={<EditSong />} />
             </Route>
 
             <Route element={<User />} path="user">
