@@ -14,7 +14,7 @@ const UserProfile = () => {
             <br>
             </br>
             <p>
-              UserName
+              UserName           
             </p>
             <hr></hr>
             <p>
