@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import app_config from "../../config";
 import Swal from "sweetalert2";
+import { NavLink } from "react-router-dom";
 
 const ManageArtist = () => {
   const [artistArray, setartistArray] = useState([]);
@@ -26,8 +27,8 @@ const ManageArtist = () => {
 
   const deleteArtist = (id) => {
     const reqOt = {
-      method: "DELETE"
-    }
+      method: "DELETE",
+    };
     fetch(url + "/artist/delete/" + id, reqOt)
       .then((res) => {
         if (res.status === 200) {
@@ -58,7 +59,7 @@ const ManageArtist = () => {
           <TableCell component="th" scope="row">
             <img
               style={{ width: "45px", height: "45px" }}
-              src={url+"/"+artist.avatar}
+              src={url + "/" + artist.avatar}
               className="rounded-circle mr-4"
             />
             {artist.name}
@@ -78,9 +79,11 @@ const ManageArtist = () => {
             </button>
           </TableCell>
           <TableCell>
-            <button type="button" className="btn btn-secondary">
-              Edit
-            </button>
+            <NavLink to={"/admin/editArtist/"+artist._id}>
+              <button type="button" className="btn btn-secondary">
+                Edit
+              </button>
+            </NavLink>
           </TableCell>
         </TableRow>
       </>

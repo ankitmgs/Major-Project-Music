@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Loader from "../utils/loader";
 import Swal from "sweetalert2";
+import { NavLink } from "react-router-dom";
 
 const ManageUser = () => {
   const [userArray, setUserArray] = useState([]);
@@ -18,7 +19,7 @@ const ManageUser = () => {
   const getUserfromBackend = async () => {
     const response = await fetch(url + "/user/getall");
     const data = await response.json();
-    
+
     console.log(data);
     setUserArray(data);
     setIsloading(false);
@@ -78,9 +79,11 @@ const ManageUser = () => {
             </button>
           </TableCell>
           <TableCell>
-            <button type="button" className="btn btn-secondary">
-              Edit
-            </button>
+            <NavLink to={"/admin/editUser/" + user._id}>
+              <button type="button" className="btn btn-secondary">
+                Edit
+              </button>
+            </NavLink>
           </TableCell>
         </TableRow>
       </>

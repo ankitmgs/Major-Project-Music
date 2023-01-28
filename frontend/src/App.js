@@ -32,6 +32,9 @@ import ManageSongs from "./components/artist/ManageSongs";
 import EditSong from "./components/artist/EditSong";
 import AdminManageSongs from "./components/admin/ManageSongs";
 import SlideBar from "./components/utils/SlideBar";
+import UserAuth from "./UserAuth";
+import EditArtist from "./components/admin/EditArtist";
+import EditUser from "./components/admin/EditUser";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -44,8 +47,10 @@ function App() {
     <div id="outer-container">
       <UserProvider user={currentUser}>
         <BrowserRouter>
-        
-        <SlideBar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
+          <SlideBar
+            pageWrapId={"page-wrap"}
+            outerContainerId={"outer-container"}
+          />
           <Routes>
             <Route element={<Navigate to="/main/home" />} path="/" />
             <Route path="*" element={<NotFound />} />
@@ -73,6 +78,8 @@ function App() {
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="manageArtists" element={<ManageArtist />} />
               <Route path="manageSongs" element={<AdminManageSongs />} />
+              <Route path="editArtist/:artid" element={<EditArtist />} />
+              <Route path="editUser/:artid" element={<EditUser />} />
             </Route>
 
             <Route
@@ -92,7 +99,14 @@ function App() {
               <Route path="edit/:songid" element={<EditSong />} />
             </Route>
 
-            <Route element={<User />} path="user">
+            <Route
+              element={
+                <UserAuth>
+                  <User />
+                </UserAuth>
+              }
+              path="user"
+            >
               <Route path="profile" element={<UserProfile />} />
               <Route path="editprofile" element={<EditProfile />} />
               <Route path="home" element={<UserHome />} />
