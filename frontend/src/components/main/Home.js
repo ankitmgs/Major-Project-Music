@@ -87,7 +87,7 @@ const Home = ({selMusic, setSelMusic}) => {
   };
 
   return (
-    <div className="container">
+    <div className="container" id="page-wrap">
       <div className="mt-5">
         <span
           style={{

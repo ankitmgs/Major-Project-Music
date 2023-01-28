@@ -31,6 +31,7 @@ import ManageUser from "./components/admin/ManageUser";
 import ManageSongs from "./components/artist/ManageSongs";
 import EditSong from "./components/artist/EditSong";
 import AdminManageSongs from "./components/admin/ManageSongs";
+import SlideBar from "./components/utils/SlideBar";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -40,10 +41,11 @@ function App() {
   const [selMusic, setSelMusic] = useState(null);
 
   return (
-    <div>
+    <div id="outer-container">
       <UserProvider user={currentUser}>
         <BrowserRouter>
         
+        <SlideBar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
           <Routes>
             <Route element={<Navigate to="/main/home" />} path="/" />
             <Route path="*" element={<NotFound />} />
