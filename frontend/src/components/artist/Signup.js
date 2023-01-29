@@ -14,10 +14,12 @@ import { Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
 import { CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ArtistSignup = () => {
   const url = app_config.api_url;
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const signupForm = {
     email: "",
     name: "",
@@ -44,6 +46,7 @@ const ArtistSignup = () => {
             title: "Success",
             text: "Registered Successfully",
           });
+          navigate("/main/artistlogin");
         } else if (res.status === 409) {
           Swal.fire({
             icon: "warning",
