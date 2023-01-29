@@ -26,4 +26,12 @@ router.post("/uploadthumbnail", uploadThumbnail.single("myfile"), (req, res) => 
 });
 
 
+const uploadArtistAvatar = multer({ storage: filestorage });
+
+router.post("/uploadartistavatar", uploadArtistAvatar.single("myfile"), (req, res) => {
+  console.log(req.body);
+  res.json({ message: "Avatar upload success" });
+});
+
+
 module.exports = router;

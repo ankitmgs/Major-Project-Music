@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 const ArtistSignup = () => {
   const url = app_config.api_url;
   const [loading, setLoading] = useState(false);
+  const [avatar, setAvatar] = useState("")
   const navigate = useNavigate();
   const signupForm = {
     email: "",
@@ -27,6 +28,20 @@ const ArtistSignup = () => {
     gender: "",
     password: "",
     cpassword: "",
+  };
+
+  const uploadAvatar = (e) => {
+    const fd = new FormData();
+    // setAvatar(file.name);
+    // fd.append("myfile", file);
+    fetch(url + "/util/uploadartistavatar", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("Thumbnail uploaded");
+      }
+    });
   };
 
   const SignupSubmit = (formdata) => {
@@ -135,7 +150,7 @@ const ArtistSignup = () => {
                           <MDBFile
                             className="mb-4"
                             value={values.avatar}
-                            onChange={handleChange}
+                            onChange={uploadAvatar}
                             id="avatar"
                           />
 

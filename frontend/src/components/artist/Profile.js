@@ -406,11 +406,11 @@ const displayMusic = () => {
                       </span>
                       <Slider {...settings}>
                         <div>
-                          <MusicCard
+                          {/* <MusicCard
                             singer="Arijit Singh"
                             song="Apna Bana Le"
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                          />
+                          /> */}
                         </div>
                         {/* {displayMusic()} */}
                         
