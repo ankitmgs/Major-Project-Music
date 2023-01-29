@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom';
 
 const EditProfile = () => {
     return (
-        <div className='style={{ backgroundColor: "#eee" }} className="p-5"'>
-            <div className='container p-5'>
-                <div className='card p-5'>
+        <div style={{ backgroundColor: "#eee" }} className="">
+            <div className='container '>
+                <div className='card p-5' >
                     <h1>EditProfile</h1>
                     <form>
                         <div className="form-row">

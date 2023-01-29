@@ -32,14 +32,14 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                       >
-                        <i className="fas fa-bars" />
+                        {/* <i className="fas fa-bars" /> */}
                       </button>
                       {/* Navbar brand */}
                       <a className="navbar-brand ms-3">
-                        <i
+                        {/* <i
                           className="fas fa-gem text-primary"
                           aria-controls="#picker-editor"
-                        />
+                        /> */}
                         Main Header
                       </a>
                     </div>

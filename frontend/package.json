@@ -24,11 +24,13 @@
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.8",
     "react-jinke-music-player": "^4.24.2",
+    "react-icons": "^4.7.1",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.1.1",
+    "styled-components": "^5.3.6",
     "sweetalert2": "^11.6.15",
     "web-vitals": "^2.1.4"
   },
