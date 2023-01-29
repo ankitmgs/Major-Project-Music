@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 import React from 'react';
-import pagenotfoundImage from "../404-page-not-found.png";
+import pagenotfoundImage from "../components/utils/404-page-not-found.png";
 
 const NotFound = () => {
     return (

@@ -27,6 +27,7 @@ const EditSong = () => {
 
   const getSongById = () => {
     setLoading(true);
+    console.log("song id ye hai", songid);
     fetch(url + "/music/getbyid/" + songid)
       .then((res) => {
         console.log(res.status);
@@ -36,6 +37,7 @@ const EditSong = () => {
         console.log(data);
         setUploadForm(data);
         setLoading(false);
+        console.log("upload form initial", uploadForm);
       })
       .catch((err) => {
         console.log(err);
@@ -80,8 +82,8 @@ const EditSong = () => {
   const UploadSubmit = (formdata) => {
     formdata.musicfile = file;
     formdata.thumbnail = image;
-    console.log("hello",formdata);
-    fetch(url + "/music/update/"+songid, {
+    console.log("hello", formdata);
+    fetch(url + "/music/update/" + songid, {
       method: "PUT",
       body: JSON.stringify(formdata),
       headers: {
@@ -109,211 +111,91 @@ const EditSong = () => {
         <Formik initialValues={uploadForm} onSubmit={UploadSubmit}>
           {({ values, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              {/* <div className="container mt-5 mb-5">
-                <div className="card mt-5 p-4">
-                  <h1 style={{ textAlign: "center" }}>Upload Music</h1>
-                  <hr className="m-0" />
-                  <div className="row">
-                    <div className="col-md-12 py-5">
-                      <div
-                        className="d-flex justify-content-center"
-                        style={{ width: "100%" }}
-                      >
-  
-                      </div>
-                      <div className="d-flex justify-content-center">
-   
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <textarea
-                        className="form-control mb-4"
-                        id="title"
-                        value={values.title}
-                        onChange={handleChange}
-                        rows="2"
-                        placeholder="Song Title"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-12 mb-4">
-                      <div className="custom-file">
-                        <label for="formFile" className="form-label">
-                          Thumbnail
-                        </label>
-                        <input
-                          className="form-control"
-                          type="file"
-                          id="thumbnail"
-                          value={values.thumbnail}
-                          onChange={uploadImage}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="artist"
-                        value={values.artist}
-                        onChange={handleChange}
-                        placeholder="Artist Name"
-                      />
-                    </div>
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="composer"
-                        onChange={handleChange}
-                        aria-describedby=""
-                        placeholder="Composer Name"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="producer"
-                        value={values.producer}
-                        onChange={handleChange}
-                        aria-describedby=""
-                        placeholder="Producer Name"
-                      />
-                    </div>
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="writer"
-                        value={values.writer}
-                        onChange={handleChange}
-                        aria-describedby=""
-                        placeholder="Writer Name"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-12">
-                      <textarea
-                        className="form-control mb-4"
-                        id="description"
-                        value={values.description}
-                        onChange={handleChange}
-                        rows="2"
-                        placeholder="Description"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="contibutor"
-                        value={values.contibutor}
-                        onChange={handleChange}
-                        placeholder="Contributor Name"
-                      />
-                    </div>
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="language"
-                        value={values.language}
-                        onChange={handleChange}
-                        placeholder="Language"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="number"
-                        className="form-control"
-                        id="copyrightYear"
-                        value={values.copyrightYear}
-                        onChange={handleChange}
-                        placeholder="Copyright Year"
-                      />
-                    </div>
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="copyrightHolder"
-                        value={values.copyrightHolder}
-                        onChange={handleChange}
-                        placeholder="Copyright Holder"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="ISRCcode"
-                        value={values.ISRCcode}
-                        onChange={handleChange}
-                        aria-describedby=""
-                        placeholder="ISRC Code"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 mb-4">
-                      <div className="form-group">
-                        <label>Select Genre</label>
-                        <select
-                          id="genre"
-                          className="form-control"
-                          value={values.genre}
-                          onChange={handleChange}
-                        >
-                          <option selected>Choose...</option>
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                          <option>6</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-center mt-3">
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      style={{ width: "90%" }}
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </div> */}
               <div className="container">
-                <div className="row">
-                  <div className="col-md-6"><textarea
-                        className="form-control mb-4"
-                        id="title"
-                        value={values.title}
-                        onChange={handleChange}
-                        rows="2"
-                        placeholder="Song Title"
-                      ></textarea></div>
-                  <div className="col-md-6"></div>
-                  <button type="submit" className="btn btn-primary">Update</button>
+                <div className="card">
+                  <h3 className="d-flex justify-content-center">Edit Song</h3>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-12 ">
+                        <textarea
+                          className="form-control mb-4"
+                          id="title"
+                          value={values.title}
+                          onChange={handleChange}
+                          rows="2"
+                          placeholder="Song Title"
+                        ></textarea>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <input
+                            className="form-control mb-4"
+                            placeholder="Composer Name"
+                            id="composer"
+                            value={values.composer}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <input
+                            className="form-control mb-4"
+                            placeholder="Producer Name"
+                            id="producer"
+                            value={values.producer}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <input
+                            className="form-control mb-4"
+                            placeholder="Writer Name"
+                            id="writer"
+                            value={values.writer}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <input
+                            className="form-control mb-4"
+                            placeholder="Contributor"
+                            id="contibutor"
+                            value={values.contibutor}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <input
+                            className="form-control mb-4"
+                            placeholder="Language"
+                            id="language"
+                            value={values.language}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-12">
+                          <textarea
+                            className="form-control mb-4 mb-4"
+                            id="description"
+                            value={values.description}
+                            onChange={handleChange}
+                            rows="2"
+                            placeholder="Description"
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-center mb-3">
+                      <button type="submit" className="btn btn-primary w-50">
+                        Update
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </form>
