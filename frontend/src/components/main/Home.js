@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import app_config from "../../config";
 import MusicCard from "../../props/MusicCard";
+import { Bars } from "react-loader-spinner";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -26,12 +27,14 @@ const Home = ({ selMusic, setSelMusic }) => {
 
   const [musicArray, setMusicArray] = useState([]);
   const [artistArray, setArtistArray] = useState([]);
+  const [isloading, setIsloading] = useState(true);
 
   const getMusic = async () => {
     const response = await fetch(url + "/music/getall");
     const data = await response.json();
     console.log("songs", data);
     setMusicArray(data);
+    setIsloading(false);
   };
 
   const getArtist = async () => {
@@ -141,28 +144,40 @@ const Home = ({ selMusic, setSelMusic }) => {
 
   return (
     <div className="container">
-      <div>
-        <Slider {...settings2}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-      </div>
+      {isloading ? (
+        <Bars
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      ) : (
+        <div>
+          <Slider {...settings2}>
+            <div>
+              <h3>1</h3>
+            </div>
+            <div>
+              <h3>2</h3>
+            </div>
+            <div>
+              <h3>3</h3>
+            </div>
+            <div>
+              <h3>4</h3>
+            </div>
+            <div>
+              <h3>5</h3>
+            </div>
+            <div>
+              <h3>6</h3>
+            </div>
+          </Slider>
+        </div>
+      )}
       <div className="mt-5">
         <span
           style={{
@@ -174,7 +189,21 @@ const Home = ({ selMusic, setSelMusic }) => {
         >
           Popular Songs
         </span>
-        <Slider {...settings}>{displayMusic()}</Slider>
+        <Slider {...settings}>
+          {isloading ? (
+            <Bars
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            displayMusic()
+          )}
+        </Slider>
       </div>
       <div className="mt-5">
         <span
@@ -187,7 +216,21 @@ const Home = ({ selMusic, setSelMusic }) => {
         >
           New Releases
         </span>
-        <Slider {...settings}>{displayMusic()}</Slider>
+        <Slider {...settings}>
+          {isloading ? (
+            <Bars
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            displayMusic()
+          )}
+        </Slider>
       </div>
       <div className="mt-5">
         <span
@@ -200,7 +243,21 @@ const Home = ({ selMusic, setSelMusic }) => {
         >
           Trending Songs
         </span>
-        <Slider {...settings}>{displayMusic()}</Slider>
+        <Slider {...settings}>
+          {isloading ? (
+            <Bars
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            displayMusic()
+          )}
+        </Slider>
       </div>
 
       <div className="mt-5">
@@ -214,7 +271,15 @@ const Home = ({ selMusic, setSelMusic }) => {
         >
           Featured Artists
         </span>
-        <Slider {...settings3}>
+        {isloading ? <Bars
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="bars-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+/> : <Slider {...settings3}>
           <div className="d-flex flex-column">
             {/* <h3>1</h3> */}
             <center>
@@ -391,7 +456,7 @@ const Home = ({ selMusic, setSelMusic }) => {
               Arijit Singh
             </p>
           </div>
-        </Slider>
+        </Slider>}
       </div>
 
       <audio src={""}></audio>
