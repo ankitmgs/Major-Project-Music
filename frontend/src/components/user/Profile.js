@@ -8,35 +8,37 @@ const UserProfile = () => {
   return (
     <div style={{ backgroundColor: "#eee" }} className="p-5">
       <div className='container' >
-        <div className='card p-5 m '>
+        <div className='card '>
           <div className='p-4'>
             <h2>Profile</h2>
-            <br>
-            </br>
-            <p>
-              UserName           
-            </p>
-            <hr></hr>
-            <p>
-              Email
-            </p>
-            <hr></hr>
-            <p>
-              Gender
-            </p>
-            <hr></hr>
-            <p>
-              Date Of birth
-            </p>
-            <hr></hr>
-            <p>
-              Mobile Number
-            </p>
-            <hr></hr>
-            <p>
-              Country or region
-            </p>
-            <hr></hr>
+            <div className='' style={{display: "flex"}}>
+              <p className='w-50 m-0' style={{alignItems: "center"}}>
+                UserName
+              </p>
+              <p>Rehnuma Bano</p>
+            </div>
+            <hr className='mt-0' />
+            <div className='' style={{display: "flex"}}>
+              <p className='w-50 m-0' style={{alignItems: "center"}}>
+                UserName
+              </p>
+              <p>Rehnuma Bano</p>
+            </div>
+            <hr className='mt-0' />
+            <div className='' style={{display: "flex"}}>
+              <p className='w-50 m-0' style={{alignItems: "center"}}>
+                UserName
+              </p>
+              <p>Rehnuma Bano</p>
+            </div>
+            <hr className='mt-0' />
+            <div className='' style={{display: "flex"}}>
+              <p className='w-50 m-0' style={{alignItems: "center"}}>
+                UserName
+              </p>
+              <p>Rehnuma Bano</p>
+            </div>
+            <hr className='mt-0' />
             <button className="btn btn-primary" onClick={(e) => navigate("/user/editprofile")}>
               Edit  Profile
             </button>

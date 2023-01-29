@@ -78,7 +78,7 @@ const EditArtist = () => {
                           className="form-control"
                           placeholder="Edit Name"
                           id="name" 
-                        //   value={values.name}
+                          // value={values.name}
                           onChange={handleChange}
                         />
                       </div>

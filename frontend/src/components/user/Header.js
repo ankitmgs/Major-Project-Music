@@ -32,10 +32,10 @@ const Header = () => {
                     </button>
                     {/* Navbar brand */}
                     <a className="navbar-brand ms-3">
-                      <i
+                      {/* <i
                         className="fas fa-gem text-primary"
                         aria-controls="#picker-editor"
-                      />
+                      /> */}
                       User Header
                     </a>
                   </div>
