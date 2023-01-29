@@ -7,14 +7,14 @@ import Loader from "../utils/loader";
 
 const EditArtist = () => {
   const [isloading, setIsloading] = useState(true);
-  const artistId = useParams();
+  const {artistId} = useParams();
   const [initialForm, setInitialForm] = useState(null);
   const url = app_config.api_url;
 
   const getArtistbyId = () => {
-    // console.log("artist id ye hai", artistId.artid);
+    console.log("artist id ye hai", artistId);
     // setIsloading(false);
-    fetch(url + "/artist/getbyid/" + artistId.artid)
+    fetch(url + "/artist/getbyid/" + artistId)
       .then((res) => {
         console.log(res.status);
         return res.json();

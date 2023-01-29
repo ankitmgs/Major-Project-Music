@@ -35,6 +35,7 @@ import SlideBar from "./components/utils/SlideBar";
 import UserAuth from "./UserAuth";
 import EditArtist from "./components/admin/EditArtist";
 import EditUser from "./components/admin/EditUser";
+import Player from "./components/main/Player";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -70,6 +71,8 @@ function App() {
               <Route path="contactus" element={<ContactUs />} />
               <Route path="artistlogin" element={<ArtistLogin />} />
               <Route path="artistsignup" element={<ArtistSignup />} />
+              {/* <Route path="player/:musicid" element={<Player />} /> */}
+              <Route path="player" element={<Player />} />
             </Route>
 
             <Route element={<Admin />} path="admin">
@@ -78,7 +81,7 @@ function App() {
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="manageArtists" element={<ManageArtist />} />
               <Route path="manageSongs" element={<AdminManageSongs />} />
-              <Route path="editArtist/:artid" element={<EditArtist />} />
+              <Route path="editArtist/:artistId" element={<EditArtist />} />
               <Route path="editUser/:artid" element={<EditUser />} />
             </Route>
 
