@@ -5,14 +5,15 @@ import '../utils/SlideBar.css'
 export default props => {
   return (
     <Menu>
+
       <a className="menu-item" href="/">
-        Home
+        Admin
       </a>
       <a className="menu-item" href="/salads">
-        Salads
+        Artist
       </a>
       <a className="menu-item" href="/pizzas">
-        Pizzas
+        User 
       </a>
       <a className="menu-item" href="/desserts">
         Desserts
