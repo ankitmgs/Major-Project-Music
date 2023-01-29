@@ -6,8 +6,6 @@ import MusicCard from "../../props/MusicCard";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
 
-  
-
   return (
     <div
       className={className}
@@ -23,7 +21,7 @@ function SampleNextArrow(props) {
   );
 }
 
-const Home = ({selMusic, setSelMusic}) => {
+const Home = ({ selMusic, setSelMusic }) => {
   const url = app_config.api_url;
 
   const [musicArray, setMusicArray] = useState([]);
@@ -42,14 +40,26 @@ const Home = ({selMusic, setSelMusic}) => {
   const displayMusic = () => {
     return musicArray.map((music) => (
       <div>
-        <MusicCard 
+        <MusicCard
           // singer={music.artist.name}
-          music = {music}
+          music={music}
           setSelMusic={setSelMusic}
         />
       </div>
     ));
   };
+
+  const settings2 ={
+    className: "center",
+      centerMode: true,
+      infinite: true,
+      centerPadding: "60px",
+      slidesToShow: 3,
+      autoplay: true,
+      autoplaySpeed: 2000,
+
+      speed: 500
+  }
 
   const settings = {
     className: "center",
@@ -88,6 +98,28 @@ const Home = ({selMusic, setSelMusic}) => {
 
   return (
     <div className="container">
+      <div>
+      <Slider {...settings2}>
+          <div>
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
+          </div>
+        </Slider>
+      </div>
       <div className="mt-5">
         <span
           style={{
@@ -99,16 +131,7 @@ const Home = ({selMusic, setSelMusic}) => {
         >
           Popular Songs
         </span>
-        <Slider {...settings}>
-          <div>
-            {/* <MusicCard
-              singer="Arijit Singh"
-              song="Apna Bana Le"
-              img="https://i.pinimg.com/originals/60/9a/80/609a8061a8ae93f2735f3e3e20190b90.jpg"
-            /> */}
-          </div>
-          {displayMusic()}
-        </Slider>
+        <Slider {...settings}>{displayMusic()}</Slider>
       </div>
 
       <audio src={""}></audio>
