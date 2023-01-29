@@ -40,7 +40,7 @@ const Login = () => {
     };
 
     fetch(url + "/user/login", reqOpt)
-      .then((res) => {
+      .then(async (res) => {
         console.log(res.status);
         if (res.status === 200) {
           Swal.fire({
@@ -48,6 +48,8 @@ const Login = () => {
             title: "Success",
             text: "You have loggedin successfully!",
           });
+          const data = await res.json();
+          sessionStorage.setItem('user', JSON.stringify(data));
           navigate("/main/home");
         } else if (res.status === 400) {
           Swal.fire({

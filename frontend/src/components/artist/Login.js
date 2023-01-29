@@ -46,7 +46,16 @@ const Login = () => {
             title: "Success",
             text: "You have loggedin successfully!",
           });
-          navigate("/artist/uploads");
+          res.json()
+          .then((data) => {
+            console.log(data);
+            sessionStorage.setItem("artist", JSON.stringify(data));
+            navigate("/artist/uploads");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+          
         } else if (res.status === 400) {
           Swal.fire({
             icon: "error",
@@ -63,13 +72,7 @@ const Login = () => {
         setLoading(false);
         return res.json();
       })
-      .then((data) => {
-        console.log(data);
-        sessionStorage.setItem("artist", JSON.stringify(data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      
   };
 
   return (

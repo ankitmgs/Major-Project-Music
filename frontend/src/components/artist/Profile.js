@@ -44,10 +44,12 @@ const ArtistProfile = () => {
 const [musicListArray, setMusicListArray] = useState([]);
 
 const getMusic = async () => {
+
   const response = await fetch(url + "/music/getall");
   const data = await response.json();
   console.log(data);
   setMusicListArray(data);
+
 };
 
 useEffect(() => {
@@ -56,9 +58,10 @@ useEffect(() => {
 
 
 const displayMusic = () => {
+
   return musicListArray.map((music) => (
     <div>
-      <MusicCard 
+      <MusicCard
         singer={music.artist}
         song={music.title}
         img={music.thumbnail}
@@ -409,7 +412,7 @@ const displayMusic = () => {
                             img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                           />
                         </div>
-                        {displayMusic()}
+                        {/* {displayMusic()} */}
                         
                       </Slider>
                       {/* PopularSong */}
@@ -424,7 +427,7 @@ const displayMusic = () => {
                         >
                           Popular Songs
                         </span>
-                        <Slider {...settings}>
+                        {/* <Slider {...settings}>
                           <div>
                             <MusicCard
                               singer="Arijit Singh"
@@ -488,7 +491,7 @@ const displayMusic = () => {
                               img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
                             />
                           </div>
-                        </Slider>
+                        </Slider> */}
                       </div>
 
                       {/* Top Songs */}
