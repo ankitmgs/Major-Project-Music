@@ -56,7 +56,6 @@ const Home = ({ selMusic, setSelMusic }) => {
     return musicArray.map((music) => (
       <div className="d-flex justify-content-center">
         <MusicCard
-          // singer={music.artist.name}
           music={music}
           setSelMusic={setSelMusic}
         />
@@ -373,7 +372,7 @@ const Home = ({ selMusic, setSelMusic }) => {
                   borderRadius: "50%",
                   border: "7px solid black",
                 }}
-                src={artist.avatar}
+                src={url+'/'+artist.avatar}
                 alt="artist-img"
               />
             </center>
