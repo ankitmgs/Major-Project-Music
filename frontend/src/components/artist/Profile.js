@@ -40,37 +40,51 @@ function SampleNextArrow(props) {
 const ArtistProfile = () => {
   const url = app_config.api_url;
 
+  const [selImage, setSelImage] = useState("");
 
-const [musicListArray, setMusicListArray] = useState([]);
+  const [musicListArray, setMusicListArray] = useState([]);
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("artist"))
+  );
 
-const getMusic = async () => {
+  const getMusic = async () => {
+    console.log("fghjknbv", currentUser);
+    const response = await fetch(url + "/music/getall");
+    const data = await response.json();
+    console.log(data);
+    setMusicListArray(data);
+  };
 
-  const response = await fetch(url + "/music/getall");
-  const data = await response.json();
-  console.log(data);
-  setMusicListArray(data);
+  const updateProfile = async (dataToUpdate) => {
+    const res = await fetch(url + "/artist/update/" + currentUser._id, {
+      method: "PUT",
+      body: JSON.stringify(dataToUpdate),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(res.status);
+    const data = await res.json();
+    console.log(data);
+    sessionStorage.setItem("artist", JSON.stringify(data));
+    setCurrentUser(data);
+  };
 
-};
+  useEffect(() => {
+    getMusic();
+  }, []);
 
-useEffect(() => {
-  getMusic();
-},[]);
-
-
-const displayMusic = () => {
-
-  return musicListArray.map((music) => (
-    <div>
-      <MusicCard
-        singer={music.artist}
-        song={music.title}
-        img={music.thumbnail}
-      />
-    </div>
-  ))
-}
-
-
+  const displayMusic = () => {
+    return musicListArray.map((music) => (
+      <div>
+        <MusicCard
+          singer={music.artist}
+          song={music.title}
+          img={music.thumbnail}
+        />
+      </div>
+    ));
+  };
 
   const settings = {
     className: "center",
@@ -107,6 +121,22 @@ const displayMusic = () => {
     ],
   };
 
+  const uploadFile = (e) => {
+    const file = e.target.files[0];
+    setSelImage(file.name);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch(url + "/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then(async (res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+        await updateProfile({ avatar: file.name });
+      }
+    });
+  };
+
   return (
     <div>
       <section style={{ backgroundColor: "#eee" }}>
@@ -130,7 +160,9 @@ const displayMusic = () => {
               <MDBCard className="mb-4">
                 <MDBCardBody className="text-center">
                   <MDBCardImage
-                    src="https://filmfare.wwmindia.com/content/2022/apr/arijitsingh11650885572.jpg"
+                    src={
+                      currentUser.avatar ? url + "/" + currentUser.avatar : ""
+                    }
                     alt="avatar"
                     style={{
                       width: "200px",
@@ -140,10 +172,30 @@ const displayMusic = () => {
                     }}
                     fluid
                   />
-                  <p className="text-muted mb-1">Arijit Singh</p>
+                  <p className="text-muted mb-1">{currentUser.name}</p>
                   <p className="text-muted mb-4">Mumbai, INDIA</p>
                   <div className="d-flex justify-content-center mb-2">
-                    <MDBBtn>Follow</MDBBtn>
+                    <label
+                      htmlFor="image"
+                      style={{
+                        zIndex: 1,
+                        display: "block",
+                        textAlign: "center",
+                        padding: 5,
+                        backgroundColor: "white",
+                        border: "2px solid black",
+                        borderRadius: 3,
+                        color: "black",
+                      }}
+                    >
+                      Edit profile
+                    </label>
+                    <input
+                      type="file"
+                      hidden
+                      id="image"
+                      onChange={uploadFile}
+                    />
                     <MDBBtn outline className="ms-1">
                       Message
                     </MDBBtn>
@@ -163,7 +215,7 @@ const displayMusic = () => {
                     </div>
 
                     <div
-                      class="modal fade"
+                      className="modal fade"
                       id="exampleModalCenter"
                       tabindex="-1"
                       role="dialog"
@@ -171,24 +223,27 @@ const displayMusic = () => {
                       aria-hidden="true"
                     >
                       <div
-                        class="modal-dialog modal-dialog-centered"
+                        className="modal-dialog modal-dialog-centered"
                         role="document"
                       >
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h5
+                              className="modal-title"
+                              id="exampleModalLongTitle"
+                            >
                               Add Websites
                             </h5>
                             <button
                               type="button"
-                              class="close"
+                              className="close"
                               data-dismiss="modal"
                               aria-label="Close"
                             >
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <div class="modal-body">
+                          <div className="modal-body">
                             <input
                               className="form-control mt-3"
                               type="url"
@@ -210,15 +265,15 @@ const displayMusic = () => {
                               placeholder="Enter facebook Link"
                             />
                           </div>
-                          <div class="modal-footer">
+                          <div className="modal-footer">
                             <button
                               type="button"
-                              class="btn btn-secondary"
+                              className="btn btn-secondary"
                               data-dismiss="modal"
                             >
                               Close
                             </button>
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" className="btn btn-primary">
                               Save changes
                             </button>
                           </div>
@@ -272,7 +327,7 @@ const displayMusic = () => {
                     </div>
 
                     <div
-                      class="modal fade"
+                      className="modal fade"
                       id="exampleModalCenter"
                       tabindex="-1"
                       role="dialog"
@@ -280,24 +335,27 @@ const displayMusic = () => {
                       aria-hidden="true"
                     >
                       <div
-                        class="modal-dialog modal-dialog-centered"
+                        className="modal-dialog modal-dialog-centered"
                         role="document"
                       >
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h5
+                              className="modal-title"
+                              id="exampleModalLongTitle"
+                            >
                               Basic Details
                             </h5>
                             <button
                               type="button"
-                              class="close"
+                              className="close"
                               data-dismiss="modal"
                               aria-label="Close"
                             >
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <div class="modal-body">
+                          <div className="modal-body">
                             <input
                               className="form-control mt-3"
                               type="url"
@@ -319,15 +377,15 @@ const displayMusic = () => {
                               placeholder="Enter facebook Link"
                             />
                           </div>
-                          <div class="modal-footer">
+                          <div className="modal-footer">
                             <button
                               type="button"
-                              class="btn btn-secondary"
+                              className="btn btn-secondary"
                               data-dismiss="modal"
                             >
                               Close
                             </button>
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" className="btn btn-primary">
                               Save changes
                             </button>
                           </div>
@@ -413,7 +471,6 @@ const displayMusic = () => {
                           /> */}
                         </div>
                         {/* {displayMusic()} */}
-                        
                       </Slider>
                       {/* PopularSong */}
                       <div className="mt-5">

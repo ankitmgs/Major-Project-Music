@@ -67,7 +67,7 @@ const ManageArtist = () => {
           <TableCell>{artist.email}</TableCell>
           <TableCell>
             <span className="badge badge-success rounded-pill d-inline">
-              Artist
+              {artist.gender}
             </span>
           </TableCell>
           <TableCell>
