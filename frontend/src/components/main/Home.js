@@ -89,7 +89,6 @@ const Home = ({ selMusic, setSelMusic }) => {
             {artist.name}
           </p>
         </div>
-
       </Slider>
     })
   }
@@ -234,8 +233,6 @@ const Home = ({ selMusic, setSelMusic }) => {
                   width: "380px",
                   height: "250px",
                   backgroundSize: "cover",
-
-
                 }}
                 src="https://s1.dmcdn.net/v/H2Gni1NlaziC8Dhx6/x1080"
                 alt="artist-img"
