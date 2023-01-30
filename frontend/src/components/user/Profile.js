@@ -8,7 +8,10 @@ const UserProfile = () => {
   return (
     <div style={{ backgroundColor: "#eee" }} className="p-5">
       <div className='container' >
-        <div className='card '>
+        <div className='card p-4'>
+          <div className='avatar'>
+
+          </div>
           <div className='p-4'>
             <h2>Profile</h2>
             <div className='' style={{display: "flex"}}>
@@ -20,23 +23,30 @@ const UserProfile = () => {
             <hr className='mt-0' />
             <div className='' style={{display: "flex"}}>
               <p className='w-50 m-0' style={{alignItems: "center"}}>
-                UserName
+                Email
               </p>
-              <p>Rehnuma Bano</p>
+              <p>demo@gmail.com</p>
             </div>
             <hr className='mt-0' />
             <div className='' style={{display: "flex"}}>
               <p className='w-50 m-0' style={{alignItems: "center"}}>
-                UserName
+                Date Of Birth
               </p>
-              <p>Rehnuma Bano</p>
+              <p>11/09/2002</p>
             </div>
             <hr className='mt-0' />
             <div className='' style={{display: "flex"}}>
               <p className='w-50 m-0' style={{alignItems: "center"}}>
-                UserName
+               Mobile No.
               </p>
-              <p>Rehnuma Bano</p>
+              <p>672153615345</p>
+            </div>
+            <hr className='mt-0' />
+            <div className='' style={{display: "flex"}}>
+              <p className='w-50 m-0' style={{alignItems: "center"}}>
+               Country or region
+              </p>
+              <p>India</p>
             </div>
             <hr className='mt-0' />
             <button className="btn btn-primary" onClick={(e) => navigate("/user/editprofile")}>
