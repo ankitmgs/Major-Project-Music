@@ -140,27 +140,86 @@ const Home = ({ selMusic, setSelMusic }) => {
   };
 
   return (
-    <div className="container">
-      <div>
+    <div className="container mt-5">
+      <div >
         <Slider {...settings2}>
-          <div>
-            <h3>1</h3>
+          <div className="d-flex flex-column">
+            {/* <h3>1</h3> */}
+            <center>
+              <img
+                style={{
+                  width: "380px",
+                  height: "250px",
+                  backgroundSize: "cover",
+                }}
+                src="https://a10.gaanacdn.com/gn_img/showcase/0wrb4N3Lg7/wrb4jpM3Lg/size_l_1640488725.webp"
+                alt="artist-img"
+              />
+            </center>
           </div>
-          <div>
-            <h3>2</h3>
+          <div className="d-flex flex-column">
+            {/* <h3>1</h3> */}
+            <center>
+              <img
+                style={{
+                  width: "380px",
+                  height: "250px",
+                  backgroundSize: "cover",
+
+
+                }}
+                src="https://s1.dmcdn.net/v/H2Gni1NlaziC8Dhx6/x1080"
+                alt="artist-img"
+              />
+            </center>
           </div>
-          <div>
-            <h3>3</h3>
+          <div className="d-flex flex-column">
+            {/* <h3>1</h3> */}
+            <center>
+              <img
+                style={{
+                  width: "380px",
+                  height: "250px",
+                  backgroundSize: "cover",
+                }}
+                src="https://a10.gaanacdn.com/gn_img/albums/7rVW1aRWk5/VW1aEGejWk/size_l.webp"
+                alt="artist-img"
+              />
+            </center>
           </div>
-          <div>
-            <h3>4</h3>
+          <div className="d-flex flex-column">
+            {/* <h3>1</h3> */}
+            <center>
+              <img
+                style={{
+                  width: "380px",
+                  height: "250px",
+                  backgroundSize: "cover",
+
+                }}
+                src="https://a10.gaanacdn.com/gn_img/albums/D0PKLrWGl9/PKLqE2XR3G/size_l.jpg"
+                alt="artist-img"
+              />
+            </center>
           </div>
-          <div>
-            <h3>5</h3>
+          <div className="d-flex  justify-content-between">
+            {/* <h3>1</h3> */}
+            <center>
+              <img
+                style={{
+                  width: "380px",
+                  height: "250px",
+                  backgroundSize: "cover",
+                  // borderRadius: "50%",
+
+                }}
+                src="https://a10.gaanacdn.com/gn_img/albums/a7LWBaz3zX/LWBkQx9Dbz/size_l.jpg"
+                alt="artist-img"
+              />
+            </center>
           </div>
-          <div>
-            <h3>6</h3>
-          </div>
+
+
         </Slider>
       </div>
       <div className="mt-5">
