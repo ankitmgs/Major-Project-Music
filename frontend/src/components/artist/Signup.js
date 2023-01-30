@@ -144,7 +144,7 @@ const ArtistSignup = () => {
                             value={values.name}
                             onChange={handleChange}
                           />
-                          <label style={{ color: "white" }}>
+                          {/* <label style={{ color: "white" }}>
                             Upload Avatar Image
                           </label>
                           <MDBFile
@@ -152,7 +152,7 @@ const ArtistSignup = () => {
                             value={values.avatar}
                             onChange={uploadAvatar}
                             id="avatar"
-                          />
+                          /> */}
 
                           <select
                             id="gender"
@@ -162,10 +162,10 @@ const ArtistSignup = () => {
                             value={values.gender}
                             onChange={handleChange}
                           >
-                            <option selected value="1">
+                            <option selected value="Male">
                               Male
                             </option>
-                            <option value="2">Female</option>
+                            <option value="Female">Female</option>
                           </select>
 
                           <MDBInput

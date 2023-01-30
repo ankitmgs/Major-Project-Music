@@ -40,7 +40,7 @@ function SampleNextArrow(props) {
 const ArtistProfile = () => {
   const url = app_config.api_url;
 
-  const [selImage, setSelImage] = useState("")
+  const [selImage, setSelImage] = useState("");
 
   const [musicListArray, setMusicListArray] = useState([]);
   const [currentUser, setCurrentUser] = useState(
@@ -48,7 +48,7 @@ const ArtistProfile = () => {
   );
 
   const getMusic = async () => {
-    // console.log("fghjknbv", currentUser);
+    console.log("fghjknbv", currentUser);
     const response = await fetch(url + "/music/getall");
     const data = await response.json();
     console.log(data);
@@ -160,7 +160,9 @@ const ArtistProfile = () => {
               <MDBCard className="mb-4">
                 <MDBCardBody className="text-center">
                   <MDBCardImage
-                    src={currentUser.avatar?url+'/'+currentUser.avatar:''}
+                    src={
+                      currentUser.avatar ? url + "/" + currentUser.avatar : ""
+                    }
                     alt="avatar"
                     style={{
                       width: "200px",
@@ -170,25 +172,30 @@ const ArtistProfile = () => {
                     }}
                     fluid
                   />
-                  <p className="text-muted mb-1">Arijit Singh</p>
+                  <p className="text-muted mb-1">{currentUser.name}</p>
                   <p className="text-muted mb-4">Mumbai, INDIA</p>
                   <div className="d-flex justify-content-center mb-2">
-                  <label
-                  htmlFor="image"
-                  style={{
-                    zIndex: 1,
-                    display: "block",
-                    textAlign: "center",
-                    padding: 5,
-                    backgroundColor: "white",
-                    border: "2px solid black",
-                    borderRadius: 3,
-                    color: "black",
-                  }}
-                >
-                  Edit profile
-                </label>
-                <input type="file" hidden id="image" onChange={uploadFile} />
+                    <label
+                      htmlFor="image"
+                      style={{
+                        zIndex: 1,
+                        display: "block",
+                        textAlign: "center",
+                        padding: 5,
+                        backgroundColor: "white",
+                        border: "2px solid black",
+                        borderRadius: 3,
+                        color: "black",
+                      }}
+                    >
+                      Edit profile
+                    </label>
+                    <input
+                      type="file"
+                      hidden
+                      id="image"
+                      onChange={uploadFile}
+                    />
                     <MDBBtn outline className="ms-1">
                       Message
                     </MDBBtn>
