@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import app_config from "../../config";
 import MusicCard from "../../props/MusicCard";
+import { Bars } from 'react-loader-spinner';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -26,19 +27,24 @@ const Home = ({ selMusic, setSelMusic }) => {
 
   const [musicArray, setMusicArray] = useState([]);
   const [artistArray, setArtistArray] = useState([]);
+  const [isloading, setIsloading] = useState(true);
 
+  const [isloading2, setIsloading2] = useState(true)
   const getMusic = async () => {
     const response = await fetch(url + "/music/getall");
     const data = await response.json();
     console.log("songs", data);
     setMusicArray(data);
+    setIsloading(false);
   };
 
   const getArtist = async () => {
+    // console.log("array",artistArray );
     const response = await fetch(url + "/artist/getall");
     const data = await response.json();
     console.log("artists", data);
     setArtistArray(data);
+    setIsloading2(false);
   };
 
   useEffect(() => {
@@ -57,6 +63,36 @@ const Home = ({ selMusic, setSelMusic }) => {
       </div>
     ));
   };
+
+
+  const displayArtist = () => {
+    return artistArray.map((artist) => {
+      <Slider {...settings3}>
+        <div className="d-flex flex-column">
+          <center>
+            <img
+              style={{
+                width: "150px",
+                height: "150px",
+                backgroundSize: "cover",
+                borderRadius: "50%",
+                border: "7px solid black",
+              }}
+              src="https://images.hindustantimes.com/img/2022/12/30/550x309/e2a13dc8-82ec-11eb-a5d1-d80dd4489497_1615524097058_1672360184539_1672360184539.jpg"
+              alt="artist-img"
+            />
+          </center>
+          <p
+            className="d-flex justify-content-center mt-2"
+            style={{ fontSize: "large", color: "black" }}
+          >
+            {artist.name}
+          </p>
+        </div>
+
+      </Slider>
+    })
+  }
 
   const settings = {
     className: "center",
@@ -167,7 +203,15 @@ const Home = ({ selMusic, setSelMusic }) => {
   return (
     <div className="container mt-5">
       <div >
-        <Slider {...settings2}>
+        {isloading ? <><Bars
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        /></> : <Slider {...settings2}>
           <div className="d-flex flex-column">
             {/* <h3>1</h3> */}
             <center>
@@ -245,7 +289,7 @@ const Home = ({ selMusic, setSelMusic }) => {
           </div>
 
 
-        </Slider>
+        </Slider>}
       </div>
       <div className="mt-5">
         <span
@@ -300,7 +344,6 @@ const Home = ({ selMusic, setSelMusic }) => {
         </span>
         <Slider {...settings3}>
           <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
             <center>
               <img
                 style={{
@@ -321,8 +364,9 @@ const Home = ({ selMusic, setSelMusic }) => {
               Arijit Singh
             </p>
           </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
+          {artistArray.map((artist) => {
+            return (<>
+            <div className="d-flex flex-column">
             <center>
               <img
                 style={{
@@ -332,7 +376,7 @@ const Home = ({ selMusic, setSelMusic }) => {
                   borderRadius: "50%",
                   border: "7px solid black",
                 }}
-                src="https://maharashtratimes.com/thumb/msid-89431861,imgsize-60758,width-540,height-405,resizemode-75/lata-mangeshkar-89431861.jpg"
+                src={artist.avatar}
                 alt="artist-img"
               />
             </center>
@@ -340,141 +384,11 @@ const Home = ({ selMusic, setSelMusic }) => {
               className="d-flex justify-content-center mt-2"
               style={{ fontSize: "large", color: "black" }}
             >
-              Lata Mangeshkar
+              {artist.name}
             </p>
           </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Darsan_Raval.jpg"
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              Darshan Raval
-            </p>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src="https://i.scdn.co/image/ab6761610000e5ebcb6926f44f620555ba444fca"
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              Pritam
-            </p>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src="https://m.economictimes.com/thumb/msid-94687190,width-1200,height-900,resizemode-4,imgsize-29224/udit-narayan-canva.jpg"
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              Udit Narayan
-            </p>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src="https://images.hindustantimes.com/img/2022/12/30/550x309/e2a13dc8-82ec-11eb-a5d1-d80dd4489497_1615524097058_1672360184539_1672360184539.jpg"
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              Arijit Singh
-            </p>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src="https://images.hindustantimes.com/img/2022/12/30/550x309/e2a13dc8-82ec-11eb-a5d1-d80dd4489497_1615524097058_1672360184539_1672360184539.jpg"
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              Arijit Singh
-            </p>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src="https://images.hindustantimes.com/img/2022/12/30/550x309/e2a13dc8-82ec-11eb-a5d1-d80dd4489497_1615524097058_1672360184539_1672360184539.jpg"
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              Arijit Singh
-            </p>
-          </div>
+            </>)
+          })}
         </Slider>
       </div>
 
