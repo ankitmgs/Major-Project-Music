@@ -37,6 +37,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  country: {
+    type: String,
+  },
   tokens: [
     {
       token: {
@@ -45,9 +48,9 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
-  verifytoken:{
-    type:String,
-    
+  verifytoken: {
+    type: String,
+
   }
 });
 
@@ -63,15 +66,15 @@ userSchema.pre("save", async function (next) {
 
 // Generating web tokens
 userSchema.methods.generateAuthToken = async function () {
-    try {
-      let token = jwt.sign({ _id: this._id }, SECRET_KEY);
-      this.tokens = this.tokens.concat({ token: token });
-      await this.save();
-      return token;
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  try {
+    let token = jwt.sign({ _id: this._id }, SECRET_KEY);
+    this.tokens = this.tokens.concat({ token: token });
+    await this.save();
+    return token;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 const Users = mongoose.model("USER", userSchema);
