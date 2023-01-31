@@ -118,7 +118,7 @@ function App() {
               path="user"
             >
               <Route path="profile" element={<UserProfile />} />
-              <Route path="editprofile" element={<EditProfile />} />
+              <Route path="editprofile/:id" element={<EditProfile />} />
               <Route path="home" element={<UserHome />} />
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="userDashboard" element={<UserDashboard />} />

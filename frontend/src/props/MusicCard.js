@@ -21,7 +21,7 @@ const MusicCard = ({music, setSelMusic}) => {
       </figure>
       <span className="artist-song-name ">{music.title}</span>
       <br />
-      {/* <span className="artist-singer-name">{music.artist.name}</span> */}
+      <span className="artist-singer-name">{music.artist.name}</span>
     </div>
   );
 };

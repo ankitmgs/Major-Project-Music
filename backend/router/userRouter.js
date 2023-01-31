@@ -92,12 +92,11 @@ router.post("/login", async (req, res) => {
         expires: new Date(Date.now() + 864000000),
         httpOnly: true,
       });
-
       // console.log(userLoginData);
       if (!isMatch) {
         res.status(400).json({ error: "Invalid Credientials" });
       } else {
-        res.status(200).json({ message: "User login successfully" });
+        res.status(200).json(userLoginData);
       }
     } else {
       res.status(400).json({ error: "Invaid Credientials" });

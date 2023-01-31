@@ -2,13 +2,20 @@ import React from 'react';
 import {
     MDBInput, MDBRadio,
 } from "mdb-react-ui-kit";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 const EditProfile = () => {
+
+const {id} = useParams();
+console.log(id);
+
+
+
+
     return (
-        <div style={{ backgroundColor: "#eee" }} className="">
-            <div className='container '>
-                <div className='card p-5' >
+        <div  className="edit-user-profile-top ">
+            <div className='container'>
+                <div className='card edit-profile-card '>
                     <h1>EditProfile</h1>
                     <form>
                         <div className="form-row">
@@ -108,7 +115,7 @@ const EditProfile = () => {
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="md-form form-group">
-                                    <label htmlFor="inputAddressMD">Country or region</label>
+                                    <label htmlFor="inputAddressMD">Country</label>
                                     <input
                                         type="text"
                                         className="form-control"

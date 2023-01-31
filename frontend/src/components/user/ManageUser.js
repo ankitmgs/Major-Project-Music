@@ -6,4 +6,4 @@ const ManageUser = () => {
   )
 }
 
-export default ManageUser
+export default ManageUser;
