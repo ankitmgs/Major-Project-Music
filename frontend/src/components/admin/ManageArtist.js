@@ -98,7 +98,7 @@ const ManageArtist = () => {
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Profile</TableCell>
+              <TableCell>Gender</TableCell>
               <TableCell>Delete</TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>

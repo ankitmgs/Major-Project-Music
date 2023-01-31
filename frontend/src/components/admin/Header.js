@@ -76,10 +76,18 @@ const AdminHeader = () => {
                             Manage Artist
                           </NavLink>
                         </li>
+                        <li className="nav-item">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/admin/manageSongs"
+                          >
+                            Manage Song
+                          </NavLink>
+                        </li>
                       </ul>
                     </div>
                     <div className="d-flex align-items-center">
-                      <NavLink to="/admin">
+                      <NavLink to="/admin/login">
                         <button
                           type="button"
                           className="btn  btn-link px-3 mb-1 me-2"
@@ -88,7 +96,7 @@ const AdminHeader = () => {
                           Login
                         </button>
                       </NavLink>
-                      <NavLink to="/admin">
+                      <NavLink to="/admin/signup">
                         <button
                           type="button"
                           className="btn  btn-primary mb-1 me-lg-3"

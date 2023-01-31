@@ -10,7 +10,7 @@ import {
   MDBInput,
   MDBRow,
 } from "mdb-react-ui-kit";
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import app_config from "../../config";
 import Swal from "sweetalert2";
 import { CircularProgress } from "@mui/material";
@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 const ArtistSignup = () => {
   const url = app_config.api_url;
   const [loading, setLoading] = useState(false);
-  const [avatar, setAvatar] = useState("")
+  const [avatar, setAvatar] = useState("");
   const navigate = useNavigate();
   const signupForm = {
     email: "",
@@ -90,13 +90,81 @@ const ArtistSignup = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage:
-          "https://c0.wallpaperflare.com/preview/27/313/180/man-singing-on-stage.jpg",
-      }}
-    >
+ <>
       <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
+        {({ values, handleChange, handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            <MDBContainer
+              fluid
+              className="d-flex align-items-center justify-content-center bg-image"
+              style={{
+                backgroundImage:
+                  "url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp)",
+              }}
+            >
+              <div className="mask gradient-custom-3"></div>
+              <MDBCard className="m-5 w-100" style={{ maxWidth: "600px" }}>
+                <MDBCardBody className="px-5">
+                  <h2 className="text-uppercase text-center mb-5">
+                    Artist Register
+                  </h2>
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Your Name"
+                    size="lg"
+                    id="name"
+                    value={values.name}
+                    onChange={handleChange}
+                    type="text"
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Your Email"
+                    size="lg"
+                    id="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    type="email"
+                  />
+                  <select
+                    id="gender"
+                    className="form-select mb-4"
+                    label="Gender"
+                    aria-label="Default select example"
+                    value={values.gender}
+                    onChange={handleChange}
+                  >
+                    <option selected value="Male">
+                      Male
+                    </option>
+                    <option value="Female">Female</option>
+                  </select>
+
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Password"
+                    size="lg"
+                    id="password"
+                    type="password"
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Repeat your password"
+                    size="lg"
+                    id="cpassword"
+                    type="password"
+                  />
+                 
+                  <button className="btn btn-primary mb-4 w-100 gradient-custom-4" size="lg">
+                    Register
+                  </button>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBContainer>
+          </form>
+        )}
+      </Formik>
+      {/* <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <MDBContainer fluid className="h-custom">
@@ -144,15 +212,7 @@ const ArtistSignup = () => {
                             value={values.name}
                             onChange={handleChange}
                           />
-                          {/* <label style={{ color: "white" }}>
-                            Upload Avatar Image
-                          </label>
-                          <MDBFile
-                            className="mb-4"
-                            value={values.avatar}
-                            onChange={uploadAvatar}
-                            id="avatar"
-                          /> */}
+     
 
                           <select
                             id="gender"
@@ -207,7 +267,7 @@ const ArtistSignup = () => {
             </MDBContainer>
           </form>
         )}
-      </Formik>
+      </Formik> */}
       {/* <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
@@ -313,7 +373,7 @@ const ArtistSignup = () => {
           </form>
         )}
       </Formik> */}
-    </div>
+      </>
   );
 };
 

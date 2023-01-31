@@ -59,7 +59,7 @@ const AdminManageSongs = () => {
               <TableCell>Composer</TableCell>
               <TableCell>Language</TableCell>
               <TableCell>Delete</TableCell>
-              <TableCell>Actions</TableCell>
+              {/* <TableCell>Actions</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -79,8 +79,9 @@ const AdminManageSongs = () => {
                           src={url + "/" + song.thumbnail}
                           className="rounded-circle mr-4"
                         />
+                        {song.title}
                       </TableCell>
-                      <TableCell>{song.title}</TableCell>
+                      <TableCell>{song.artist.name}</TableCell>
                       <TableCell>{song.composer}</TableCell>
                       <TableCell>{song.language}</TableCell>
 
@@ -94,15 +95,15 @@ const AdminManageSongs = () => {
                           <i class="fa-solid fa-trash fa-lg"></i>
                         </button>
                       </TableCell>
-                      <TableCell>
+                      {/* <TableCell>
                         <NavLink
-                          to={"/artist/edit/" + song._id}
+                          to={"/admin/edit/" + song._id}
                           type="button"
                           className="btn btn-secondary"
                         >
                           Edit
                         </NavLink>
-                      </TableCell>
+                      </TableCell> */}
                     </TableRow>
                   </>
                 );

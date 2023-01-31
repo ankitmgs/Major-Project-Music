@@ -36,6 +36,9 @@ import UserAuth from "./UserAuth";
 import EditArtist from "./components/admin/EditArtist";
 import EditUser from "./components/admin/EditUser";
 import Player from "./components/main/Player";
+import AdminEditSong from "./components/admin/EditSong";
+import AdminLogin from "./components/admin/Login";
+import AdminSignup from "./components/admin/Signup";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -81,8 +84,12 @@ function App() {
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="manageArtists" element={<ManageArtist />} />
               <Route path="manageSongs" element={<AdminManageSongs />} />
+              <Route path="login" element={<AdminLogin />} />
+              <Route path="signup" element={<AdminSignup />} />
               <Route path="editArtist/:artistId" element={<EditArtist />} />
               <Route path="editUser/:artid" element={<EditUser />} />
+              <Route path="edit/:songid" element={<AdminEditSong />} />
+
             </Route>
 
             <Route

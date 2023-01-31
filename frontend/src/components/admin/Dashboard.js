@@ -15,6 +15,7 @@ import ManageArtist from "./ManageArtist";
 import ManageUser from "./ManageUser";
 import app_config from "../../config";
 import axios from "axios";
+import AdminManageSongs from "./ManageSongs";
 
 const AdminDashboard = () => {
   const url = app_config.api_url;
@@ -85,7 +86,14 @@ const AdminDashboard = () => {
 
       <div className="row">
         <div className="card-md-12">
-          <div className="card mt-4 p-4">Manage Users</div>
+          <div className="card mt-4 p-4">
+            <div style={{ height: "20rem", overflowY: "auto" }}>
+              <h4 className="d-flex justify-content-center m-0 pb-3">
+                Manage Songs
+              </h4>
+              <AdminManageSongs />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -105,12 +113,21 @@ const AdminDashboard = () => {
       <div className="row">
         <div className="col-md-6">
           <div className="card mt-4 p-4">
-            <ManageArtist />
+            <h4 className="d-flex justify-content-center m-0 pb-3">
+              Manage Artist
+            </h4>
+            <div style={{ height: "20rem", overflowY: "auto" }}>
+              <ManageArtist />
+            </div>
           </div>
         </div>
         <div className="col-md-6">
           <div className="card mt-4 p-4">
-            <div className="" style={{height: "20rem", overflowY: "auto" }}>
+            <h4 className="d-flex justify-content-center m-0 pb-3">
+              Manage User
+            </h4>
+
+            <div className="" style={{ height: "20rem", overflowY: "auto" }}>
               <ManageUser />
             </div>
           </div>
