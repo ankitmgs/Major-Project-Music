@@ -8,6 +8,11 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Bar } from "react-chartjs-2";
 import { Data as UserData } from ".././utils/data";
 import BarChart from "./Graph/BarChart";
@@ -87,12 +92,28 @@ const AdminDashboard = () => {
       <div className="row">
         <div className="card-md-12">
           <div className="card mt-4 p-4">
-            <div style={{ height: "20rem", overflowY: "auto" }}>
+            {/* <div style={{ height: "20rem", overflowY: "auto" }}>
               <h4 className="d-flex justify-content-center m-0 pb-3">
                 Manage Songs
               </h4>
               <AdminManageSongs />
-            </div>
+            </div> */}
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>Accordion 1</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  gklkjn
+                  {/* <AdminDashboard /> */}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            
           </div>
         </div>
       </div>
