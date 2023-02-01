@@ -21,9 +21,14 @@ import ManageUser from "./ManageUser";
 import app_config from "../../config";
 import axios from "axios";
 import AdminManageSongs from "./ManageSongs";
+import AnimatedNumbers from "react-animated-numbers";
 
 const AdminDashboard = () => {
   const url = app_config.api_url;
+  const [num, setNum] = React.useState(100);
+  const [num2, setNum2] = React.useState(200);
+  const [num3, setNum3] = React.useState(300);
+
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.year),
     datasets: [
@@ -75,17 +80,57 @@ const AdminDashboard = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-3 col-sm-6">
-          <div className="card mt-4 p-4">Total Music Uploaded on Platform</div>
+        <div className="col-md-4  col-sm-6">
+          <div
+            className="card mt-4 p-5 d-flex flex-row justify-content-between"
+            style={{ alignItems: "center" }}
+          >
+            <div style={{fontWeight: "bolder", fontSize: "2rem"}}>Total Music</div>
+            <div>
+              <AnimatedNumbers
+                animateToNumber={num}
+                fontStyle={{ fontSize: 32 }}
+                configs={(number, index) => {
+                  return { mass: 1, tension: 230 * (index + 1), friction: 140 };
+                }}
+              ></AnimatedNumbers>
+            </div>
+          </div>
         </div>
-        <div className="col-md-3 col-sm-6">
-          <div className="card mt-4 p-4">Total Artists</div>
+        <div className="col-md-4  col-sm-6">
+          <div
+            className="card mt-4 p-5 d-flex flex-row justify-content-between"
+            style={{ alignItems: "center" }}
+          >
+            <div style={{fontWeight: "bolder", fontSize: "2rem"}}>Total Artist</div>
+            <div>
+              <AnimatedNumbers
+                animateToNumber={num2}
+                fontStyle={{ fontSize: 32 }}
+                configs={(number, index) => {
+                  return { mass: 1, tension: 230 * (index + 1), friction: 140 };
+                }}
+              ></AnimatedNumbers>
+            </div>
+          </div>
         </div>
-        <div className="col-md-3 col-sm-6">
-          <div className="card mt-4 p-4">Total Users</div>
-        </div>
-        <div className="col-md-3 col-sm-6">
-          <div className="card mt-4 p-4">Total Songs</div>
+
+        <div className="col-md-4  col-sm-6">
+          <div
+            className="card mt-4 p-5 d-flex flex-row justify-content-between"
+            style={{ alignItems: "center" }}
+          >
+            <div style={{fontWeight: "bolder", fontSize: "2rem"}}>Total User</div>
+            <div>
+              <AnimatedNumbers
+                animateToNumber={num3}
+                fontStyle={{ fontSize: 32 }}
+                configs={(number, index) => {
+                  return { mass: 1, tension: 230 * (index + 1), friction: 140 };
+                }}
+              ></AnimatedNumbers>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -152,7 +197,7 @@ const AdminDashboard = () => {
         </div>
         <div className="col-md-6">
           <div className="card mt-4 p-4">
-          <Accordion>
+            <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
