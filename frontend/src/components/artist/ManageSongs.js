@@ -130,8 +130,8 @@ const ManageSongs = () => {
                           src={url + "/" + song.thumbnail}
                           className="rounded-circle mr-4"
                         />
+                        {song.title}
                       </TableCell>
-                      <TableCell>{song.title}</TableCell>
                       <TableCell>{song.artist}</TableCell>
                       <TableCell>{song.composer}</TableCell>
                       <TableCell>{song.language}</TableCell>

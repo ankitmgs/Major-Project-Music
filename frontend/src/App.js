@@ -100,7 +100,7 @@ function App() {
               }
               path="artist"
             >
-              <Route path="manageArtist" element={<ManageArtist />} />
+              {/* <Route path="manageArtist" element={<ManageArtist />} /> */}
               <Route path="uploads" element={<Uploads />} />
               <Route path="artistprofile" element={<ArtistProfile />} />
               <Route path="home" element={<ArtistHome />} />

@@ -58,6 +58,14 @@ const Header = () => {
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
+                            to="/artist/artistdashboard"
+                          >
+                            Dashboard
+                          </NavLink>
+                        </li>
+                        <li className="nav-item">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
                             to="/artist/uploads"
                           >
                             Uploads

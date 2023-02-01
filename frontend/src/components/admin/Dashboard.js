@@ -13,9 +13,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Bar } from "react-chartjs-2";
 import { Data as UserData } from ".././utils/data";
-import BarChart from "./Graph/BarChart";
+import BarChart from "../Graph/BarChart";
 import ManageArtist from "./ManageArtist";
 import ManageUser from "./ManageUser";
 import app_config from "../../config";
@@ -26,9 +25,11 @@ import DoughnutChart from "./Graph/DoughnutChart";
 
 const AdminDashboard = () => {
   const url = app_config.api_url;
-  const [num, setNum] = React.useState(100);
-  const [num2, setNum2] = React.useState(200);
-  const [num3, setNum3] = React.useState(300);
+  const [num, setNum] = useState(100);
+  const [num2, setNum2] = useState(200);
+  const [num3, setNum3] = useState([userLength]);
+  const [artistArray, setArtistArray] = useState([]);
+  const [musicArray, setMusicArray] = useState([]);
 
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.year),
@@ -41,6 +42,19 @@ const AdminDashboard = () => {
   });
   const [userDatafromAPI, setuserDatafromAPI] = useState([]);
 
+  const getArtistGetAll = async () => {
+    const response = await fetch(url + "/artist/getall");
+    const data = await response.json();
+    console.log("artist", data);
+    setArtistArray(data);
+  };
+  const getMusicGetAll = async () => {
+    const response = await fetch(url + "/music/getall");
+    const data = await response.json();
+    console.log("music", data);
+    setMusicArray(data);
+  };
+
   useEffect(() => {
     axios
       .get(url + "/user/getall")
@@ -51,7 +65,12 @@ const AdminDashboard = () => {
       .catch((err) => {
         console.error(err);
       });
+    getArtistGetAll();
+    getMusicGetAll();
   }, []);
+
+  var userLength = Object.keys(userDatafromAPI).length;
+  console.log("Total user", userLength);
 
   const labels = [
     "January",
