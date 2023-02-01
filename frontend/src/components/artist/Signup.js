@@ -26,6 +26,7 @@ const ArtistSignup = () => {
     name: "",
     avatar: "",
     gender: "",
+    phone: "",
     password: "",
     cpassword: "",
   };

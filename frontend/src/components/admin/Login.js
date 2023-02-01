@@ -48,8 +48,8 @@ const AdminLogin = () => {
           .json()
           .then((data) => {
             console.log(data);
-            sessionStorage.setItem("artist", JSON.stringify(data));
-            navigate("/admin/dashboard");
+            sessionStorage.setItem("admin", JSON.stringify(data));
+            navigate("/admin/adminDashboard");
           })
           .catch((err) => {
             console.log(err);
@@ -76,7 +76,7 @@ const AdminLogin = () => {
     <div>
       <Formik initialValues={adminForm} onSubmit={LoginSubmit}>
         {({ values, handleChange, handleSubmit }) => (
-          <form onSubmit={LoginSubmit}>
+          <form onSubmit={handleSubmit}>
             <MDBContainer fluid>
               <MDBRow className="d-flex justify-content-center align-items-center h-100">
                 <MDBCol col="12">
@@ -121,6 +121,7 @@ const AdminLogin = () => {
                         className=" btn btn-primary mx-2 px-5"
                         color="white"
                         size="lg"
+                        type="submit"
                       >
                         Login
                       </button>

@@ -6,33 +6,39 @@ import app_config from "../../config";
 import Loader from "../utils/loader";
 
 const EditArtist = () => {
-  const [isloading, setIsloading] = useState(true);
+  const [isloading, setIsloading] = useState(false);
   const {artistId} = useParams();
-  const [initialForm, setInitialForm] = useState(null);
+  const [initialForm, setInitialForm] = useState(JSON.parse(sessionStorage.getItem("admin")));
   const url = app_config.api_url;
 
-  const getArtistbyId = () => {
-    console.log("artist id ye hai", artistId);
-    // setIsloading(false);
-    fetch(url + "/artist/getbyid/" + artistId)
-      .then((res) => {
-        console.log(res.status);
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setInitialForm(data);
-        console.log("asdf",initialForm);
-        setIsloading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
-  useEffect(() => {
-    getArtistbyId();
-  }, []);
+  console.log(initialForm);
+
+  // const getArtistbyId = () => {
+  //   console.log("artist id ye hai", artistId);
+  //   // setIsloading(false);
+  //   fetch(url + "/artist/getbyid/" + artistId)
+  //     .then((res) => {
+  //       console.log(res.status);
+  //       console.log("fetch chal gaya");
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //       setInitialForm(data);
+  //       console.log("asdf",data);
+  //       setIsloading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+
+
+  // useEffect(() => {
+  //   getArtistbyId();
+  // }, []);
 
   const updateSubmit = (formdata) => {
     fetch(url + "/artist/update/" + artistId.artid, {
@@ -78,7 +84,7 @@ const EditArtist = () => {
                           className="form-control"
                           placeholder="Edit Name"
                           id="name" 
-                          // value={values.name}
+                          value={values.name}
                           onChange={handleChange}
                         />
                       </div>
@@ -89,7 +95,7 @@ const EditArtist = () => {
                           className="form-control"
                           placeholder="Edit Email"
                           id=""
-                        //   value={values.email}
+                          value={values.email}
                           onChange={handleChange}
                         />
                       </div>
@@ -100,7 +106,7 @@ const EditArtist = () => {
                           className="form-control"
                           placeholder="Edit Gender"
                           id=""
-                        //   value={values.gender}
+                          // value={values.gender}
                           onChange={handleChange}
                         />
                       </div>

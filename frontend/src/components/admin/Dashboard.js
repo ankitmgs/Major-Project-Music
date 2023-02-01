@@ -80,7 +80,7 @@ const AdminDashboard = () => {
           <div className="card mt-4 p-4">Total Users</div>
         </div>
         <div className="col-md-3 col-sm-6">
-          <div className="card mt-4 p-4">Active Live</div>
+          <div className="card mt-4 p-4">Total Songs</div>
         </div>
       </div>
 
