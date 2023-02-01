@@ -92,28 +92,24 @@ const AdminDashboard = () => {
       <div className="row">
         <div className="card-md-12">
           <div className="card mt-4 p-4">
-            {/* <div style={{ height: "20rem", overflowY: "auto" }}>
-              <h4 className="d-flex justify-content-center m-0 pb-3">
-                Manage Songs
-              </h4>
-              <AdminManageSongs />
-            </div> */}
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Accordion 1</Typography>
+                <Typography>
+                  <h4>Manage Songs</h4>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  gklkjn
-                  {/* <AdminDashboard /> */}
+                  <div style={{ height: "20rem", overflowY: "auto" }}>
+                    <AdminManageSongs />
+                  </div>
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            
           </div>
         </div>
       </div>
@@ -134,23 +130,46 @@ const AdminDashboard = () => {
       <div className="row">
         <div className="col-md-6">
           <div className="card mt-4 p-4">
-            <h4 className="d-flex justify-content-center m-0 pb-3">
-              Manage Artist
-            </h4>
-            <div style={{ height: "20rem", overflowY: "auto" }}>
-              <ManageArtist />
-            </div>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>
+                  <h4>Manage Artist</h4>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <div style={{ height: "20rem", overflowY: "auto" }}>
+                    <ManageArtist />
+                  </div>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
           </div>
         </div>
         <div className="col-md-6">
           <div className="card mt-4 p-4">
-            <h4 className="d-flex justify-content-center m-0 pb-3">
-              Manage User
-            </h4>
-
-            <div className="" style={{ height: "20rem", overflowY: "auto" }}>
-              <ManageUser />
-            </div>
+          <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>
+                  <h4>Manage User</h4>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <div style={{ height: "20rem", overflowY: "auto" }}>
+                    <ManageUser />
+                  </div>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
           </div>
         </div>
       </div>

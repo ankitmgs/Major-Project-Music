@@ -29,6 +29,7 @@ const ArtistSignup = () => {
     phone: "",
     password: "",
     cpassword: "",
+    awards: "",
   };
 
   const uploadAvatar = (e) => {
@@ -146,6 +147,8 @@ const ArtistSignup = () => {
                     label="Password"
                     size="lg"
                     id="password"
+                    value={values.password}
+                    onChange={handleChange}
                     type="password"
                   />
                   <MDBInput
@@ -153,6 +156,8 @@ const ArtistSignup = () => {
                     label="Repeat your password"
                     size="lg"
                     id="cpassword"
+                    value={values.cpassword}
+                    onChange={handleChange}
                     type="password"
                   />
                  
