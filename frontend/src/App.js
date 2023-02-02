@@ -20,7 +20,7 @@ import { UserProvider } from "./UserContext";
 import { useState } from "react";
 import ArtistAuth from "./ArtistAuth";
 import ArtistHome from "./components/artist/Home";
-import NotFound from "./components/NotFound";
+import NotFound from "./components/utils/NotFound";
 import ManageArtist from "./components/admin/ManageArtist";
 import UserHome from "./components/user/Home";
 import UserDashboard from "./components/user/Dashboard";
@@ -124,9 +124,9 @@ function App() {
 
             <Route
               element={
-                // <UserAuth>
+                <UserAuth>
                 <User />
-                // </UserAuth>
+                 </UserAuth>
               }
               path="user"
             >

@@ -49,7 +49,7 @@ const Header = () => {
                       id="navbarSupportedContent"
                     >
                       {/* Left links */}
-                      <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                      {/* <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
@@ -82,15 +82,15 @@ const Header = () => {
                             Artist Signup
                           </NavLink>
                         </li>
-                      </ul>
+                      </ul> */}
                       {/* Left links */}
                     </div>
                     {/* Collapsible wrapper */} {/* Right elements */}
                     <div className="d-flex align-items-center">
                       {loggedin ? (
-                        <button>Logout</button>
+                        <button className="btn btn-danger">Logout</button>
                       ) : (
-                        <NavLink to="/main/login">
+                        <>                        <NavLink to="/main/login">
                           <button
                             type="button"
                             className="btn  btn-link px-3 mb-1 me-2"
@@ -99,8 +99,7 @@ const Header = () => {
                             Login
                           </button>
                         </NavLink>
-                      )}
-                      <NavLink to="/main/signup">
+                        <NavLink to="/main/signup">
                         <button
                           type="button"
                           className="btn  btn-primary mb-1 me-lg-3"
@@ -109,6 +108,10 @@ const Header = () => {
                           Sign up
                         </button>
                       </NavLink>
+                        </>
+
+                      )}
+                     
                     </div>
                     {/* Right elements */}
                   </div>
