@@ -2,6 +2,7 @@ import React from "react";
 import { stack as Menu } from "react-burger-menu";
 import { NavLink } from "react-router-dom";
 import "../utils/SlideBar.css";
+import Album from '@mui/icons-material/Album';
 
 const SliderAdmin = () => {
   return (
@@ -33,28 +34,28 @@ const SliderAdmin = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/admin/adminDashboard"
           >
-            Dashboard
+           <i class="fa-solid fa-chart-line pr-2" /> Dashboard
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="/admin/manageUsers"
           >
-            Manage User
+           <i class="fas fa-thin fa-user pr-2" /> Manage User
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="/admin/manageArtists"
           >
-            Manage Artist
+           <Album className="" /> Manage Artist
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="/admin/manageSongs"
           >
-            Manage Song
+            <i class="fa-solid fa-music pr-2" />Manage Song
           </NavLink>
         </div>
       </Menu>

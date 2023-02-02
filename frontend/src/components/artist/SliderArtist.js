@@ -33,21 +33,21 @@ const SliderArtist = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/artist/artistdashboard"
           >
-            Dashboard
+            <i class="fa-solid fa-chart-line pr-2" />Dashboard
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="/artist/uploads"
           >
-            Upload
+            <i class="fas fa-regular fa-cloud-arrow-up pr-2" />Upload
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="/artist/manageSongs"
           >
-            Manage Song
+           <i class="fa-solid fa-list-check pr-2" /> Manage Song
           </NavLink>
         </div>
       </Menu>

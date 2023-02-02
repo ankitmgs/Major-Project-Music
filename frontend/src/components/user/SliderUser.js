@@ -3,11 +3,11 @@ import { stack as Menu } from "react-burger-menu";
 import { NavLink } from "react-router-dom";
 import "../utils/SlideBar.css";
 
-const SliderMain = () => {
+const SliderUser = () => {
   return (
     <div>
       <Menu>
-        {/* <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center">
           <img
             style={{
               borderRadius: "50%",
@@ -23,51 +23,36 @@ const SliderMain = () => {
           <p>Avatar Name</p>
         </div>
         <div className="d-flex justify-content-center">
-          <NavLink to="/artist/artistprofile">
+          <NavLink to="/user/profile">
             <button className="btn btn-primary m-0">Profile</button>
           </NavLink>
-        </div> */}
+        </div>
         <div className="d-flex flex-column mt-5" style={{ gap: "0.5rem" }}>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
-            to="/main/home"
+            to="/user/home"
           >
-           <i class="fa-solid fa-house pr-2" /> Home
-          </NavLink>
-          <NavLink
-            className="menu-item hover-underline-animation"
-            style={{ textDecoration: "none", color: "white" }}
-            to="/main/contactus"
-          >
-           <i class="fa-solid fa-address-book pr-2" /> Contact
+            <i class="fa-solid fa-house pr-2" />Home
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="#"
           >
-            <i class="fa-solid fa-magnifying-glass pr-2" />Search
+            <i class="fas fa-thin fa-magnifying-glass pr-2" />Search
           </NavLink>
-        </div>
-        <div className="d-flex flex-column" style={{ marginTop: "20rem" }}>
-          <div>
-            <center>
-              <p className="m-0">Artist ?</p>
-            </center>
-          </div>
-          <div className="d-flex justify-content-between">
-            <NavLink to="/main/artistlogin">
-              <button className="btn btn-success">Login</button>
-            </NavLink>
-            <NavLink to="/main/artistsignup">
-              <button className="btn btn-success">Register</button>
-            </NavLink>
-          </div>
+          <NavLink
+            className="menu-item hover-underline-animation"
+            style={{ textDecoration: "none", color: "white" }}
+            to="#"
+          >
+            <i class="fa-sharp fa-solid fa-heart pr-2" />Favourites
+          </NavLink>
         </div>
       </Menu>
     </div>
   );
 };
 
-export default SliderMain;
+export default SliderUser;
