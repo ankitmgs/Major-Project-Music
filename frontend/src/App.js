@@ -51,10 +51,10 @@ function App() {
     <div id="outer-container">
       <UserProvider user={currentUser}>
         <BrowserRouter>
-          <SlideBar
+          {/* <SlideBar
             pageWrapId={"page-wrap"}
             outerContainerId={"outer-container"}
-          />
+          /> */}
           <Routes>
             <Route element={<Navigate to="/main/home" />} path="/" />
             <Route path="*" element={<NotFound />} />
