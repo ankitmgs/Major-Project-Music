@@ -21,16 +21,18 @@ const SliderAdmin = () => {
               height: "10rem",
               objectFit: "cover",
             }}
-            src={
-              currentAdminfromSession.avatar
-                ? url + "/" + currentAdminfromSession.avatar
-                : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-            }
+            src=""
+            // src={
+            //   currentAdminfromSession.avatar
+            //     ? url + "/" + currentAdminfromSession.avatar
+            //     : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+            // }
             alt="avatar"
           />
         </div>
         <div className="d-flex justify-content-center m-0">
-          <p>{currentAdminfromSession.name}</p>
+          {/* {currentAdminfromSession.name ?  (currentAdminfromSession.name): ""} */}
+          <p>Name</p>
         </div>
         <div className="d-flex justify-content-center">
           <NavLink to="/admin/profile">
