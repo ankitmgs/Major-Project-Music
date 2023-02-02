@@ -74,6 +74,11 @@ function App() {
               <Route path="contactus" element={<ContactUs />} />
               <Route path="artistlogin" element={<ArtistLogin />} />
               <Route path="artistsignup" element={<ArtistSignup />} />
+              <Route
+                path="/main"
+                element={<Navigate replace to="/main/home" />}
+              />
+
               {/* <Route path="player/:musicid" element={<Player />} /> */}
               <Route path="player" element={<Player />} />
             </Route>
@@ -89,7 +94,10 @@ function App() {
               <Route path="editArtist/:artistId" element={<EditArtist />} />
               <Route path="editUser/:artid" element={<EditUser />} />
               <Route path="edit/:songid" element={<AdminEditSong />} />
-
+              <Route
+                path="/admin"
+                element={<Navigate replace to="/admin/adminDashboard" />}
+              />
             </Route>
 
             <Route
@@ -102,6 +110,11 @@ function App() {
             >
               {/* <Route path="manageArtist" element={<ManageArtist />} /> */}
               <Route path="uploads" element={<Uploads />} />
+              <Route
+                path="/artist"
+                element={<Navigate replace to="/artist/artistdashboard" />}
+              />
+
               <Route path="artistprofile" element={<ArtistProfile />} />
               <Route path="home" element={<ArtistHome />} />
               <Route path="artistdashboard" element={<ArtistDashboard />} />
@@ -112,11 +125,16 @@ function App() {
             <Route
               element={
                 // <UserAuth>
-                  <User />
+                <User />
                 // </UserAuth>
               }
               path="user"
             >
+              <Route
+                path="/user"
+                element={<Navigate replace to="/user/home" />}
+              />
+
               <Route path="profile" element={<UserProfile />} />
               <Route path="editprofile/:id" element={<EditProfile />} />
               <Route path="home" element={<UserHome />} />
