@@ -3,7 +3,7 @@ import { stack as Menu } from "react-burger-menu";
 import { NavLink } from "react-router-dom";
 import "../utils/SlideBar.css";
 
-const SliderAdmin = () => {
+const SliderArtist = () => {
   return (
     <div>
       <Menu>
@@ -23,7 +23,7 @@ const SliderAdmin = () => {
           <p>Avatar Name</p>
         </div>
         <div className="d-flex justify-content-center">
-          <NavLink to="/admin/profile">
+          <NavLink to="/artist/artistprofile">
             <button className="btn btn-primary m-0">Profile</button>
           </NavLink>
         </div>
@@ -31,28 +31,21 @@ const SliderAdmin = () => {
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
-            to="/admin/adminDashboard"
+            to="/artist/artistdashboard"
           >
             Dashboard
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
-            to="/admin/manageUsers"
+            to="/artist/uploads"
           >
-            Manage User
+            Upload
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
-            to="/admin/manageArtists"
-          >
-            Manage Artist
-          </NavLink>
-          <NavLink
-            className="menu-item hover-underline-animation"
-            style={{ textDecoration: "none", color: "white" }}
-            to="/admin/manageSongs"
+            to="/artist/manageSongs"
           >
             Manage Song
           </NavLink>
@@ -62,4 +55,4 @@ const SliderAdmin = () => {
   );
 };
 
-export default SliderAdmin;
+export default SliderArtist;

@@ -46,7 +46,7 @@ const Header = () => {
                       id="navbarSupportedContent"
                     >
                       {/* Left links */}
-                      <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                      {/* <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
@@ -87,13 +87,7 @@ const Header = () => {
                             Profile
                           </NavLink>
                         </li>
-                        {/* <li className="nav-item">
-                          <NavLink className="nav-link" to="/podcasts">Podcasts</NavLink>
-                        </li>
-                        <li className="nav-item">
-                          <NavLink className="nav-link" to="/login">Login</NavLink>
-                        </li> */}
-                      </ul>
+                      </ul> */}
                       {/* Left links */}
                     </div>
                     {/* Collapsible wrapper */} {/* Right elements */}
