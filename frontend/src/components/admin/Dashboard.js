@@ -21,7 +21,7 @@ import app_config from "../../config";
 import axios from "axios";
 import AdminManageSongs from "./ManageSongs";
 import AnimatedNumbers from "react-animated-numbers";
-import DoughnutChart from "./Graph/DoughnutChart";
+import DoughnutChart from "../Graph/DoughnutChart";
 
 const AdminDashboard = () => {
   const url = app_config.api_url;
