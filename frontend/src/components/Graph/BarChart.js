@@ -22,6 +22,8 @@ ChartJS.register(
 const BarChart = ({ chartData }) => {
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
+
     plugins: {
       legend: {
         position: "top",

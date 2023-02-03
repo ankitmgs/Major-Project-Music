@@ -35,7 +35,7 @@ const AdminHeader = () => {
                       className="collapse navbar-collapse"
                       id="navbarSupportedContent"
                     >
-                      <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                      {/* <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
@@ -84,7 +84,7 @@ const AdminHeader = () => {
                             Manage Song
                           </NavLink>
                         </li>
-                      </ul>
+                      </ul> */}
                     </div>
                     <div className="d-flex align-items-center">
                       <NavLink to="/admin/login">

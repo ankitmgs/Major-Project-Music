@@ -40,8 +40,8 @@ const userSchema = new mongoose.Schema({
   country: {
     type: String,
   },
-  avatar:{
-    type:String
+  avatar: {
+    type: String,
   },
   tokens: [
     {

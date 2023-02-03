@@ -27,6 +27,10 @@ const model = new mongoose.Schema({
     type: String,
     // required: true,
   },
+  awards: {
+    type: String,
+    // required: true,
+  },
   createdAt: {
     type: Date,
   },

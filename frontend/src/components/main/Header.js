@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../UserContext";
+import "../../CSS/toggleBar.css";
 
 const Header = () => {
   const { loggedin, setLoggedin } = useContext(UserContext);
@@ -49,13 +50,21 @@ const Header = () => {
                       id="navbarSupportedContent"
                     >
                       {/* Left links */}
-                      <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                      {/* <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
                           <NavLink
                             className="nav-link hover-underline-animation"
                             to="/main/home"
                           >
                             Home
+                          </NavLink>
+                        </li>
+                        <li className="nav-item">
+                          <NavLink
+                            className="nav-link hover-underline-animation"
+                            to="/main/contactus"
+                          >
+                            Contact
                           </NavLink>
                         </li>
                         <li className="nav-item">
@@ -74,33 +83,56 @@ const Header = () => {
                             Artist Signup
                           </NavLink>
                         </li>
-                      </ul>
+                      </ul> */}
                       {/* Left links */}
                     </div>
                     {/* Collapsible wrapper */} {/* Right elements */}
                     <div className="d-flex align-items-center">
+                      <>
+                        {" "}
+                        <div class="toggleWrapper">
+                          <input type="checkbox" class="dn" id="dn" />
+                          <label for="dn" class="toggle">
+                            <span class="toggle__handler">
+                              <span class="crater crater--1"></span>
+                              {/* <span class="crater crater--2"></span> */}
+                              {/* <span class="crater crater--3"></span> */}
+                            </span>
+                            <span class="star star--1"></span>
+                            <span class="star star--2"></span>
+                            <span class="star star--3"></span>
+                            <span class="star star--4"></span>
+                            <span class="star star--5"></span>
+                            <span class="star star--6"></span>
+                          </label>
+                        </div>
+                      </>
+
                       {loggedin ? (
-                        <button>Logout</button>
+                        <button className="btn btn-danger">Logout</button>
                       ) : (
-                        <NavLink to="/main/login">
-                          <button
-                            type="button"
-                            className="btn  btn-link px-3 mb-1 me-2"
-                            aria-controls="#picker-editor"
-                          >
-                            Login
-                          </button>
-                        </NavLink>
+                        <>
+                          {" "}
+                          <NavLink to="/main/login">
+                            <button
+                              type="button"
+                              className="btn  btn-link px-3 mb-1 me-2"
+                              aria-controls="#picker-editor"
+                            >
+                              Login
+                            </button>
+                          </NavLink>
+                          <NavLink to="/main/signup">
+                            <button
+                              type="button"
+                              className="btn  btn-primary mb-1 me-lg-3"
+                              aria-controls="#picker-editor"
+                            >
+                              Sign up
+                            </button>
+                          </NavLink>
+                        </>
                       )}
-                      <NavLink to="/main/signup">
-                        <button
-                          type="button"
-                          className="btn  btn-primary mb-1 me-lg-3"
-                          aria-controls="#picker-editor"
-                        >
-                          Sign up
-                        </button>
-                      </NavLink>
                     </div>
                     {/* Right elements */}
                   </div>

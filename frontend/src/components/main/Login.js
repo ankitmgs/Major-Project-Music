@@ -50,7 +50,7 @@ const Login = () => {
           });
           const data = await res.json();
           sessionStorage.setItem('user', JSON.stringify(data));
-          navigate("/main/home");
+          navigate("/user/home");
         } else if (res.status === 400) {
           Swal.fire({
             icon: "error",
