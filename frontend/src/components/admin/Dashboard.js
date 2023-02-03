@@ -25,20 +25,13 @@ import DoughnutChart from "../Graph/DoughnutChart";
 
 const AdminDashboard = () => {
   const url = app_config.api_url;
-  const [num, setNum] = useState(100);
-  const [num2, setNum2] = useState(200);
-  const [num3, setNum3] = useState([userLength]);
-  const [artistArray, setArtistArray] = useState([]);
-  const [musicArray, setMusicArray] = useState([]);
+  const [artistList, setArtistList] = useState([]);
+  const [musicList, setMusicList] = useState([]);
+  const [userList, setUserList] = useState([]);
 
-  const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
-    datasets: [
-      {
-        label: "User Gained",
-        data: UserData.map((data) => data.userGain),
-      },
-    ],
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [],
   });
   const [userDatafromAPI, setuserDatafromAPI] = useState([]);
 
@@ -46,27 +39,43 @@ const AdminDashboard = () => {
     const response = await fetch(url + "/artist/getall");
     const data = await response.json();
     console.log("artist", data);
-    setArtistArray(data);
+    setArtistList(data);
   };
   const getMusicGetAll = async () => {
     const response = await fetch(url + "/music/getall");
     const data = await response.json();
     console.log("music", data);
-    setMusicArray(data);
+    setMusicList(data);
+  };
+  const getUserData = async () => {
+    const response = await fetch(url + "/user/getall");
+    const data = await response.json();
+    console.log("user", data);
+    setUserList(data);
+    setChartData({
+      labels: data.map((data) => new Date(data.DOB).getFullYear()),
+      datasets: [
+        {
+          label: "User Gained",
+          data: UserData.map((data) => Math.floor(Math.random() * 50)),
+        },
+      ],
+    });
   };
 
   useEffect(() => {
-    axios
-      .get(url + "/user/getall")
-      .then((res) => {
-        console.log(res.data);
-        setuserDatafromAPI(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    // axios
+    //   .get(url + "/user/getall")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     setuserDatafromAPI(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
     getArtistGetAll();
     getMusicGetAll();
+    getUserData();
   }, []);
 
   var userLength = Object.keys(userDatafromAPI).length;
@@ -136,7 +145,7 @@ const AdminDashboard = () => {
             </div>
             <div>
               <AnimatedNumbers
-                animateToNumber={num}
+                animateToNumber={musicList.length}
                 fontStyle={{ fontSize: 32 }}
                 configs={(number, index) => {
                   return { mass: 1, tension: 230 * (index + 1), friction: 140 };
@@ -155,7 +164,7 @@ const AdminDashboard = () => {
             </div>
             <div>
               <AnimatedNumbers
-                animateToNumber={num2}
+                animateToNumber={artistList.length}
                 fontStyle={{ fontSize: 32 }}
                 configs={(number, index) => {
                   return { mass: 1, tension: 230 * (index + 1), friction: 140 };
@@ -175,7 +184,7 @@ const AdminDashboard = () => {
             </div>
             <div>
               <AnimatedNumbers
-                animateToNumber={num3}
+                animateToNumber={userList.length}
                 fontStyle={{ fontSize: 32 }}
                 configs={(number, index) => {
                   return { mass: 1, tension: 230 * (index + 1), friction: 140 };
@@ -267,7 +276,7 @@ const AdminDashboard = () => {
       <div className="row">
         <div className="col-md-6 col-sm-12">
           <div className="card mt-4 p-4">
-            <BarChart chartData={data} />
+            {userList.length > 0 ? <BarChart chartData={chartData} /> : ""}
           </div>
         </div>
         <div className="col-md-6 col-sm-12">

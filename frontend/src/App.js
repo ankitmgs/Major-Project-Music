@@ -18,7 +18,7 @@ import ArtistSignup from "./components/artist/Signup";
 import Home from "./components/main/Home";
 import { UserProvider } from "./UserContext";
 import { useState } from "react";
-import ArtistAuth from "./ArtistAuth";
+import ArtistAuth from "./Auth/ArtistAuth";
 import ArtistHome from "./components/artist/Home";
 import NotFound from "./components/utils/NotFound";
 import ManageArtist from "./components/admin/ManageArtist";
@@ -32,13 +32,14 @@ import ManageSongs from "./components/artist/ManageSongs";
 import EditSong from "./components/artist/EditSong";
 import AdminManageSongs from "./components/admin/ManageSongs";
 import SlideBar from "./components/utils/SlideBar";
-import UserAuth from "./UserAuth";
+import UserAuth from "./Auth/UserAuth";
 import EditArtist from "./components/admin/EditArtist";
 import EditUser from "./components/admin/EditUser";
 import Player from "./components/main/Player";
 import AdminEditSong from "./components/admin/EditSong";
 import AdminLogin from "./components/admin/Login";
 import AdminSignup from "./components/admin/Signup";
+import AdminAuth from "./Auth/AdminAuth";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -74,6 +75,8 @@ function App() {
               <Route path="contactus" element={<ContactUs />} />
               <Route path="artistlogin" element={<ArtistLogin />} />
               <Route path="artistsignup" element={<ArtistSignup />} />
+              <Route path="adminlogin" element={<AdminLogin />} />
+              <Route path="adminsignup" element={<AdminSignup />} />
               <Route
                 path="/main"
                 element={<Navigate replace to="/main/home" />}
@@ -83,14 +86,20 @@ function App() {
               <Route path="player" element={<Player />} />
             </Route>
 
-            <Route element={<Admin />} path="admin">
+            <Route
+              element={
+                <AdminAuth>
+                  <Admin />
+                </AdminAuth>
+              }
+              path="admin"
+            >
               <Route path="profile" element={<AdminProfile />} />
               <Route path="adminDashboard" element={<AdminDashboard />} />
               <Route path="manageUsers" element={<ManageUser />} />
               <Route path="manageArtists" element={<ManageArtist />} />
               <Route path="manageSongs" element={<AdminManageSongs />} />
-              <Route path="login" element={<AdminLogin />} />
-              <Route path="signup" element={<AdminSignup />} />
+
               <Route path="editArtist/:artistId" element={<EditArtist />} />
               <Route path="editUser/:artid" element={<EditUser />} />
               <Route path="edit/:songid" element={<AdminEditSong />} />
@@ -125,8 +134,8 @@ function App() {
             <Route
               element={
                 <UserAuth>
-                <User />
-                 </UserAuth>
+                  <User />
+                </UserAuth>
               }
               path="user"
             >

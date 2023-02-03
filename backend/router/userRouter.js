@@ -41,16 +41,7 @@ router.post("/register", async (req, res) => {
         .status(401)
         .json({ error: "Password is not matching with confirm password !!" });
     } else {
-      const user = new User({
-        Fname,
-        Lname,
-        email,
-        phone,
-        DOB,
-        gender,
-        password,
-        cpassword,
-      });
+      const user = new User(req.body);
       await user.save();
       res.status(201).json({ message: "User Registered Successfully" });
     }

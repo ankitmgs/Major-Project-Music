@@ -30,9 +30,13 @@ const Signup = () => {
     gender: "",
     password: "",
     cpassword: "",
+    country: "",
+    avatar: "",
   };
 
   const SignupSubmit = (formdata) => {
+    console.log(formdata);
+    // return;
     setLoading(true);
     fetch(url + "/user/register", {
       method: "POST",
