@@ -108,8 +108,7 @@ const AdminDashboard = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  gklkjn
-                  {/* <AdminDashboard /> */}
+                  <AdminManageSongs />
                 </Typography>
               </AccordionDetails>
             </Accordion>

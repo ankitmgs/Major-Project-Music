@@ -28,6 +28,8 @@ const Signup = () => {
     phone: "",
     DOB: "",
     gender: "",
+    country:"",
+    avatar:"",
     password: "",
     cpassword: "",
   };
