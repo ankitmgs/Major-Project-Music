@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import app_config from "../../config";
 import MusicCard from "../../props/MusicCard";
-import { Bars } from 'react-loader-spinner';
+import { Bars } from "react-loader-spinner";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -29,7 +29,7 @@ const Home = ({ selMusic, setSelMusic }) => {
   const [artistArray, setArtistArray] = useState([]);
   const [isloading, setIsloading] = useState(true);
 
-  const [isloading2, setIsloading2] = useState(true)
+  const [isloading2, setIsloading2] = useState(true);
   const getMusic = async () => {
     const response = await fetch(url + "/music/getall");
     const data = await response.json();
@@ -55,14 +55,10 @@ const Home = ({ selMusic, setSelMusic }) => {
   const displayMusic = () => {
     return musicArray.map((music) => (
       <div className="d-flex justify-content-center">
-        <MusicCard
-          music={music}
-          setSelMusic={setSelMusic}
-        />
+        <MusicCard music={music} setSelMusic={setSelMusic} />
       </div>
     ));
   };
-
 
   const displayArtist = () => {
     return artistArray.map((artist) => {
@@ -88,9 +84,9 @@ const Home = ({ selMusic, setSelMusic }) => {
             {artist.name}
           </p>
         </div>
-      </Slider>
-    })
-  }
+      </Slider>;
+    });
+  };
 
   const settings = {
     className: "center",
@@ -200,92 +196,94 @@ const Home = ({ selMusic, setSelMusic }) => {
 
   return (
     <div className="container mt-5">
-      <div >
-        {isloading ? <><Bars
-          height="80"
-          width="80"
-          color="#4fa94d"
-          ariaLabel="bars-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        /></> : <Slider {...settings2}>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "380px",
-                  height: "250px",
-                  backgroundSize: "cover",
-                }}
-                src="https://a10.gaanacdn.com/gn_img/showcase/0wrb4N3Lg7/wrb4jpM3Lg/size_l_1640488725.webp"
-                alt="artist-img"
-              />
-            </center>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "380px",
-                  height: "250px",
-                  backgroundSize: "cover",
-                }}
-                src="https://s1.dmcdn.net/v/H2Gni1NlaziC8Dhx6/x1080"
-                alt="artist-img"
-              />
-            </center>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "380px",
-                  height: "250px",
-                  backgroundSize: "cover",
-                }}
-                src="https://a10.gaanacdn.com/gn_img/albums/7rVW1aRWk5/VW1aEGejWk/size_l.webp"
-                alt="artist-img"
-              />
-            </center>
-          </div>
-          <div className="d-flex flex-column">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "380px",
-                  height: "250px",
-                  backgroundSize: "cover",
-
-                }}
-                src="https://a10.gaanacdn.com/gn_img/albums/D0PKLrWGl9/PKLqE2XR3G/size_l.jpg"
-                alt="artist-img"
-              />
-            </center>
-          </div>
-          <div className="d-flex  justify-content-between">
-            {/* <h3>1</h3> */}
-            <center>
-              <img
-                style={{
-                  width: "380px",
-                  height: "250px",
-                  backgroundSize: "cover",
-                  // borderRadius: "50%",
-
-                }}
-                src="https://a10.gaanacdn.com/gn_img/albums/a7LWBaz3zX/LWBkQx9Dbz/size_l.jpg"
-                alt="artist-img"
-              />
-            </center>
-          </div>
-
-
-        </Slider>}
+      <div>
+        {isloading ? (
+          <>
+            <Bars
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          </>
+        ) : (
+          <Slider {...settings2}>
+            <div className="d-flex flex-column">
+              {/* <h3>1</h3> */}
+              <center>
+                <img
+                  style={{
+                    width: "380px",
+                    height: "250px",
+                    backgroundSize: "cover",
+                  }}
+                  src="https://a10.gaanacdn.com/gn_img/showcase/0wrb4N3Lg7/wrb4jpM3Lg/size_l_1640488725.webp"
+                  alt="artist-img"
+                />
+              </center>
+            </div>
+            <div className="d-flex flex-column">
+              {/* <h3>1</h3> */}
+              <center>
+                <img
+                  style={{
+                    width: "380px",
+                    height: "250px",
+                    backgroundSize: "cover",
+                  }}
+                  src="https://s1.dmcdn.net/v/H2Gni1NlaziC8Dhx6/x1080"
+                  alt="artist-img"
+                />
+              </center>
+            </div>
+            <div className="d-flex flex-column">
+              {/* <h3>1</h3> */}
+              <center>
+                <img
+                  style={{
+                    width: "380px",
+                    height: "250px",
+                    backgroundSize: "cover",
+                  }}
+                  src="https://a10.gaanacdn.com/gn_img/albums/7rVW1aRWk5/VW1aEGejWk/size_l.webp"
+                  alt="artist-img"
+                />
+              </center>
+            </div>
+            <div className="d-flex flex-column">
+              {/* <h3>1</h3> */}
+              <center>
+                <img
+                  style={{
+                    width: "380px",
+                    height: "250px",
+                    backgroundSize: "cover",
+                  }}
+                  src="https://a10.gaanacdn.com/gn_img/albums/D0PKLrWGl9/PKLqE2XR3G/size_l.jpg"
+                  alt="artist-img"
+                />
+              </center>
+            </div>
+            <div className="d-flex  justify-content-between">
+              {/* <h3>1</h3> */}
+              <center>
+                <img
+                  style={{
+                    width: "380px",
+                    height: "250px",
+                    backgroundSize: "cover",
+                    // borderRadius: "50%",
+                  }}
+                  src="https://a10.gaanacdn.com/gn_img/albums/a7LWBaz3zX/LWBkQx9Dbz/size_l.jpg"
+                  alt="artist-img"
+                />
+              </center>
+            </div>
+          </Slider>
+        )}
       </div>
       <div className="mt-5">
         <span
@@ -339,51 +337,32 @@ const Home = ({ selMusic, setSelMusic }) => {
           Featured Artists
         </span>
         <Slider {...settings3}>
-          <div className="d-flex flex-column">
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src="https://images.hindustantimes.com/img/2022/12/30/550x309/e2a13dc8-82ec-11eb-a5d1-d80dd4489497_1615524097058_1672360184539_1672360184539.jpg"
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              Arijit Singh
-            </p>
-          </div>
           {artistArray.map((artist) => {
-            return (<>
-            <div className="d-flex flex-column">
-            <center>
-              <img
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  backgroundSize: "cover",
-                  borderRadius: "50%",
-                  border: "7px solid black",
-                }}
-                src={url+'/'+artist.avatar}
-                alt="artist-img"
-              />
-            </center>
-            <p
-              className="d-flex justify-content-center mt-2"
-              style={{ fontSize: "large", color: "black" }}
-            >
-              {artist.name}
-            </p>
-          </div>
-            </>)
+            return (
+              <>
+                <div className="d-flex flex-column">
+                  <center>
+                    <img
+                      style={{
+                        width: "150px",
+                        height: "150px",
+                        backgroundSize: "cover",
+                        borderRadius: "50%",
+                        border: "7px solid black",
+                      }}
+                      src={url + "/" + artist.avatar}
+                      alt="artist-img"
+                    />
+                  </center>
+                  <p
+                    className="d-flex justify-content-center mt-2"
+                    style={{ fontSize: "large", color: "black" }}
+                  >
+                    {artist.name}
+                  </p>
+                </div>
+              </>
+            );
           })}
         </Slider>
       </div>

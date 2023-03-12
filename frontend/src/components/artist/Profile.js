@@ -196,9 +196,7 @@ const ArtistProfile = () => {
                       id="image"
                       onChange={uploadFile}
                     />
-                    <MDBBtn outline className="ms-1">
-                      Message
-                    </MDBBtn>
+                    
                   </div>
                 </MDBCardBody>
               </MDBCard>
@@ -399,7 +397,7 @@ const ArtistProfile = () => {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        Arijit Singh
+                       {currentUser.name}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -410,7 +408,7 @@ const ArtistProfile = () => {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        example@example.com
+                        {currentUser.email}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>

@@ -30,6 +30,12 @@ const ArtistSignup = () => {
     password: "",
     cpassword: "",
     awards: "",
+    concerts: "",
+    website: "",
+    twitter: "",
+    instagram: "",
+    facebook: "",
+    createdAt: "",
   };
 
   const uploadAvatar = (e) => {
@@ -92,7 +98,7 @@ const ArtistSignup = () => {
   };
 
   return (
- <>
+    <>
       <Formik initialValues={signupForm} onSubmit={SignupSubmit}>
         {({ values, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
@@ -160,8 +166,11 @@ const ArtistSignup = () => {
                     onChange={handleChange}
                     type="password"
                   />
-                 
-                  <button className="btn btn-primary mb-4 w-100 gradient-custom-4" size="lg">
+
+                  <button
+                    className="btn btn-primary mb-4 w-100 gradient-custom-4"
+                    size="lg"
+                  >
                     Register
                   </button>
                 </MDBCardBody>
@@ -379,7 +388,7 @@ const ArtistSignup = () => {
           </form>
         )}
       </Formik> */}
-      </>
+    </>
   );
 };
 

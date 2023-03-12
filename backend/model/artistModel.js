@@ -15,6 +15,10 @@ const model = new mongoose.Schema({
   gender: {
     type: String,
   },
+  phone: {
+    type: String,
+    // required: true,
+  },
   password: {
     type: String,
     // required: true,
@@ -23,16 +27,33 @@ const model = new mongoose.Schema({
     type: String,
     // required: true,
   },
-  phone: {
+  awards: {
     type: String,
     // required: true,
   },
-  awards: {
+  concerts: {
+    type: String,
+    // required: true,
+  },
+  website: {
+    type: String,
+    // required: true,
+  },
+  twitter: {
+    type: String,
+    // required: true,
+  },
+  instagram: {
+    type: String,
+    // required: true,
+  },
+  facebook: {
     type: String,
     // required: true,
   },
   createdAt: {
     type: Date,
+    default: new Date(),
   },
 });
 
