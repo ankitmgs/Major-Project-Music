@@ -210,9 +210,7 @@ const AdminDashboard = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <div style={{ height: "20rem", overflowY: "auto" }}>
-                    <AdminManageSongs />
-                  </div>
+                  <AdminManageSongs />
                 </Typography>
               </AccordionDetails>
             </Accordion>
