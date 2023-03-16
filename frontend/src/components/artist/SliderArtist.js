@@ -42,7 +42,7 @@ const SliderArtist = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/artist/artistdashboard"
           >
-            <i class="fa-solid fa-chart-line pr-2" />
+            <i className="fa-solid fa-chart-line pr-2" />
             Dashboard
           </NavLink>
           <NavLink
@@ -50,7 +50,7 @@ const SliderArtist = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/artist/uploads"
           >
-            <i class="fas fa-regular fa-cloud-arrow-up pr-2" />
+            <i className="fas fa-regular fa-cloud-arrow-up pr-2" />
             Upload
           </NavLink>
           <NavLink
@@ -58,7 +58,7 @@ const SliderArtist = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/artist/manageSongs"
           >
-            <i class="fa-solid fa-list-check pr-2" /> Manage Song
+            <i className="fa-solid fa-list-check pr-2" /> Manage Song
           </NavLink>
         </div>
       </Menu>

@@ -152,11 +152,11 @@ const Uploads = () => {
                         Choose file
                       </label> */}
 
-                      <label for="formFile" class="form-label">
+                      <label for="formFile" className="form-label">
                         Thumbnail
                       </label>
                       <input
-                        class="form-control"
+                        className="form-control"
                         type="file"
                         id="thumbnail"
                         value={values.thumbnail}

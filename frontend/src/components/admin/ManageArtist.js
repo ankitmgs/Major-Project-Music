@@ -75,7 +75,7 @@ const ManageArtist = () => {
               className="btn btn-danger"
               onClick={() => deleteArtist(artist._id)}
             >
-              <i class="fa-solid fa-trash fa-lg" />
+              <i className="fa-solid fa-trash fa-lg" />
             </button>
           </TableCell>
           <TableCell>

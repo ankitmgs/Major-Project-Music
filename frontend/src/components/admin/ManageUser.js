@@ -75,7 +75,7 @@ const ManageUser = () => {
                 deleteUser(user._id);
               }}
             >
-              <i class="fa-solid fa-trash fa-lg"></i>
+              <i className="fa-solid fa-trash fa-lg"></i>
             </button>
           </TableCell>
           <TableCell>

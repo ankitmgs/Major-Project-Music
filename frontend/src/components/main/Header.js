@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../Context/userAuthContext";
 import "../../CSS/toggleBar.css";
 
 const Header = () => {
-  const { loggedin, setLoggedin } = useContext(UserContext);
+
+  const {loggedin, handleLogin, handleLogout} = useContext(UserContext)
 
   return (
     <>
@@ -90,20 +91,20 @@ const Header = () => {
                     <div className="d-flex align-items-center">
                       <>
                         {" "}
-                        <div class="toggleWrapper">
-                          <input type="checkbox" class="dn" id="dn" />
-                          <label for="dn" class="toggle">
-                            <span class="toggle__handler">
-                              <span class="crater crater--1"></span>
-                              {/* <span class="crater crater--2"></span> */}
-                              {/* <span class="crater crater--3"></span> */}
+                        <div className="toggleWrapper">
+                          <input type="checkbox" className="dn" id="dn" />
+                          <label for="dn" className="toggle">
+                            <span className="toggle__handler">
+                              <span className="crater crater--1"></span>
+                              {/* <span className="crater crater--2"></span> */}
+                              {/* <span className="crater crater--3"></span> */}
                             </span>
-                            <span class="star star--1"></span>
-                            <span class="star star--2"></span>
-                            <span class="star star--3"></span>
-                            <span class="star star--4"></span>
-                            <span class="star star--5"></span>
-                            <span class="star star--6"></span>
+                            <span className="star star--1"></span>
+                            <span className="star star--2"></span>
+                            <span className="star star--3"></span>
+                            <span className="star star--4"></span>
+                            <span className="star star--5"></span>
+                            <span className="star star--6"></span>
                           </label>
                         </div>
                       </>

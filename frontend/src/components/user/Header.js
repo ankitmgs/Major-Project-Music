@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../Context/userAuthContext";
 
 const Header = () => {
-  const { loggedin, setLoggedin } = useContext(UserContext);
+  const { loggedin, handleLogin, handleLogout } = useContext(UserContext);
 
   return (
     <div>
@@ -35,13 +35,13 @@ const Header = () => {
                         <i className="fas fa-bars" />
                       </button>
                       {/* Navbar brand */}
-                      <a className="navbar-brand ms-3">
+                      <NavLink className="navbar-brand ms-3">
                         {/* <i
                         className="fas fa-gem text-primary"
                         aria-controls="#picker-editor"
                       /> */}
                         User Header
-                      </a>
+                      </NavLink>
                     </div>
                     {/* Collapsible wrapper */}
                     <div
@@ -100,20 +100,30 @@ const Header = () => {
                         </button>
                       </NavLink>
                     )} */}
-                      {loggedin ? (
-                        <button className="btn btn-danger">Log Out</button>
+                      {loggedin ? (<>
+                        <button onClick={handleLogout} className="btn btn-danger">Log Out</button>
+                        </>
                       ) : (
-                        <>
-                          <NavLink to="/user/profile">
+                        <div>
+                          <NavLink to="/main/login">
                             <button
                               type="button"
                               className="btn  btn-primary mb-1 me-lg-3"
                               aria-controls="#picker-editor"
                             >
-                              Sign up
+                              Login
                             </button>
                           </NavLink>
-                        </>
+                          <NavLink to="/main/signup">
+                            <button
+                              type="button"
+                              className="btn  btn-primary mb-1 me-lg-3"
+                              aria-controls="#picker-editor"
+                            >
+                              Register
+                            </button>
+                          </NavLink>
+                        </div>
                       )}
                     </div>
                     {/* Right elements */}

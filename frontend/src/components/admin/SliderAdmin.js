@@ -45,14 +45,14 @@ const SliderAdmin = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/admin/adminDashboard"
           >
-            <i class="fa-solid fa-chart-line pr-2" /> Dashboard
+            <i className="fa-solid fa-chart-line pr-2" /> Dashboard
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="/admin/manageUsers"
           >
-            <i class="fas fa-thin fa-user pr-2" /> Manage User
+            <i className="fas fa-thin fa-user pr-2" /> Manage User
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
@@ -66,7 +66,7 @@ const SliderAdmin = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/admin/manageSongs"
           >
-            <i class="fa-solid fa-music pr-2" />
+            <i className="fa-solid fa-music pr-2" />
             Manage Song
           </NavLink>
         </div>

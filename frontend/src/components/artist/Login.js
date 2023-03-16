@@ -119,7 +119,7 @@ const Login = () => {
 
                       <p className="small mb-3 pb-lg-2">
                         <NavLink to="/main/resetpassword">
-                          <a class="text-white-50" href="#!">
+                          <a className="text-white-50" href="#!">
                             Forgot password?
                           </a>
                         </NavLink>
@@ -176,7 +176,7 @@ const Login = () => {
                           Don't have an account?{" "}
                           <NavLink
                             to="/main/signup"
-                            class="text-white-50 fw-bold"
+                            className="text-white-50 fw-bold"
                           >
                             Sign Up
                           </NavLink>

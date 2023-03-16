@@ -37,21 +37,21 @@ const SliderUser = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/user/home"
           >
-            <i class="fa-solid fa-house pr-2" />Home
+            <i className="fa-solid fa-house pr-2" />Home
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="#"
           >
-            <i class="fas fa-thin fa-magnifying-glass pr-2" />Search
+            <i className="fas fa-thin fa-magnifying-glass pr-2" />Search
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="#"
           >
-            <i class="fa-sharp fa-solid fa-heart pr-2" />Favourites
+            <i className="fa-sharp fa-solid fa-heart pr-2" />Favourites
           </NavLink>
         </div>
       </Menu>

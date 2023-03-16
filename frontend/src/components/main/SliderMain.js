@@ -33,21 +33,21 @@ const SliderMain = () => {
             style={{ textDecoration: "none", color: "white" }}
             to="/main/home"
           >
-           <i class="fa-solid fa-house pr-2" /> Home
+           <i className="fa-solid fa-house pr-2" /> Home
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="/main/contactus"
           >
-           <i class="fa-solid fa-address-book pr-2" /> Contact
+           <i className="fa-solid fa-address-book pr-2" /> Contact
           </NavLink>
           <NavLink
             className="menu-item hover-underline-animation"
             style={{ textDecoration: "none", color: "white" }}
             to="#"
           >
-            <i class="fa-solid fa-magnifying-glass pr-2" />Search
+            <i className="fa-solid fa-magnifying-glass pr-2" />Search
           </NavLink>
         </div>
         <div className="d-flex flex-column" style={{ marginTop: "20rem" }}>

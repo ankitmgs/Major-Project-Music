@@ -16,7 +16,6 @@ import ArtistProfile from "./components/artist/Profile";
 import ArtistLogin from "./components/artist/Login";
 import ArtistSignup from "./components/artist/Signup";
 import Home from "./components/main/Home";
-import { UserProvider } from "./UserContext";
 import { useState } from "react";
 import ArtistAuth from "./Auth/ArtistAuth";
 import ArtistHome from "./components/artist/Home";
@@ -40,6 +39,7 @@ import AdminEditSong from "./components/admin/EditSong";
 import AdminLogin from "./components/admin/Login";
 import AdminSignup from "./components/admin/Signup";
 import AdminAuth from "./Auth/AdminAuth";
+import UserContextProvider from "./Context/userAuthContext";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -50,7 +50,8 @@ function App() {
 
   return (
     <div id="outer-container">
-      <UserProvider user={currentUser}>
+      <UserContextProvider>
+
         <BrowserRouter>
           {/* <SlideBar
             pageWrapId={"page-wrap"}
@@ -152,7 +153,8 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </UserProvider>
+        </UserContextProvider>
+
     </div>
   );
 }

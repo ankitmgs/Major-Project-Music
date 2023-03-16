@@ -92,7 +92,7 @@ const AdminManageSongs = () => {
                             deleteSongs(song._id);
                           }}
                         >
-                          <i class="fa-solid fa-trash fa-lg"></i>
+                          <i className="fa-solid fa-trash fa-lg"></i>
                         </button>
                       </TableCell>
                       {/* <TableCell>
