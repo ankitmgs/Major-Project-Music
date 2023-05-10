@@ -161,7 +161,9 @@ const ArtistProfile = () => {
                 <MDBCardBody className="text-center">
                   <MDBCardImage
                     src={
-                      currentUser.avatar ? url + "/" + currentUser.avatar : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                      currentUser.avatar
+                        ? url + "/" + currentUser.avatar
+                        : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                     }
                     alt="avatar"
                     style={{
@@ -196,12 +198,11 @@ const ArtistProfile = () => {
                       id="image"
                       onChange={uploadFile}
                     />
-                    
                   </div>
                 </MDBCardBody>
               </MDBCard>
 
-              <MDBCard className="mb-4 mb-lg-0">
+              {/* <MDBCard className="mb-4 mb-lg-0">
                 <MDBCardBody className="p-0">
                   <div className="d-flex justify-content-end m-2">
                     <div
@@ -215,7 +216,6 @@ const ArtistProfile = () => {
                     <div
                       className="modal fade"
                       id="exampleModalCenter"
-                      tabindex="-1"
                       role="dialog"
                       aria-labelledby="exampleModalCenterTitle"
                       aria-hidden="true"
@@ -310,7 +310,7 @@ const ArtistProfile = () => {
                     </MDBListGroupItem>
                   </MDBListGroup>
                 </MDBCardBody>
-              </MDBCard>
+              </MDBCard> */}
             </MDBCol>
             <MDBCol lg="8">
               <MDBCard className="mb-4">
@@ -327,7 +327,6 @@ const ArtistProfile = () => {
                     <div
                       className="modal fade"
                       id="exampleModalCenter"
-                      tabindex="-1"
                       role="dialog"
                       aria-labelledby="exampleModalCenterTitle"
                       aria-hidden="true"
@@ -397,7 +396,7 @@ const ArtistProfile = () => {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                       {currentUser.name}
+                        {currentUser.name}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -445,119 +444,6 @@ const ArtistProfile = () => {
                   </MDBRow>
                 </MDBCardBody>
               </MDBCard>
-
-              <MDBRow>
-                <MDBCol md="12">
-                  <MDBCard className="mb-4 mb-md-0">
-                    <MDBCardBody>
-                      <span
-                        style={{
-                          marginLeft: "0.7rem",
-                          color: "black",
-                          fontSize: "1.2rem",
-                          fontWeight: "bolder",
-                        }}
-                      >
-                        New Relases
-                      </span>
-                      <Slider {...settings}>
-                        <div>
-                          {/* <MusicCard
-                            singer="Arijit Singh"
-                            song="Apna Bana Le"
-                            img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                          /> */}
-                        </div>
-                        {/* {displayMusic()} */}
-                      </Slider>
-                      {/* PopularSong */}
-                      <div className="mt-5">
-                        <span
-                          style={{
-                            marginLeft: "0.7rem",
-                            color: "black",
-                            fontSize: "1.2rem",
-                            fontWeight: "bolder",
-                          }}
-                        >
-                          Popular Songs
-                        </span>
-                        {/* <Slider {...settings}>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://i.pinimg.com/originals/60/9a/80/609a8061a8ae93f2735f3e3e20190b90.jpg"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://c.saavncdn.com/685/Luka-Chuppi-Hindi-2019-20190222104001-500x500.jpg"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://static.moviecrow.com/marquee/kaabil-new-posters/101643_thumb_665.jpg"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://d2r2ijn7njrktv.cloudfront.net/apnlive/uploads/2022/01/22144805/chalako-massi-1.jpg"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                            />
-                          </div>
-                          <div>
-                            <MusicCard
-                              singer="Arijit Singh"
-                              song="Apna Bana Le"
-                              img="https://i.scdn.co/image/ab67616d0000b27322bac849d10d34f9643b908b"
-                            />
-                          </div>
-                        </Slider> */}
-                      </div>
-
-                      {/* Top Songs */}
-
-                      <MDBRow className="mt-5">
-                        <div style={{ border: "1px solid gray" }}>Hello</div>
-                      </MDBRow>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
-              </MDBRow>
             </MDBCol>
           </MDBRow>
         </MDBContainer>

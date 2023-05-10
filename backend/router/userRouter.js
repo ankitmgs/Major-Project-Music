@@ -61,6 +61,17 @@ router.get("/getall", (req, res) => {
     });
 });
 
+// update
+router.put("/update/:userid", (req, res) => {
+  Model.findByIdAndUpdate(req.params.userid, req.body)
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
 //login route
 router.post("/login", async (req, res) => {
   // res.json({message: "login route working"});

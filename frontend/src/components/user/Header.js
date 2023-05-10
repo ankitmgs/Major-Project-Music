@@ -17,12 +17,9 @@ const Header = () => {
               data-v-271253ee=""
             >
               <section className="" style={{ paddingBottom: 1 }}>
-                {/* Navbar */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-2">
-                  {/* Container wrapper */}
                   <div className="container-fluid">
                     <div className="d-flex">
-                      {/* Toggle button */}
                       <button
                         className="navbar-toggler"
                         type="button"
@@ -34,72 +31,19 @@ const Header = () => {
                       >
                         <i className="fas fa-bars" />
                       </button>
-                      {/* Navbar brand */}
-                      <NavLink className="navbar-brand ms-3">
-                        {/* <i
-                        className="fas fa-gem text-primary"
-                        aria-controls="#picker-editor"
-                      /> */}
+                      <NavLink className="navbar-brand ms-3" to="/user/home">
+                  
                         User Header
                       </NavLink>
                     </div>
-                    {/* Collapsible wrapper */}
                     <div
                       className="collapse navbar-collapse"
                       id="navbarSupportedContent"
                     >
-                      {/* Left links */}
-                      {/* <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
-                      <li className="nav-item">
-                        <NavLink
-                          className="nav-link hover-underline-animation"
-                          to="/user/home"
-                        >
-                          Home
-                        </NavLink>
-                      </li>
-                      <li className="nav-item">
-                        <NavLink
-                          className="nav-link hover-underline-animation"
-                          to="/user/profile"
-                        >
-                          Profile
-                        </NavLink>
-                      </li>
-                      <li className="nav-item">
-                        <NavLink
-                          className="nav-link hover-underline-animation"
-                          to="/user/userDashboard"
-                        >
-                          Dashboard
-                        </NavLink>
-                      </li>
-                      <li className="nav-item">
-                        <NavLink
-                          className="nav-link hover-underline-animation"
-                          to="/user/manageUsers"
-                        >
-                          Manage User
-                        </NavLink>
-                      </li>
-                    </ul> */}
-                      {/* Left links */}
+                     
                     </div>
-                    {/* Collapsible wrapper */} {/* Right elements */}
                     <div className="d-flex align-items-center">
-                      {/* {loggedin ? (
-                      <button>Logout</button>
-                    ) : (
-                      <NavLink to="/main/login">
-                        <button
-                          type="button"
-                          className="btn  btn-link px-3 mb-1 me-2"
-                          aria-controls="#picker-editor"
-                        >
-                          Login
-                        </button>
-                      </NavLink>
-                    )} */}
+                  
                       {loggedin ? (<>
                         <button onClick={handleLogout} className="btn btn-danger">Log Out</button>
                         </>
@@ -126,11 +70,8 @@ const Header = () => {
                         </div>
                       )}
                     </div>
-                    {/* Right elements */}
                   </div>
-                  {/* Container wrapper */}
                 </nav>
-                {/* Navbar */}
               </section>
             </section>
           </div>

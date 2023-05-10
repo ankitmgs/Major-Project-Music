@@ -28,8 +28,8 @@ const Signup = () => {
     phone: "",
     DOB: "",
     gender: "",
-    country:"",
-    avatar:"",
+    country: "",
+    avatar: "",
     password: "",
     cpassword: "",
     country: "",
@@ -47,42 +47,40 @@ const Signup = () => {
         "Content-Type": "application/json",
       },
     })
-    .then((res) => {
-      console.log(res.status);
-      if(res.status === 201){
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Registered Successfully",
-        });
-        navigate("/main/login")
-      }
-      else if(res.status === 409){
-        Swal.fire({
-          icon: "warning",
-          title: "Email already exists !",
-          // text: "Email already exist !!",
-        });
-      }
-      else if(res.status === 401){
-        Swal.fire({
-          icon: "warning",
-          // title: "Success",
-          title: "Password not matching !",
-        });
-      }
-      else if(res.status === 422){
-        Swal.fire({
-          icon: "warning",
-          // title: "Success",
-          title: "Enter all the given fields !",
-        });
-      }
-      setLoading(false);
-      return res.json();
-    }).catch((err) => {
-      console.log(err);
-    });
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 201) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Registered Successfully",
+          });
+          navigate("/main/login");
+        } else if (res.status === 409) {
+          Swal.fire({
+            icon: "warning",
+            title: "Email already exists !",
+            // text: "Email already exist !!",
+          });
+        } else if (res.status === 401) {
+          Swal.fire({
+            icon: "warning",
+            // title: "Success",
+            title: "Password not matching !",
+          });
+        } else if (res.status === 422) {
+          Swal.fire({
+            icon: "warning",
+            // title: "Success",
+            title: "Enter all the given fields !",
+          });
+        }
+        setLoading(false);
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div>
@@ -96,7 +94,7 @@ const Signup = () => {
                     <MDBRow className="g-0">
                       <MDBCol md="6" className="d-none d-md-block">
                         <MDBCardImage
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                          src="https://images.unsplash.com/photo-1567787609897-efa3625dd22d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bXVzaWMlMjB3YWxscGFwZXJ8ZW58MHx8MHx8&w=1000&q=80"
                           alt="Sample photo"
                           className="rounded-start"
                           fluid
@@ -106,7 +104,7 @@ const Signup = () => {
                       <MDBCol md="6">
                         <MDBCardBody className="text-black d-flex flex-column justify-content-center">
                           <h3 className="mb-5 text-uppercase fw-bold">
-                            Student registration form
+                            Welcome to Music Community
                           </h3>
 
                           <MDBRow>

@@ -20,9 +20,9 @@ app.use(express.json());
 
 //middleware
 //for user
-app.use("/user", userRouter);
 
 //for music
+app.use("/user", userRouter);
 app.use("/music", musicRouter);
 app.use("/admin", adminRouter);
 app.use("/artist", artistRouter);

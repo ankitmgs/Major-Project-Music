@@ -116,10 +116,8 @@ const Login = () => {
                       />
 
                       <p className="small mb-3 pb-lg-2">
-                        <NavLink to="/main/resetpassword">
-                          <a className="text-white-50" href="#!">
+                        <NavLink className="text-white-50" to="/main/resetpassword">
                             Forgot password?
-                          </a>
                         </NavLink>
                       </p>
                       <button

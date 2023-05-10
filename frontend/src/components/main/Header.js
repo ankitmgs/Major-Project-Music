@@ -4,8 +4,7 @@ import { UserContext } from "../../Context/userAuthContext";
 import "../../CSS/toggleBar.css";
 
 const Header = () => {
-
-  const {loggedin, handleLogin, handleLogout} = useContext(UserContext)
+  const { loggedin, handleLogin, handleLogout } = useContext(UserContext);
 
   return (
     <>
@@ -93,7 +92,7 @@ const Header = () => {
                         {" "}
                         <div className="toggleWrapper">
                           <input type="checkbox" className="dn" id="dn" />
-                          <label for="dn" className="toggle">
+                          <label htmlFor="dn" className="toggle">
                             <span className="toggle__handler">
                               <span className="crater crater--1"></span>
                               {/* <span className="crater crater--2"></span> */}
