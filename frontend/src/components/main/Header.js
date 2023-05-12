@@ -33,7 +33,6 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                       >
-                        {/* <i className="fas fa-bars" /> */}
                       </button>
                       {/* Navbar brand */}
                       <a className="navbar-brand ms-3">
@@ -41,7 +40,6 @@ const Header = () => {
                           className="fas fa-gem text-primary"
                           aria-controls="#picker-editor"
                         /> */}
-                        Main Header
                       </a>
                     </div>
                     {/* Collapsible wrapper */}
@@ -90,13 +88,12 @@ const Header = () => {
                     <div className="d-flex align-items-center">
                       <>
                         {" "}
-                        <div className="toggleWrapper">
+                        {/* <div className="toggleWrapper">
                           <input type="checkbox" className="dn" id="dn" />
                           <label htmlFor="dn" className="toggle">
                             <span className="toggle__handler">
                               <span className="crater crater--1"></span>
-                              {/* <span className="crater crater--2"></span> */}
-                              {/* <span className="crater crater--3"></span> */}
+                              
                             </span>
                             <span className="star star--1"></span>
                             <span className="star star--2"></span>
@@ -105,7 +102,7 @@ const Header = () => {
                             <span className="star star--5"></span>
                             <span className="star star--6"></span>
                           </label>
-                        </div>
+                        </div> */}
                       </>
 
                       {loggedin ? (

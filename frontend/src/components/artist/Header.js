@@ -20,7 +20,7 @@ const Header = () => {
                   <div className="container-fluid">
                     <div className="d-flex">
                       {/* Toggle button */}
-                      <button
+                      {/* <button
                         className="navbar-toggler"
                         type="button"
                         data-mdb-toggle="collapse"
@@ -30,14 +30,13 @@ const Header = () => {
                         aria-label="Toggle navigation"
                       >
                         <i className="fas fa-bars" />
-                      </button>
+                      </button> */}
                       {/* Navbar brand */}
                       <a className="navbar-brand ms-3">
                         {/* <i
                           className="fas fa-gem text-primary"
                           aria-controls="#picker-editor"
                           /> */}
-                        Artist
                       </a>
                     </div>
                     {/* Collapsible wrapper */}
