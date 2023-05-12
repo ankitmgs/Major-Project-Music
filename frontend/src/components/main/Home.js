@@ -53,7 +53,9 @@ const Home = ({ selMusic, setSelMusic }) => {
     const response = await fetch(url + "/artist/getall");
     const data = await response.json();
     console.log("artists", data);
-    setArtistArray(data);
+    const reversedData = data.reverse(); // Reverse the data array
+
+    setArtistArray(reversedData);
     setIsloading2(false);
   };
 
